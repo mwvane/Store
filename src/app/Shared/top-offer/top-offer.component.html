@@ -1,0 +1,25 @@
+<div class="top-offer-container">
+  <div class="container space-between">
+    <span>{{ offer }}</span>
+    <div class="center-y gap-6">
+      <span>{{ "compare" | translate }}</span>
+      <span>{{ "WishList" | translate }}(0)</span>
+      <app-menu
+        [data]="currency"
+        [name]="currentCurrency"
+        (optionClick)="currencyChange($event)"
+        style="width: 100px"
+      ></app-menu>
+      <div class="center-y">
+        <img  style="width: 20px; margin-right: 8px;" src="{{languageService.selectedLanguage().image}}" alt="">
+        <app-menu
+        [data]= "language"
+        [name]="'language'"
+        (optionClick)="languageChange($event)"
+        style="width: 100px"
+      ></app-menu>
+      </div>
+      
+    </div>
+  </div>
+</div>

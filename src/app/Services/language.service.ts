@@ -6,7 +6,7 @@ import { StaticFiles } from '../staticFiles';
 @Injectable({
   providedIn: 'root'
 })
-export class LanguageService {
+export class LanguageService implements OnInit{
 
   selectedLanguage = signal<ILanguage>(StaticFiles.languages[0])
 
@@ -15,6 +15,17 @@ export class LanguageService {
     localStorage.setItem("language", JSON.stringify(language))
     this.translate.use(language.code)
   }
+
+  getCurrentLanguage(){
+    var lang = localStorage.getItem("language")
+    if(lang){
+      this.changeLanguage(JSON.parse(lang))
+    }
+    else{
+      this.changeLanguage(StaticFiles.languages[0])
+    }
+  }
+  
   constructor(public translate: TranslateService) {
     let data = localStorage.getItem("language")
     if (data) {
@@ -23,5 +34,8 @@ export class LanguageService {
     else {
       this.selectedLanguage.update(lang => lang = StaticFiles.languages[0])
     }
+  }
+  ngOnInit(): void {
+    this.getCurrentLanguage()
   }
 }

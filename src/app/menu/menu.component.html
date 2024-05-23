@@ -1,0 +1,17 @@
+<div class="dropdown" id="{{ menuId }}" (click)="toggle($event, menuPanel)">
+  <div class="d-flex gap-2 dropbtn">
+    <span id="{{ menuId }}">{{ name }}</span>
+    <i id="{{ menuId }}" class="bi bi-chevron-down dropbtn"></i>
+  </div>
+  <ul #menuPanel id="{{ menuId }}" class="dropdown-content">
+    @for (item of data; track item.id) {
+    <li class="dropdown-list-item" (click)="onItemClick(item)">
+      <div class="icon">
+        <i class="{{ item.icon }}"></i>
+        <img src="{{ item.image }}" alt="" />
+      </div>
+      <span href="">{{ item.text }}</span>
+    </li>
+    }
+  </ul>
+</div>

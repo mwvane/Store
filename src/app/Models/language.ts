@@ -3,4 +3,5 @@ export interface ILanguage{
     name: string
     shortName: string
     code: string
+    image?: string
 }

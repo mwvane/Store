@@ -53,6 +53,10 @@
   "year" : "Year",
   "sec" : "Sec",
   "min" : "Min",
-  "hr" : "Hours"
+  "hr" : "Hours",
+
+  "compare": "Compare",
+
+  "currency" : "Currency"
   
 }
