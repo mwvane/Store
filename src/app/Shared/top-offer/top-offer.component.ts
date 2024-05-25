@@ -22,10 +22,7 @@ export class TopOfferComponent {
     { id: 4, text: '₾ Lari' },
   ];
 
-  language: IMenuItem[] = [
-    { id: 1, text: 'English', image: '../../assets/flags/gb-eng.svg' },
-    { id: 2, text: 'Georgian', image: '../../assets/flags/ge.svg' },
-  ];
+  language: ILanguage[] = StaticFiles.languages
 
   currencyChange(item: IMenuItem) {
     this.currentCurrency = item.text;

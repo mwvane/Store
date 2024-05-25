@@ -21,4 +21,5 @@ export class AppComponent {
   currencyChange(item: IMenuItem){
     alert(item.text)
   }
+  
 }

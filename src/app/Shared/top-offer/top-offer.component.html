@@ -4,22 +4,48 @@
     <div class="center-y gap-6">
       <span>{{ "compare" | translate }}</span>
       <span>{{ "WishList" | translate }}(0)</span>
-      <app-menu
-        [data]="currency"
-        [name]="currentCurrency"
-        (optionClick)="currencyChange($event)"
-        style="width: 100px"
-      ></app-menu>
-      <div class="center-y">
-        <img  style="width: 20px; margin-right: 8px;" src="{{languageService.selectedLanguage().image}}" alt="">
-        <app-menu
-        [data]= "language"
-        [name]="'language'"
-        (optionClick)="languageChange($event)"
-        style="width: 100px"
-      ></app-menu>
+      <div class="menu center-y nowrap" style="width: 75px;">
+        <div class="space-between w-100">
+          <span>{{ currentCurrency }}</span>
+          <i class="bi bi-chevron-down"></i>
+        </div>
+        <app-menu [template]="cyrrencyTemplate" style="margin-top: 25px"
+          (optionClick)="currencyChange($event)"
+        ></app-menu>
       </div>
-      
+
+      <div class="center-y gap-2 menu" style="width: 100px;">
+        <div class="center-y">
+          <img
+            style="width: 20px; margin-right: 8px"
+            src="{{ languageService.selectedLanguage().image }}"
+            alt=""
+          />
+          <span>{{ languageService.selectedLanguage().name }}</span>
+        </div>
+        <i class="bi bi-chevron-down"></i>
+        <app-menu [template]="languageTemplate" style="margin-top: 25px"
+          (optionClick)="languageChange($event)"
+        ></app-menu>
+      </div>
     </div>
   </div>
 </div>
+
+<!-- TEMPLATES FOR MANU -->
+<ng-template #cyrrencyTemplate>
+  @for (item of currency; track item.id) {
+  <li class="dropdown-list-item" (click)="currencyChange(item)">
+    <span href="">{{ item.text }}</span>
+  </li>
+  }
+</ng-template>
+
+<ng-template #languageTemplate>
+  @for (item of language; track item.id) {
+  <li class="dropdown-list-item" (click)="languageChange(item)">
+    <img class="icon" src="{{item.image}}" alt="">
+    <span href="">{{ item.name }}</span>
+  </li>
+  }
+</ng-template>

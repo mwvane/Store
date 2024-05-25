@@ -57,6 +57,10 @@
 
   "compare": "Compare",
 
-  "currency" : "Currency"
+  "currency" : "Currency",
+
+  "search..." : "Search...",
+  "my cart" : "My Cart",
+  "empty" : "Empty"
   
 }

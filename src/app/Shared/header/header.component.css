@@ -1,0 +1,51 @@
+.header-container {
+    border-bottom: var(--border);
+}
+
+.searchbar select {
+  border-radius: 20px 0 0 20px;
+  padding: 9px 12px;
+  border: var(--border);
+  outline: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("../../../assets/icons/navigation/chevron-down.svg");
+  background-repeat: no-repeat, repeat;
+  background-position: right 12px top 50%, 0 0;
+  background-size: 0.9em auto, 100%;
+}
+
+.searchbar input {
+  padding: 9px 12px;
+  border: var(--border);
+  outline: none;
+}
+
+.searchbar button {
+  padding: 9px;
+  border-radius: 0 20px 20px 0;
+  border: var(--border);
+  background-color: black;
+  color: white;
+}
+
+.searchbar button:hover {
+  background-color: var(--lightGreen);
+  transition: 0.2s;
+}
+
+.cartdetails {
+  font-size: var(--xsm);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 4px;
+}
+
+.dropdown-list-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}

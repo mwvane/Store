@@ -2,31 +2,118 @@
 @import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
 :root {
-    --gray: #F5F5F5;
-    --lightGreen: #95BF46;
-    --shadow: box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  --gray: #f5f5f5;
+  --lightGreen: #95bf46;
+  --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  --border: 1px solid #e7e7e7;
+  --xsm: .7rem;
+  --sm: .9rem;
+  --md: 1rem;
+  --lg: 1.5rem; 
+  --xlg: 2rem;
 }
+
 
 /* ------------- DISPLAY ----------- */
 .space-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.center {
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
 }
 
 .center-y {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
+}
 
+.direction-y {
+    display: flex;
+    flex-direction: column;
+}
 
 /* ------------ Spacing ------------ */
 .gap-6 {
-    gap: 2rem;
+  gap: 2rem;
+}
+
+/* ------------ Text ------------ */
+
+.nowrap {
+    text-wrap: nowrap;
+}
+
+.fs-xsm {
+    font-size: var(--xsm);
+}
+.fs-sm {
+    font-size: var(--sm);
+}
+.fs-md {
+    font-size: var(--md);
+}
+.fs-lg {
+    font-size: var(--lg);
+}
+.fs-xlg {
+    font-size: var(--xlg);
 }
 
 span {
-    text-transform: capitalize;
+  text-transform: capitalize;
 }
 
+/* ------------ Otehr ------------ */
+.pointer {
+  cursor: pointer;
+}
+.menu {
+    cursor: pointer;
+    padding: 0 !important;
+}
+
+.bage {
+    border-radius: 50%;
+    background-color: var(--lightGreen);
+    width: 20px;
+    height: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    gap: 10px;
+}
+
+/* ---------- BUTTONS ---------- */
+.rectBtn {
+    outline: none;
+    background-color: white;
+    border: var(--border);
+    border-radius: 2px;
+    transition: .3s;
+    padding: 4px 12px;
+    min-width: 100px;
+    display: flex;
+    gap: 3px;
+    flex-wrap: nowrap;
+    font-size: var(--sm);
+}
+.rectBtn:hover {
+    color: var(--lightGreen);
+}

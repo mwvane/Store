@@ -13,9 +13,11 @@ import { MenuModule } from 'primeng/menu';
 //import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MenuComponent } from './menu/menu.component';
+import { HeaderComponent } from './Shared/header/header.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, LanguageSelectorComponent, TopOfferComponent, MenuComponent],
+  declarations: [AppComponent, LanguageSelectorComponent, TopOfferComponent, MenuComponent, HeaderComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -29,6 +31,7 @@ import { MenuComponent } from './menu/menu.component';
     }),
     ButtonModule,
     MenuModule,
+    ReactiveFormsModule
     //BrowserAnimationsModule
   ],
   providers: [provideAnimationsAsync()],

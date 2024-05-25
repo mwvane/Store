@@ -1,13 +1,30 @@
 .top-offer-container {
-    background-color: var(--gray);
-    width: 100%;
-    padding: 7px 0;
-    font-size: 14px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-    color: black;
-    line-height: 20px;
-    width: 100%;
-    letter-spacing: 0.6px;
+  background-color: var(--gray);
+  width: 100%;
+  padding: 7px 0;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  color: black;
+  line-height: 20px;
+  width: 100%;
+  letter-spacing: 0.6px;
+}
 
+.dropdown-list-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.dropdown-list-item :hover {
+  color: var(--lightGreen);
+}
+
+.icon {
+    width: 20px;
+    object-fit: cover;
+    border-radius: 0 !important;
 }

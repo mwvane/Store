@@ -1,0 +1,87 @@
+<div class="header-container">
+  <div class="container">
+    <div class="row w-100 py-4">
+      <div class="col-2 pointer">
+        <img src="../../assets/images/logo.png" alt="logo" />
+      </div>
+      <div class="col-8 px-3 searchbar">
+        <form [formGroup]="searchForm" (ngSubmit)="search()">
+          <div class="row w-100 g-0">
+            <div class="col-3">
+              <select class="w-100" formControlName="category">
+                <option value="1">categories</option>
+                <option value="2">categories</option>
+                <option value="3">categories</option>
+                <option value="4">categories</option>
+                <option value="1">categories</option>
+                <option value="1">categories</option>
+                <option value="1">categories</option>
+              </select>
+            </div>
+
+            <div class="col-8">
+              <input
+                class="w-100"
+                type="text"
+                placeholder="{{ 'search...' | translate }}"
+                formControlName="text"
+              />
+            </div>
+
+            <div class="col">
+              <button class="w-100">
+                <i class="bi bi-search"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-2 center-y flex-end gap-4">
+        <div class="menu">
+          <i class="bi bi-person fs-xlg"></i>
+          <app-menu [template]="profile"></app-menu>
+        </div>
+        <div class="menu">
+          <div class="cart d-flex">
+            <i class="bi bi-cart fs-xlg"></i>
+            <div class="cartdetails">
+              <div class="bage">10</div>
+
+              <span class="nowrap">{{ "my cart" | translate }}</span>
+            </div>
+          </div>
+          <app-menu [template]="cartMenu"></app-menu>
+        </div>
+        <!-- <app-menu [name]="'Cart'"></app-menu> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TEMPLATES FOR MANU -->
+<ng-template #profile>
+  <li class="dropdown-list-item direction-y">
+    <span class="fs-md" href="">{{ "yor account" }}</span>
+    <span class="fs-xsm nowrap">{{
+      "Access account and manage orders" | translate
+    }}</span>
+    <div class="actions mt-2">
+      <button class="rectBtn" (click)="register()">
+        <i class="bi bi-person-add"></i>
+        <span>{{ "register" | translate }}</span>
+      </button>
+      <button class="rectBtn" (click)="login()">
+        <i class="bi bi-lock"></i>
+        <span>{{ "login" | translate }}</span>
+      </button>
+    </div>
+  </li>
+</ng-template>
+
+<ng-template #cartMenu>
+  <li class="dropdown-list-item" style="min-width: 250px;">
+    <div class="center nowrap w-100">
+      <span class="fs-sm">{{ "shopping cart is empty!" | translate }}</span>
+    </div>
+  </li>
+</ng-template>
