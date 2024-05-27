@@ -15,9 +15,10 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { MenuComponent } from './menu/menu.component';
 import { HeaderComponent } from './Shared/header/header.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CurrencyComponent } from './currency/currency.component';
 
 @NgModule({
-  declarations: [AppComponent, LanguageSelectorComponent, TopOfferComponent, MenuComponent, HeaderComponent],
+  declarations: [AppComponent, LanguageSelectorComponent, TopOfferComponent, MenuComponent, HeaderComponent, CurrencyComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

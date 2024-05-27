@@ -39,16 +39,19 @@ export class MenuComponent implements OnInit, AfterViewInit {
   menuId: string = '';
   //@Input() data: IMenuItem[] = [];
   @Input() template!: TemplateRef<any>;
+  @Input() closeParent: boolean = true;
   @Output() optionClick = new EventEmitter();
   @ViewChild('menuPanel')  menuPanel: any
   @HostListener('document:click', ['$event'])
 
   onDocumentClick(event: any) {
+    
+    
     var dropdowns = document.getElementsByClassName('dropdown-content');
     var i;
     for (i = 0; i < dropdowns.length; i++) {
       var openDropdown = dropdowns[i];
-      if (openDropdown.id != this.menuId) {
+      if (openDropdown.id != this.menuId && this.closeParent) {
         openDropdown.classList.remove('show');
       }
     }
@@ -73,6 +76,7 @@ export class MenuComponent implements OnInit, AfterViewInit {
     const height = el.clientHeight;
     const windowWidth = window.innerWidth;
     const windowHeight = window.innerHeight;
+
     const gap = 20;
     if (location.right > windowWidth) {
       el.style.left = `${windowWidth - location.right - gap}px`;

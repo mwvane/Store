@@ -1,0 +1,26 @@
+<div class="menu center-y nowrap" style="width: 75px">
+  <div class="space-between w-100">
+    <span>{{ currencyService.currentCurency().symbol }}</span>
+    <span>{{ currencyService.currentCurency().fullName }}</span>
+    <i class="bi bi-chevron-down"></i>
+  </div>
+  <app-menu
+    [template]="cyrrencyTemplate"
+    [closeParent]="closeParent"
+    style="margin-top: 25px"
+    (optionClick)="currencyService.updateCurrency($event)"
+  ></app-menu>
+</div>
+
+<!-- ---- TEMPLATES------ -->
+
+<ng-template #cyrrencyTemplate>
+  @for (item of currencyService.currencies; track item.id) {
+  <li class="dropdown-list-item" (click)="currencyService.updateCurrency(item)">
+    <div class="d-flex gap-2 p-1 hover">
+      <span>{{ item.symbol }}</span>
+      <span>{{ item.fullName }}</span>
+    </div>
+  </li>
+  }
+</ng-template>

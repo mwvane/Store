@@ -1,5 +1,5 @@
 .header-container {
-    border-bottom: var(--border);
+  border-bottom: var(--border);
 }
 
 .searchbar select {
@@ -48,4 +48,47 @@
   align-items: center;
   gap: 10px;
   cursor: pointer;
+}
+@media only screen and (max-width: 767px) {
+  .selectors {
+    display: flex !important;
+  }
+  .container {
+    grid-template-areas:
+      "logo icons icons icons icons icons"
+      "searchbar searchbar searchbar searchbar searchbar searchbar" !important;
+  }
+}
+
+@media only screen and (max-width: 990px) {
+  .searcInput {
+    border-radius: 20px 0 0 20px;
+  }
+  .searchbar-categories {
+    display: none;
+  }
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 34px;
+  grid-gap: 10px;
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-areas:
+    "logo searchbar searchbar searchbar searchbar icons";
+  grid-gap: 15px;
+}
+.logo {
+  grid-area: logo;
+}
+
+.searchbar {
+  grid-area: searchbar;
+}
+.header-actions {
+  grid-area: icons;
 }

@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { IMenuItem } from '../../Models/menuIte';
 import { ILanguage } from '../../Models/language';
-import { LanguageService } from '../../Services/language.service';
+import { LanguageService } from '../../language-selector/language.service';
 import { StaticFiles } from '../../staticFiles';
 
 @Component({

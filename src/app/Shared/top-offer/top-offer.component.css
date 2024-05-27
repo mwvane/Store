@@ -23,8 +23,9 @@
   color: var(--lightGreen);
 }
 
-.icon {
-    width: 20px;
-    object-fit: cover;
-    border-radius: 0 !important;
-}
+@media only screen and (max-width: 767px) {
+    .top-offer-container {
+      display: none;
+    }
+  }
+  

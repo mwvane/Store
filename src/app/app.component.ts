@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LanguageService } from './Services/language.service';
+import { LanguageService } from './language-selector/language.service';
 import { TranslateService } from '@ngx-translate/core';
 import { MenuItem } from 'primeng/api';
 import { IMenuItem } from './Models/menuIte';
@@ -20,6 +20,10 @@ export class AppComponent {
 
   currencyChange(item: IMenuItem){
     alert(item.text)
+  }
+
+  test(){
+    alert(window.screen.width)
   }
   
 }
