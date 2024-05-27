@@ -2,3 +2,9 @@
     height: 100vh;
     overflow-x: hidden;
 }
+
+@media only screen and (max-width: 767px) {
+    #linkmenu, #topoffer {
+        display: none;
+    }
+  }

@@ -16,9 +16,10 @@ import { MenuComponent } from './menu/menu.component';
 import { HeaderComponent } from './Shared/header/header.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CurrencyComponent } from './currency/currency.component';
+import { LinkmenuComponent } from './Shared/linkmenu/linkmenu.component';
 
 @NgModule({
-  declarations: [AppComponent, LanguageSelectorComponent, TopOfferComponent, MenuComponent, HeaderComponent, CurrencyComponent],
+  declarations: [AppComponent, LanguageSelectorComponent, TopOfferComponent, MenuComponent, HeaderComponent, CurrencyComponent, LinkmenuComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

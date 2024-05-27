@@ -22,10 +22,4 @@
 .dropdown-list-item :hover {
   color: var(--lightGreen);
 }
-
-@media only screen and (max-width: 767px) {
-    .top-offer-container {
-      display: none;
-    }
-  }
   

@@ -21,9 +21,4 @@ export class AppComponent {
   currencyChange(item: IMenuItem){
     alert(item.text)
   }
-
-  test(){
-    alert(window.screen.width)
-  }
-  
 }

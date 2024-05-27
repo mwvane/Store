@@ -1,0 +1,40 @@
+.categories {
+  background-color: var(--lightGreen);
+  padding: 6px 15px;
+  border-radius: 2px;
+  display: flex;
+  gap: 12px;
+  justify-content: flex-start;
+  align-items: center;
+  color: white;
+  min-width: 260px;
+  cursor: pointer;
+}
+.container a {
+  text-decoration: none;
+  color: black;
+  transition: 0.3s;
+  line-height: 2px;
+  text-transform: capitalize;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+.categories span {
+  text-transform: uppercase !important;
+  letter-spacing: 1px;
+}
+.container a:hover {
+  color: var(--lightGreen);
+}
+.container:hover {
+  i {
+    transition: .5s;
+    color: black;
+  }
+}
+.menu-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+}
