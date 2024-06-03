@@ -16,6 +16,13 @@ export class AppComponent {
     {id: 3, text: "Pound", icon: "bi bi-currency-pound"},
 
   ]
+
+  bannerItems: IMenuItem[] = [
+    {id: 1,text: "", image: "../assets/images/slider-1-1230x647.jpg"},
+    {id: 2,text: "", image: "../assets/images/slider-2-1230x647.jpg"}
+  ]
+
+  
   title = 'store_front';
 
   currencyChange(item: IMenuItem){

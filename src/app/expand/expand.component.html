@@ -1,0 +1,21 @@
+<div class="main-container">
+  <div class="space-between" (click)="expand()">
+    <div class="sidebar-item">
+      <i class="{{ data.icon }}"></i>
+      <span>{{ data.name }}</span>
+    </div>
+    @if (data.subCategories?.length) {
+    <i class="bi bi-chevron-down"></i>
+    }
+  </div>
+  @if (this.isOpen) {
+  <div class="expand-container px-3 py-2 round-sm">
+    @for (item of data.subCategories; track $index) {
+    <div class="sidebar-item fs-sm">
+      <i class="{{ item.icon }}"></i>
+      <span>{{ item.name }}</span>
+    </div>
+    }
+  </div>
+  }
+</div>

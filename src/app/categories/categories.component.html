@@ -1,0 +1,17 @@
+<div #categories class="main-container light-border round-md">
+    <div class="categories" (click)="expand(categories)">
+        <div class="menu-btn center">
+            <i class="bi bi-list"></i>
+        </div>
+        <span>all categories</span>
+    </div>
+    @if (this.open) {
+    <div class="expand-container p-2">
+        <div class="category-container">
+            @for (item of categoryService.categories; track $index) {
+            <app-expand [data]="item" [border]="true"></app-expand>
+            }
+        </div>
+    </div>
+    }
+</div>

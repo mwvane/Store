@@ -1,3 +1,9 @@
+.move {
+  animation-name: move;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
 .header-container {
   border-bottom: var(--border);
 }
@@ -58,6 +64,11 @@
       "logo icons icons icons icons icons"
       "searchbar searchbar searchbar searchbar searchbar searchbar" !important;
   }
+  .togglecategories {
+    display: block !important;
+    font-weight: bold;
+    font-size: var(--lg);
+  }
 }
 
 @media only screen and (max-width: 990px) {
@@ -65,6 +76,12 @@
     border-radius: 20px 0 0 20px;
   }
   .searchbar-categories {
+    display: none;
+  }
+  .sidebar {
+    display: block !important;
+  }
+  #cart-tittle {
     display: none;
   }
 }
@@ -78,8 +95,7 @@
 .container {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-template-areas:
-    "logo searchbar searchbar searchbar searchbar icons";
+  grid-template-areas: "logo searchbar searchbar searchbar searchbar icons";
   grid-gap: 15px;
 }
 .logo {
@@ -91,4 +107,71 @@
 }
 .header-actions {
   grid-area: icons;
+}
+
+.menu-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgba(149, 191, 70, 0.9);
+  color: white;
+}
+.container a {
+  text-decoration: none;
+  color: black;
+  transition: 0.3s;
+  line-height: 2px;
+  text-transform: capitalize;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+.sidebar-main-container {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  background: rgba(45, 45, 45, 0.3);
+  z-index: 9999;
+  display: none;
+}
+.sidebar-container {
+  width: 250px;
+  box-shadow: var(--shadow);
+  position: fixed;
+  top: 0;
+  left: -250px;
+  height: 100vh;
+  background-color: white;
+  transition: left 2s;
+}
+.show-sidebar {
+  left: 0;
+}
+.sidebar-header {
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+.sidebar-item-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+.sidebar-item {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 18px;
+}
+.sidebar-item a {
+  text-decoration: none !important;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  color: black;
+}
+.sidebar-item:hover * {
+  color: var(--lightGreen) !important;
 }

@@ -1,0 +1,37 @@
+.main-container {
+    min-height: 100%;
+}
+.category-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+  }
+.categories {
+  background-color: var(--lightGreen);
+  padding: 6px 15px;
+  display: flex;
+  gap: 12px;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 10px 10px 0 0;
+  color: white;
+  min-width: 260px;
+  cursor: pointer;
+}
+.categories:hover {
+  i {
+    transition: 0.5s;
+    color: black;
+  }
+}
+.categories span {
+  text-transform: uppercase !important;
+  letter-spacing: 1px;
+}
+.menu-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+}

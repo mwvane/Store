@@ -17,9 +17,24 @@ import { HeaderComponent } from './Shared/header/header.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CurrencyComponent } from './currency/currency.component';
 import { LinkmenuComponent } from './Shared/linkmenu/linkmenu.component';
+import { ExpandComponent } from './expand/expand.component';
+import { CategoriesComponent } from './categories/categories.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { CarouselHolderComponent } from './carousel-holder/carousel-holder.component';
 
 @NgModule({
-  declarations: [AppComponent, LanguageSelectorComponent, TopOfferComponent, MenuComponent, HeaderComponent, CurrencyComponent, LinkmenuComponent],
+  declarations: [
+    AppComponent,
+    LanguageSelectorComponent,
+    TopOfferComponent,
+    MenuComponent,
+    HeaderComponent,
+    CurrencyComponent,
+    LinkmenuComponent,
+    ExpandComponent,
+    CategoriesComponent,
+    CarouselHolderComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -33,7 +48,8 @@ import { LinkmenuComponent } from './Shared/linkmenu/linkmenu.component';
     }),
     ButtonModule,
     MenuModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CarouselModule,
     //BrowserAnimationsModule
   ],
   providers: [provideAnimationsAsync()],

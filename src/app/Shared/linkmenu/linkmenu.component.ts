@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Directions } from '../../menu/menu.component';
+import { CategoryService } from '../../Services/category.service';
 
 @Component({
   selector: 'app-linkmenu',
@@ -6,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './linkmenu.component.css'
 })
 export class LinkmenuComponent {
-
+  right: Directions = Directions.right
+  constructor(public categoryService: CategoryService){}
 }

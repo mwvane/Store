@@ -9,11 +9,9 @@ import {
   Output,
   TemplateRef,
   ViewChild,
-  viewChild,
 } from '@angular/core';
 import { IMenuItem } from '../Models/menuIte';
 import { Helpers } from '../helpers';
-import { style } from '@angular/animations';
 
 @Component({
   selector: 'app-menu',
@@ -30,16 +28,23 @@ export class MenuComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     var parent = this.elRef.nativeElement.parentElement
     if(parent.classList.contains("menu")){
-      parent.addEventListener('click',this.toggle.bind(this))
+      if(this.toggleOnHover){
+        parent.addEventListener('mouseenter',this.toggle.bind(this))
+        parent.addEventListener('mouseleave',this.toggle.bind(this))
+      }
+      else{
+        parent.addEventListener('click',this.toggle.bind(this))
+      }
       parent.style.position = "relative"
     }
     //  parent.id = this.menuId
   }
 
   menuId: string = '';
-  //@Input() data: IMenuItem[] = [];
   @Input() template!: TemplateRef<any>;
   @Input() closeParent: boolean = true;
+  @Input() toggleOnHover: boolean = false;
+  @Input() direction: Directions = Directions.down;
   @Output() optionClick = new EventEmitter();
   @ViewChild('menuPanel')  menuPanel: any
   @HostListener('document:click', ['$event'])
@@ -78,6 +83,12 @@ export class MenuComponent implements OnInit, AfterViewInit {
     const windowHeight = window.innerHeight;
 
     const gap = 20;
+    if(this.direction == Directions.right){
+      el.style.left = `${width + gap}px`;
+      el.style.top = `${0}px`;
+      return
+    }
+
     if (location.right > windowWidth) {
       el.style.left = `${windowWidth - location.right - gap}px`;
       return
@@ -87,4 +98,11 @@ export class MenuComponent implements OnInit, AfterViewInit {
       return
     }
   }
+}
+
+export enum Directions {
+  right,
+  left,
+  up,
+  down
 }

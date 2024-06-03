@@ -1,0 +1,21 @@
+.slider-image {
+  width: 100%;
+  object-fit: cover;
+}
+::ng-deep .owl-dots {
+    position: absolute;
+    bottom: 10px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+::ng-deep .owl-dot span {
+  width: 22px !important;
+  height: 4px !important;
+  background-color: var(--disabled) !important;
+  border-radius: 6px !important;
+  cursor: pointer !important    ;
+}
+::ng-deep .active span {
+  background-color: var(--lightGreen) !important;
+}

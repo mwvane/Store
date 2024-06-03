@@ -1,12 +1,16 @@
+<div [ngTemplateOutlet]="categories"></div>
 <div class="header-container">
   <div class="container py-3">
-    <div class="logo pointer">
+    <div class="logo pointer center-y gap-2">
+      <div class="sidebar mx-1 d-none fs-lg" (click)="openSidebar()">
+        <i class="bi bi-list"></i>
+      </div>
       <img src="../../assets/images/logo.png" alt="logo" />
     </div>
     <div class="searchbar">
       <form [formGroup]="searchForm" (ngSubmit)="search()">
         <div class="w-100 d-flex">
-          <div class="searchbar-categories" style="min-width: 200px;">
+          <div class="searchbar-categories" style="min-width: 200px">
             <select class="w-100" formControlName="category">
               <option value="1">categories</option>
               <option value="2">categories</option>
@@ -18,7 +22,7 @@
             </select>
           </div>
 
-          <div style="width: 100%;">
+          <div style="width: 100%">
             <input
               class="w-100 searcInput"
               type="text"
@@ -27,7 +31,7 @@
             />
           </div>
 
-          <div style="min-width: 80px;">
+          <div style="min-width: 80px">
             <button class="w-100">
               <i class="bi bi-search"></i>
             </button>
@@ -47,7 +51,7 @@
             <div class="cartdetails">
               <div class="bage">10</div>
 
-              <span class="nowrap">{{ "my cart" | translate }}</span>
+              <span id="cart-tittle" class="nowrap">{{ "my cart" | translate }}</span>
             </div>
           </div>
           <app-menu [template]="cartMenu"></app-menu>
@@ -107,4 +111,21 @@
       <span class="fs-sm">{{ "shopping cart is empty!" | translate }}</span>
     </div>
   </li>
+</ng-template>
+
+<ng-template #categories>
+  <div #sidebar class="sidebar-main-container">
+    <div #sidebarContainer class="sidebar-container">
+      <div class="sidebar-header">
+        <span>{{ "categories" | translate }}</span>
+        <i (click)="closeCategories()" class="bi bi-x fs-lg"></i>
+      </div>
+
+      <div class="sidebar-item-container">
+        @for (item of categoryService.categories; track $index) {
+            <app-expand [data]="item" [border]="true"></app-expand>
+        }
+      </div>
+    </div>
+  </div>
 </ng-template>
