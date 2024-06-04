@@ -10,7 +10,6 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TopOfferComponent } from './Shared/top-offer/top-offer.component';
 import { ButtonModule } from 'primeng/button';
 import { MenuModule } from 'primeng/menu';
-//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MenuComponent } from './menu/menu.component';
 import { HeaderComponent } from './Shared/header/header.component';
@@ -23,7 +22,6 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { CarouselHolderComponent } from './carousel-holder/carousel-holder.component';
 import { HomeComponent } from './Pages/home/home.component';
 import { OurCategoriesComponent } from './our-categories/our-categories.component';
-import { SpecialsComponent } from './specials/specials.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +37,6 @@ import { SpecialsComponent } from './specials/specials.component';
     CarouselHolderComponent,
     HomeComponent,
     OurCategoriesComponent,
-    SpecialsComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,7 +53,6 @@ import { SpecialsComponent } from './specials/specials.component';
     MenuModule,
     ReactiveFormsModule,
     CarouselModule,
-    //BrowserAnimationsModule
   ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],
