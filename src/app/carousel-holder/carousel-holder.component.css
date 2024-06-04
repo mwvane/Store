@@ -20,6 +20,6 @@
   border-radius: 6px !important;
   cursor: pointer !important    ;
 }
-::ng-deep .active span {
+::ng-deep .owl-dots .active span {
   background-color: var(--lightGreen) !important;
 }

@@ -1,0 +1,9 @@
+<owl-carousel-o [options]="customOptions">
+    @for (item of data; track $index) {
+    <ng-template carouselSlide>
+        <div class="p-2 pointer">
+            <app-product-card [data]="item"></app-product-card>
+        </div>
+    </ng-template>
+    }
+</owl-carousel-o>

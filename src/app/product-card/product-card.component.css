@@ -1,0 +1,21 @@
+.product-card-container {
+    position: relative;
+}
+.card-body img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.details {
+    display: grid;
+}
+#discount-value {
+    background-color: black !important;
+    color: white !important;
+    font-size: 12px !important;
+    padding: 2px 9px;
+    border-radius: 4px;
+    position: absolute;
+    top: 12px;
+    left: 12px;
+}

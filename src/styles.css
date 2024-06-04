@@ -90,6 +90,12 @@
 .fs-xxlg {
   font-size: var(--xxlg);
 }
+.bold {
+  font-weight: 600;
+}
+.deleted {
+  text-decoration: line-through;
+}
 
 span {
   text-transform: capitalize;

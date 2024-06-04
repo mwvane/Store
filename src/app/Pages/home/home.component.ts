@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IMenuItem } from '../../Models/menuIte';
+import { IProduct } from '../../Models/product';
 
 @Component({
   selector: 'app-home',
@@ -23,6 +24,41 @@ export class HomeComponent {
     {id: 9,text: "trouser", image: "../../../assets/images/categories/trouser-60x60.png"},
     {id: 10,text: "watch", image: "../../../assets/images/categories/watch-60x60.png"},
   ]
+  specialProducts: IProduct[] = [
+    {
+      id: 1,
+      name: "yellow jacket",
+      price: 99,
+      quantity: 10,
+      rating: 3,
+      images: [
+        "../../assets/images/products/pic-blue-100x110.jpg",
+        "../../assets/images/products/pic-yellow-620x679.jpg"],
+        discount: {id: 1,value: 10, productId: 1,startDate: new Date, endDate: new Date}
+    },
+    {
+      id: 2,
+      name: "yellow jacket",
+      price: 99,
+      quantity: 10,
+      rating: 4,
+      images: [
+        "../../assets/images/products/pic-blue-100x110.jpg",
+        "../../assets/images/products/pic-yellow-620x679.jpg"]
+    },
+    {
+      id: 3,
+      name: "yellow jacket",
+      price: 999,
+      quantity: 10,
+      rating: 5,
+      images: [
+        "../../assets/images/products/pic-yellow-620x679.jpg",
+        "../../assets/images/products/pic-blue-100x110.jpg"
+      ]
+    }
+  ]
+
   categoryClick(item: IMenuItem){
     
     alert(item.text)

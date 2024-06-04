@@ -23,6 +23,8 @@ import { CarouselHolderComponent } from './carousel-holder/carousel-holder.compo
 import { HomeComponent } from './Pages/home/home.component';
 import { OurCategoriesComponent } from './our-categories/our-categories.component';
 import { RatingComponent } from './rating/rating.component';
+import { ProductCardComponent } from './product-card/product-card.component';
+import { SpecialsComponent } from './specials/specials.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { RatingComponent } from './rating/rating.component';
     HomeComponent,
     OurCategoriesComponent,
     RatingComponent,
+    ProductCardComponent,
+    SpecialsComponent,
   ],
   imports: [
     BrowserModule,
