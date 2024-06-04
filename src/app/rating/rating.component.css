@@ -1,0 +1,15 @@
+.star-rating {
+    font-size: 0;
+}
+
+.star-rating .bi {
+    font-size: 1rem;
+    color: gold !important;
+    cursor: pointer;
+    margin: 0 0.1rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.star-rating .bi:hover {
+    transform: scale(1.2);
+}

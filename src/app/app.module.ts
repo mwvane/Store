@@ -22,6 +22,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { CarouselHolderComponent } from './carousel-holder/carousel-holder.component';
 import { HomeComponent } from './Pages/home/home.component';
 import { OurCategoriesComponent } from './our-categories/our-categories.component';
+import { RatingComponent } from './rating/rating.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { OurCategoriesComponent } from './our-categories/our-categories.componen
     CarouselHolderComponent,
     HomeComponent,
     OurCategoriesComponent,
+    RatingComponent,
   ],
   imports: [
     BrowserModule,
