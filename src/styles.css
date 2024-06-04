@@ -20,10 +20,16 @@
   --screen-sm : 767px;
   --screen-md : 993px;
 }
+.container {
+  box-sizing: border-box;
+}
 
 @media only screen and (max-width: 993px) {
   .container {
     max-width: 100% !important;
+  }
+  .section {
+    margin-top: 18px !important;
   }
 }
 
@@ -156,5 +162,9 @@ span {
 
 .hover:hover {
   color: var(--lightGreen);
+}
+
+.section {
+  margin-top: 25px;
 }
 

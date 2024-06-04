@@ -1,6 +1,10 @@
 .slider-image {
   width: 100%;
   object-fit: cover;
+  height: 100%;
+}
+::ng-deep .owl-caroucel {
+    max-height: 100% !important;
 }
 ::ng-deep .owl-dots {
     position: absolute;

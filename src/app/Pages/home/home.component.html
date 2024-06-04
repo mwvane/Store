@@ -1,0 +1,27 @@
+<div class="container">
+    <!-- BANNER -->
+    <div class="row">
+        <div id="categories" class="col-3">
+            <app-categories></app-categories>
+        </div>
+        <div id="caroucel" class="col-9">
+            <app-carousel-holder [data]="bannerItems" [showSingle]="true"></app-carousel-holder>
+        </div>
+    </div>
+
+    <!-- OUR CATEGORYES -->
+    <div class="row">
+        <div class="col-12 category-caroucel section" style="height: 200px !important;">
+            <h4>our categories</h4>
+            <app-our-categories [data]="ourCategories" (sliderClick)="categoryClick($event)"></app-our-categories>
+        </div>
+    </div>
+
+    <!-- SPECIAL -->
+    <div class="row section">
+        <div class="col-12 category-caroucel section" style="height: 200px !important;">
+            <h4>specials</h4>
+            <app-our-categories [data]="ourCategories" (sliderClick)="categoryClick($event)"></app-our-categories>
+        </div>
+    </div>
+</div>

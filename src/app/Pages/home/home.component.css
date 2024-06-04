@@ -1,0 +1,15 @@
+* {
+  text-transform: capitalize;
+}
+
+@media only screen and (max-width: 993px) {
+    #categories {
+      display: none;
+    }
+    #caroucel {
+      width: 100%;
+    }
+    .section h4 {
+      font-size: 16px !important;
+    }
+  }

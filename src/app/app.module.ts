@@ -21,6 +21,9 @@ import { ExpandComponent } from './expand/expand.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { CarouselHolderComponent } from './carousel-holder/carousel-holder.component';
+import { HomeComponent } from './Pages/home/home.component';
+import { OurCategoriesComponent } from './our-categories/our-categories.component';
+import { SpecialsComponent } from './specials/specials.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,9 @@ import { CarouselHolderComponent } from './carousel-holder/carousel-holder.compo
     ExpandComponent,
     CategoriesComponent,
     CarouselHolderComponent,
+    HomeComponent,
+    OurCategoriesComponent,
+    SpecialsComponent,
   ],
   imports: [
     BrowserModule,

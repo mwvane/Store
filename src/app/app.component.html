@@ -2,16 +2,4 @@
   <app-top-offer id="topoffer"></app-top-offer>
   <app-header id="header"></app-header>
   <app-linkmenu id="linkmenu"></app-linkmenu>
-  <div class="container">
-    <div class="row">
-      <div id="categories" class="col-3">
-        <app-categories></app-categories>
-      </div>
-      <div id="caroucel" class="col-9">
-        <!-- <app-carousel></app-carousel> -->
-        <app-carousel-holder [data]="bannerItems" [showSingle]="true"></app-carousel-holder>
-      </div>
-    </div>
-  </div>
-  <app-carousel-holder></app-carousel-holder>
   <router-outlet></router-outlet>
