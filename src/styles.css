@@ -23,6 +23,29 @@
   --p-sm : 8px;
   --p-lg : 8px;
 }
+
+/* Target the scrollbar */
+::-webkit-scrollbar {
+  width: 8px; /* Adjust scrollbar width */
+}
+
+/* Style the scrollbar track */
+::-webkit-scrollbar-track {
+  background: white; /* Set track background color */
+  border-radius: 6px; /* Add rounded corners */
+}
+
+/* Style the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background: var(--lightGreen); /* Set thumb background color */
+  border-radius: 6px;
+}
+
+/* Style the thumb on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #666; /* Change color on hover */
+}
+
 .container {
   box-sizing: border-box;
 }
@@ -105,7 +128,7 @@ span {
   text-transform: capitalize;
 }
 
-/* ------------ Otehr ------------ */
+/* ------------ Other ------------ */
 .pointer {
   cursor: pointer;
 }
