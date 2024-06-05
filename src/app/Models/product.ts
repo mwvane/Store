@@ -9,4 +9,5 @@ export interface IProduct {
     view?: number
     images?: string[]
     discount?: IDiscount 
+    isFavorite: boolean
 }

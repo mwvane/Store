@@ -31,6 +31,7 @@ export class HomeComponent {
       price: 99,
       quantity: 10,
       rating: 3,
+      isFavorite : false,
       images: [
         "../../assets/images/products/pic-blue-100x110.jpg",
         "../../assets/images/products/pic-yellow-620x679.jpg"],
@@ -42,6 +43,7 @@ export class HomeComponent {
       price: 12,
       quantity: 1,
       rating: 1,
+      isFavorite : true,
       images: [
         "../../assets/images/products/colb-blue-728x800.jpg",
         "../../assets/images/products/colp-pink-620x679"
@@ -54,6 +56,7 @@ export class HomeComponent {
       price: 20,
       quantity: 10,
       rating: 4,
+      isFavorite : true,
       images: [
         "../../assets/images/products/bottle-cian-620x679.jpg",
         "../../assets/images/products/pic-yellow-620x679.jpg"]
@@ -64,6 +67,7 @@ export class HomeComponent {
       price: 999,
       quantity: 10,
       rating: 5,
+      isFavorite : false,
       images: [
         "../../assets/images/products/pic-yellow-620x679.jpg",
         "../../assets/images/products/pic-blue-100x110.jpg"
@@ -75,6 +79,7 @@ export class HomeComponent {
       price: 50,
       quantity: 10,
       rating: 2,
+      isFavorite : false,
       images: [
         "../../assets/images/products/colp-pink-620x679.jpg",
         "../../assets/images/products/colb-blue-728x800.jpg"
@@ -87,6 +92,7 @@ export class HomeComponent {
       price: 30,
       quantity: 9,
       rating: 0,
+      isFavorite : true,
       images: [
         "../../assets/images/products/dishes-728x800.jpg",
         "../../assets/images/products/colb-blue-728x800.jpg"
@@ -99,6 +105,7 @@ export class HomeComponent {
       price: 30,
       quantity: 9,
       rating: 0,
+      isFavorite : false,
       images: [
         "../../assets/images/products/watch-728x800.jpg",
         "../../assets/images/products/colb-blue-728x800.jpg"
@@ -111,6 +118,7 @@ export class HomeComponent {
       price: 140,
       quantity: 9,
       rating: 5,
+      isFavorite : false,
       images: [
         "../../assets/images/products/earphone-620x679.jpg",
         "../../assets/images/products/colb-blue-728x800.jpg"

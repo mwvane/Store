@@ -17,4 +17,7 @@ export class ProductCardComponent {
     }
     return  this.data?.price
   }
+  changeFavorite(){
+    this.data!.isFavorite = !this.data?.isFavorite
+  }
 }
