@@ -1,24 +1,29 @@
 <div class="product-card-container p-3 border round-md">
     <div class="card-body w-100">
         <img src="{{data?.images![0]}}" alt="">
-        <div class="card-footer">
-            <div>
-                <p class="bold">{{data?.name}}</p>
-                <span
-                    class="bold">{{this.currencyService.currentCurency().symbol}}<span>{{descountedPrice}}</span></span>
-                @if(data?.discount){
-                <span
-                    class="bold deleted mx-2">{{this.currencyService.currentCurency().symbol}}<span>{{this.data?.price}}</span></span>
-                }
-
-            </div>
-
-            <app-rating [readOnly]="true" [value]="data?.rating!"></app-rating>
-
-        </div>
     </div>
     @if (this.data?.discount) {
-        <span id="discount-value">{{data?.discount?.value}}%</span>
+    <span id="discount-value">{{data?.discount?.value}}%</span>
     }
+    <div class="card-footer">
+        <span id="card-title" class="bold fs-md">{{data?.name}}</span>
+
+        <div id="price">
+            <span
+                class="bold">{{this.currencyService.currentCurency().symbol}}<span>{{descountedPrice?.toFixed(2)}}</span></span>
+            @if(data?.discount){
+            <span
+                class="deleted mx-2 fs-sm">{{this.currencyService.currentCurency().symbol}}<span>{{this.data?.price?.toFixed(2)}}</span></span>
+            }
+        </div>
+
+        <app-rating id="rating" [readOnly]="true" [value]="data?.rating!"></app-rating>
+        <div class="actions">
+            <button class="iconBtn"><i class="bi bi-heart"></i></button>
+            <button id="cartIcon" class="iconBtn"><i class="bi bi-cart-plus"></i></button>
+            <button id="addToCart" style="font-size: 12px !important; height: 26px;" class="solidBtn d-flex"><i class="bi bi-cart-plus"></i>{{'add' | translate}}</button>
+        </div>
+    </div>
+    
 
 </div>

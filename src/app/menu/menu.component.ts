@@ -70,18 +70,17 @@ export class MenuComponent implements OnInit, AfterViewInit {
     event.preventDefault();
     event.stopPropagation();
     this.onDocumentClick(event);
-    this.menuPanel.nativeElement.classList.toggle('show');
     this.setDirection(this.menuPanel.nativeElement);
   }
 
   setDirection(el: any) {
+    const windowWidth = window.innerWidth;
+    const windowHeight = window.innerHeight;
+    el.classList.toggle('show');
     el.style.left = 0;
     const location = el.getBoundingClientRect();
     const width = el.clientWidth;
     const height = el.clientHeight;
-    const windowWidth = window.innerWidth;
-    const windowHeight = window.innerHeight;
-
     const gap = 20;
     if(this.direction == Directions.right){
       el.style.left = `${width + gap}px`;

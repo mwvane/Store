@@ -19,8 +19,28 @@
 
     <!-- SPECIAL -->
     <div class="row section">
-        <div class="col-12 category-caroucel section" style="height: 200px !important;">
+        <div class="col-12 category-caroucel section">
             <h4>specials</h4>
+            <div class="p-3">
+                <app-specials [data]="specialProducts"></app-specials>
+            </div>
+        </div>
+    </div>
+
+    <!-- TRADING PRODUCTS -->
+    <div class="row section">
+        <div class="col-12 category-caroucel section">
+            <h4>trading products</h4>
+            <div class="p-3">
+                <app-specials [data]="trandingProducts"></app-specials>
+            </div>
+        </div>
+    </div>
+
+    <!-- LATESTS -->
+    <div class="row section">
+        <div class="col-12 category-caroucel section">
+            <h4>latest</h4>
             <div class="p-3">
                 <app-specials [data]="specialProducts"></app-specials>
             </div>

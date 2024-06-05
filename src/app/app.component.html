@@ -2,4 +2,10 @@
   <app-top-offer id="topoffer"></app-top-offer>
   <app-header id="header"></app-header>
   <app-linkmenu id="linkmenu"></app-linkmenu>
+  @if (scrollToUp) {
+    <div>
+      <button class="scroll-to-top" (click)="scrollToTop()">
+        <i class="bi bi-chevron-up"></i></button>
+    </div>
+  }
   <router-outlet></router-outlet>

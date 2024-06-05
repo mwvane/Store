@@ -8,6 +8,7 @@
   --lightGray: #F6F4F5;
   --lightGreen: #95bf46;
   --disabled: #d5efa4;
+  --disabled-gray: #878984;
   --shadow: 0 0px 5px rgba(0, 0, 0, 0.175);
   --border: 1px solid #e7e7e7;
   --light-border: 1px solid rgba(231, 231, 231, .6);
@@ -19,6 +20,8 @@
   --xxlg: 3rem;
   --screen-sm : 767px;
   --screen-md : 993px;
+  --p-sm : 8px;
+  --p-lg : 8px;
 }
 .container {
   box-sizing: border-box;
@@ -95,6 +98,7 @@
 }
 .deleted {
   text-decoration: line-through;
+  color: var(--disabled-gray);
 }
 
 span {
@@ -150,6 +154,20 @@ span {
   font-weight: 600;
 }
 
+.iconBtn {
+  outline: none;
+  border: var(--border);
+  border-radius: 4px;
+  background-color: white;
+  width: 35px;
+  height: 35px;
+  font-size: 17px;
+}
+.iconBtn:hover {
+  background-color: var(--lightGreen);
+  color: white;
+}
+
 /* BORDERS */
 .light-border {
   border: var(--light-border);
@@ -171,6 +189,6 @@ span {
 }
 
 .section {
-  margin-top: 25px;
+  margin-top: 20px;
 }
 
