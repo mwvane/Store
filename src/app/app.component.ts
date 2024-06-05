@@ -3,6 +3,7 @@ import { LanguageService } from './language-selector/language.service';
 import { TranslateService } from '@ngx-translate/core';
 import { MenuItem } from 'primeng/api';
 import { IMenuItem } from './Models/menuIte';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -11,10 +12,21 @@ import { IMenuItem } from './Models/menuIte';
 })
 export class AppComponent {
   scrollToUp: boolean = false
-  @HostListener('window:scroll', [])
+  constructor(private viewportScroller: ViewportScroller){}
+  scrollToTop() {
+    this.viewportScroller.scrollToPosition([0, 0]);
+  }
+
   onWindowScroll() {
-    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    this.scrollToUp = scrollPosition > 300;
+    this.scrollToUp = window.pageYOffset >= 100;
+  }
+
+  ngOnInit() {
+    window.addEventListener('scroll', this.onWindowScroll.bind(this));
+  }
+
+  ngOnDestroy() {
+    window.removeEventListener('scroll', this.onWindowScroll.bind(this));
   }
   currency : IMenuItem[] = [
     {id: 1, text: "Dollar", icon: "bi bi-currency-dollar"},
@@ -27,9 +39,5 @@ export class AppComponent {
 
   currencyChange(item: IMenuItem){
     alert(item.text)
-  }
-
-  scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }
