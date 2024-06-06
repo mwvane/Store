@@ -42,7 +42,7 @@ export class SpecialsComponent {
           items: 6,
         },
       },
-      nav: false,
+      nav: true,
     };
   }
 

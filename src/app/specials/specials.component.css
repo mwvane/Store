@@ -1,0 +1,23 @@
+::ng-deep .specialNavs .owl-prev {
+    width: 20px !important;
+    height: 20px !important;
+    background-image: url("../../assets/icons/navigation/angle-left.svg") !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-color: transparent !important;
+}
+::ng-deep .specialNavs .owl-prev:active {
+    
+    background-color: rgba(149, 191, 70, .1) !important;
+}
+::ng-deep .specialNavs .owl-next {
+    width: 20px !important;
+    height: 20px !important;
+    background-image: url("../../assets/icons/navigation/angle-right.svg") !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-color: transparent !important;
+}
+::ng-deep .specialNavs .owl-next:active {
+    background-color: rgba(149, 191, 70, .1) !important;
+}

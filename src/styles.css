@@ -11,6 +11,7 @@
   --disabled: #d5efa4;
   --disabled-gray: #878984;
   --shadow: 0 0px 5px rgba(0, 0, 0, 0.175);
+  --hilight: rgba(149, 191, 70, 1) 0px 4px 36px 0px, rgba(149, 191, 70, 1) 0px 0px 0px 1px;
   --border: 1px solid #e7e7e7;
   --light-border: 1px solid rgba(231, 231, 231, .6);
   --xsm: 0.7rem;
@@ -194,6 +195,8 @@ span {
   color: white;
   text-transform: uppercase;
   font-weight: 600;
+  display: flex;
+  align-items: center;
 }
 
 .iconBtn {
@@ -216,7 +219,7 @@ span {
   transition-duration: 0.5s;
 }
 .hilight:active {
-  box-shadow: rgba(149, 191, 70, 1) 0px 4px 36px 0px, rgba(149, 191, 70, 1) 0px 0px 0px 1px;
+  box-shadow: var(--hilight);
   transition: all 0s !important;
 }
 

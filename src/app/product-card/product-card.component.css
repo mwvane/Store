@@ -116,7 +116,7 @@
         display: none;
     }
     #addToCart {
-        display: block !important;
+        display: flex !important;
     }
     #discount-value {
         left: 17px;
