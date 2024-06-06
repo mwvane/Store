@@ -1,0 +1,20 @@
+.border-bottom {
+    border-bottom: 1px solid #e7e7e7;
+}
+.section h4 {
+    font-size: 18px !important;
+    padding-bottom: 12px;
+    padding-top: 12px;
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+.subSection {
+    text-transform: capitalize !important;
+}
+@media only screen and (max-width: 993px) {
+    .section h4 {
+      font-size: 16px !important;
+      padding-bottom: 8px;
+      padding-top: 8px;
+    }
+  }

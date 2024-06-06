@@ -25,6 +25,9 @@ import { OurCategoriesComponent } from './our-categories/our-categories.componen
 import { RatingComponent } from './rating/rating.component';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { SpecialsComponent } from './specials/specials.component';
+import { RegisterComponent } from './Pages/Auth/register/register.component';
+import { LoginComponent } from './Pages/Auth/login/login.component';
+import { SectionComponent } from './section/section.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +46,9 @@ import { SpecialsComponent } from './specials/specials.component';
     RatingComponent,
     ProductCardComponent,
     SpecialsComponent,
+    RegisterComponent,
+    LoginComponent,
+    SectionComponent,
   ],
   imports: [
     BrowserModule,

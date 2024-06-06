@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { IMenuItem } from '../../Models/menuIte';
 import { Directions } from '../../menu/menu.component';
 import { CategoryService } from '../../Services/category.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -18,7 +19,7 @@ export class HeaderComponent {
       text: new FormControl()
     })
 
-    constructor(public categoryService: CategoryService){}
+    constructor(public categoryService: CategoryService, private router: Router){}
 
     search(){
       alert(this.searchForm.controls.text.value)
@@ -31,11 +32,11 @@ export class HeaderComponent {
     ];
 
     register(){
-      alert("register")
+      this.router.navigateByUrl("Register")
     }
 
     login(){
-      alert("login")
+      this.router.navigateByUrl("Login")
     }
 
     openSidebar(){

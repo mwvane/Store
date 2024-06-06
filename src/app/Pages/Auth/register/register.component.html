@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="border mt-3 px-2 pb-3 round-md">
+        <app-section [tittle]="'register account'" [borderBottom]="true"></app-section>
+        <span>{{'if you already have an account, please login at the '}} <a class="link" routerLink="/Login">login
+                page</a></span>
+    </div>
+
+    <form class="my-5" [formGroup]="registerForm" (ngSubmit)="register()">
+        <div class="form-container border px-2 pb-3 round-md">
+            <app-section [tittle]="'your personal details'" [borderBottom]="true" [subSection]="true"></app-section>
+            <div class="input-container">
+                <div class="d-flex info">
+                    <i class="requared">*</i>
+                    <label class="nowrap" for="firstname">{{'first name' | translate}}</label>
+                </div>
+                <input class="input-light" placeholder="{{'first name' | translate}}" type="text"
+                    formControlName="firstname">
+            </div>
+            <div class="input-container">
+                <div class="d-flex info">
+                    <i class="requared">*</i>
+                    <label class="nowrap" for="lastname">{{'last name' | translate}}</label>
+                </div>
+                <input class="input-light" placeholder="{{'last name' | translate}}" type="text"
+                    formControlName="lastname">
+            </div>
+            <div class="input-container">
+                <div class="d-flex info">
+                    <i class="requared">*</i>
+                    <label class="nowrap" for="email">{{'email' | translate}}</label>
+                </div>
+                <input class="input-light" placeholder="{{'email' | translate}}" type="email" formControlName="email">
+            </div>
+            <div class="input-container">
+                <div class="d-flex info">
+                    <i class="requared">*</i>
+                    <label class="nowrap" for="firstname">{{'phone' | translate}}</label>
+                </div>
+                <input class="input-light" placeholder="{{'phone' | translate}}" type="text" formControlName="phone">
+            </div>
+            <app-section [tittle]="'your password'" [borderBottom]="true" [subSection]="true"></app-section>
+            <div class="input-container">
+                <div class="d-flex info">
+                    <i class="requared">*</i>
+                    <label class="nowrap" for="password">{{'password' | translate}}</label>
+                </div>
+                <input class="input-light" placeholder="{{'password' | translate}}" type="password"
+                    formControlName="password">
+            </div>
+            <div class="input-container">
+                <div class="d-flex info">
+                    <i class="requared">*</i>
+                    <label class="nowrap" for="confirmPassword">{{'confirm password' | translate}}</label>
+                </div>
+                <input class="input-light" placeholder="{{'confirm password' | translate}}" type="password"
+                    formControlName="confirmPassword">
+            </div>
+            <div class="d-flex flex-end">
+                <button class="solidBtn capitalize hilight">
+                    {{'register' | translate}}
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,52 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.form-container input:focus {
+    border: 1px solid var(--lightGreen);
+}
+
+.input-container {
+    text-transform: capitalize;
+    font-size: 16px !important;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.requared {
+    font-size: 16px !important;
+    color: red;
+    font-weight: 600;
+    padding-right: 6px;
+}
+
+.input-light {
+    min-width: 200px;
+    width: 100%;
+    outline: none;
+    border: var(--border);
+    border-radius: 4px;
+    padding: 8px 16px;
+}
+.info {
+    justify-content: end;
+    width: 150px;
+}
+.info label {
+    font-size: 14px !important;
+}
+
+@media only screen and (max-width: 767px) {
+    .input-container {
+        flex-direction: column;
+        gap: 0;
+        align-items: start;
+    }
+    .info {
+        margin-top: 6px;
+        justify-content: start;
+    }
+}
