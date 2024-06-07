@@ -28,6 +28,7 @@ import { SpecialsComponent } from './specials/specials.component';
 import { RegisterComponent } from './Pages/Auth/register/register.component';
 import { LoginComponent } from './Pages/Auth/login/login.component';
 import { SectionComponent } from './section/section.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { SectionComponent } from './section/section.component';
     RegisterComponent,
     LoginComponent,
     SectionComponent,
+    ProductDetailsComponent,
   ],
   imports: [
     BrowserModule,

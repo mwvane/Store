@@ -21,7 +21,7 @@
     <div class="row">
         <div class="col-12 category-caroucel section">
             <h4>specials</h4>
-            <app-specials [data]="specialProducts"></app-specials>
+            <app-specials [data]="specialProducts" (sliderClick)="viewProduct($event)"></app-specials>
         </div>
     </div>
 

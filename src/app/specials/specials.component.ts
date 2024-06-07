@@ -47,6 +47,6 @@ export class SpecialsComponent {
   }
 
   onItemClick(item: IProduct){
-    alert()
+    this.sliderClick.emit(item)
   }
 }

@@ -1,7 +1,7 @@
 <owl-carousel-o class="specialNavs" [options]="customOptions">
     @for (item of data; track $index) {
     <ng-template carouselSlide>
-        <div class="p-2 pointer">
+        <div class="p-2 pointer" (click) = "onItemClick(item)">
             <app-product-card [data]="item"></app-product-card>
         </div>
     </ng-template>

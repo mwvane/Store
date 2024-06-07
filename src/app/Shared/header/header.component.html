@@ -5,7 +5,7 @@
       <div class="sidebar mx-1 d-none fs-lg" (click)="openSidebar()">
         <i class="bi bi-list"></i>
       </div>
-      <img src="../../assets/images/logo.png" alt="logo" />
+      <img routerLink ="/Home" src="../../assets/images/logo.png" alt="logo" />
     </div>
     <div class="searchbar">
       <form [formGroup]="searchForm" (ngSubmit)="search()">
