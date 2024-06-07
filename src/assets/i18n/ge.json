@@ -13,7 +13,9 @@
 
   "email": "ელ. ფოსტა",
   "firstname": "სახელი",
+  "first name": "სახელი",
   "lastname": "გვარი",
+  "last name": "გვარი",
   "password": "პაროლი",
   "phone": "ტელეფონი",
   "ID": "პირადი ნომერი",
@@ -31,6 +33,7 @@
   "your lastname": "შენი გვარი",
   "remember me": "დამიმახსოვრე",
   "don't have an acount": "არ ხარ დარეგისტრირებული",
+  "customer" : "მომხმარებელი",
 
 
 
@@ -60,10 +63,11 @@
 
 
   "compare": "შედარება",
-
   "currency" : "ვალუტა",
 
   "search..." : "ძებნა...",
+  "search" : "ძებნა...",
   "my cart" : "კალათა",
+  "cart" : "კალათა",
   "empty" : "ცარიელია"
 }

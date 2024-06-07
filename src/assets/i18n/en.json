@@ -13,7 +13,9 @@
 
   "email": "Email",
   "firstname": "Firstname",
+  "first name": "First Name",
   "lastname": "Lastname",
+  "last name": "Last Name",
   "password": "Password",
   "phone": "Phone",
   "ID": "ID",
@@ -31,6 +33,7 @@
   "your lastname": "Your Lastname",
   "remember me": "Remember Me",
   "don't have an acount": "Don't have an acount",
+  "customer" : "Customer",
 
   "price": "Price",
   "name": "Name",
@@ -61,7 +64,9 @@
   "currency" : "Currency",
 
   "search..." : "Search...",
+  "search" : "Search ",
   "my cart" : "My Cart",
+  "cart" : "Cart",
   "empty" : "Empty"
   
 }
