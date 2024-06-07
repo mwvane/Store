@@ -38,4 +38,7 @@ export class HomeComponent {
   viewProduct(product:IProduct){
     this.router.navigate(["ProductDetails", product.id])
   }
+  addToCart(product: IProduct){
+    
+  }
 }

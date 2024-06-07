@@ -29,6 +29,8 @@ import { RegisterComponent } from './Pages/Auth/register/register.component';
 import { LoginComponent } from './Pages/Auth/login/login.component';
 import { SectionComponent } from './section/section.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { DialogModule } from 'primeng/dialog';
+import { LoginModalComponent } from './Modals/login-modal/login-modal.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     LoginComponent,
     SectionComponent,
     ProductDetailsComponent,
+    LoginModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,6 +70,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     MenuModule,
     ReactiveFormsModule,
     CarouselModule,
+    DialogModule,
   ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],

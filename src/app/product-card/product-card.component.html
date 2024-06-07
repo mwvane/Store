@@ -19,11 +19,9 @@
 
         <app-rating id="rating" [readOnly]="true" [value]="data?.rating!"></app-rating>
         <div class="actions">
-            <button (click)="changeFavorite()" class="iconBtn hilight"><i [ngClass]="data?.isFavorite ? 'bi bi-heart-fill text-cian': 'bi bi-heart'"></i></button>
+            <button (click)="OnChangeFavorite($event)" class="iconBtn hilight"><i [ngClass]="data?.isFavorite ? 'bi bi-heart-fill text-cian': 'bi bi-heart'"></i></button>
             <button id="cartIcon" class="iconBtn hilight"><i class="bi bi-cart-plus"></i></button>
-            <button id="addToCart" style="font-size: 12px !important; height: 26px;" class="solidBtn d-flex hilight"><i class="bi bi-cart-plus mx-1"></i>{{'add' | translate}}</button>
+            <button (click)="OnAddToCart($event)" id="addToCart" style="font-size: 12px !important; height: 26px;" class="solidBtn d-flex hilight"><i class="bi bi-cart-plus mx-1"></i>{{'add' | translate}}</button>
         </div>
     </div>
-    
-
 </div>

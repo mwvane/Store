@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IProduct } from '../Models/product';
 import { CurencyService } from '../currency/curency.service';
+import { ModalService } from '../Services/modal.service';
 
 @Component({
   selector: 'app-product-card',
@@ -9,7 +10,7 @@ import { CurencyService } from '../currency/curency.service';
 })
 export class ProductCardComponent {
   @Input() data?: IProduct
-  constructor(public currencyService: CurencyService){
+  constructor(public currencyService: CurencyService, private modalService : ModalService){
   }
   get descountedPrice(){
     if(this.data?.price && this.data.discount?.value){
@@ -17,7 +18,15 @@ export class ProductCardComponent {
     }
     return  this.data?.price
   }
-  changeFavorite(){
-    this.data!.isFavorite = !this.data?.isFavorite
+  OnChangeFavorite(e : any){
+    e.preventDefault()
+    e.stopPropagation()
+    this.modalService.loginDialog = true // temp
+  }
+  OnAddToCart(e: any){
+    e.preventDefault()
+    e.stopPropagation()
+    this.modalService.loginDialog = true // temp
+
   }
 }
