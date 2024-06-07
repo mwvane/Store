@@ -4,6 +4,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { MenuItem } from 'primeng/api';
 import { IMenuItem } from './Models/menuIte';
 import { ViewportScroller } from '@angular/common';
+import { IProduct } from './Models/product';
+import { ModalService } from './Services/modal.service';
 
 @Component({
   selector: 'app-root',
