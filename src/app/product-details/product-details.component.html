@@ -1,18 +1,46 @@
 <div class="container">
-    <div class="main-image border">
-        <img class="w-100" src="{{currentImage}}" alt="">
+  <div class="main-image border">
+    <img class="w-100" src="{{ currentImage }}" alt="" />
+  </div>
+  <div class="details">
+    <app-section
+      [tittle]="product!.name"
+      [borderBottom]="true"
+      [subSection]="true"
+    ></app-section>
+    <span>avaluablity: </span
+    ><span>{{
+      product!.quantity ? "in stock(" + product!.quantity + ")" : "Out of stock"
+    }}</span>
+    <app-section
+      [tittle]="'price'"
+      [borderBottom]="true"
+      [subSection]="true"
+    ></app-section>
+    <span>{{
+      "price" + ": " + currensyService.currentCurency().symbol + product?.price
+    }}</span>
+    <div class="actions d-flex gap-3 my-4">
+      <button (click)="addToCart()" class="solidBtn capitalize hilight">
+        add to cart
+      </button>
+      <button class="iconBtn hilight">
+        <i
+          [ngClass]="
+            product?.isFavorite ? 'bi bi-heart-fill text-cian' : 'bi bi-heart'
+          "
+        ></i>
+      </button>
     </div>
-    <div class="details">
-        <app-section [tittle]= "product!.name" [borderBottom]="true" [subSection]="true"></app-section>
-        <span>avaluablity: </span><span>{{product!.quantity? "in stock(" + product!.quantity + ")": "Out of stock"}}</span>
-        <app-section [tittle]= "'price'" [borderBottom]="true" [subSection]="true"></app-section>
-        <span>{{'price'+': ' + currensyService.currentCurency().symbol + product?.price}}</span>
-        <div class="actions d-flex gap-3 my-4">
-            <button (click)="addToCart()" class="solidBtn capitalize hilight">add to cart</button>
-            <button class="iconBtn hilight"><i [ngClass]="product?.isFavorite ? 'bi bi-heart-fill text-cian': 'bi bi-heart'"></i></button>
-        </div>
-    </div>
-    <div class="pics border">
-        <app-carousel-holder [data]="tumbnails" [dots]="false" [itemsOnSm]="6" [loop]="false" [itemsOnXsm]="5" (itemClick)="changeCurrentImage($event)"></app-carousel-holder>
-    </div>
+  </div>
+  <div class="pics border">
+    <app-carousel-holder
+      [data]="tumbnails"
+      [dots]="false"
+      [itemsOnSm]="6"
+      [loop]="false"
+      [itemsOnXsm]="5"
+      (itemClick)="changeCurrentImage($event)"
+    ></app-carousel-holder>
+  </div>
 </div>

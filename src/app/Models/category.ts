@@ -1,6 +1,6 @@
 export interface ICategory {
-    id: number
-    name: string
-    icon?: string
-    subCategories?: ICategory[]
+  id: number;
+  name: string;
+  icon?: string;
+  subCategories?: ICategory[];
 }

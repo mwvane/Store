@@ -1,7 +1,7 @@
-export interface ILanguage{
-    id?: number
-    name: string
-    shortName: string
-    code: string
-    image?: string
+export interface ILanguage {
+  id?: number;
+  name: string;
+  shortName: string;
+  code: string;
+  image?: string;
 }

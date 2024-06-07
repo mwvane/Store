@@ -1,126 +1,124 @@
 .card-body {
-    position: relative;
+  position: relative;
 }
 
 .card-body img {
-    width: 100%;
-    object-fit: cover;
+  width: 100%;
+  object-fit: cover;
 }
 
 .details {
-    display: grid;
+  display: grid;
 }
 .actions {
-     position: absolute;
-     top: 25px;
-     right: 25px;
-     display: none;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  display: none;
 }
 
 .product-card-container:hover .actions {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: start;
-    gap: 10px;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  gap: 10px;
+  height: 100%;
 }
 
 #discount-value {
-    background-color: black !important;
-    color: white !important;
-    font-size: 12px !important;
-    padding: 2px 9px;
-    border-radius: 4px;
-    position: absolute;
-    top: 25px;
-    left: 25px;
+  background-color: black !important;
+  color: white !important;
+  font-size: 12px !important;
+  padding: 2px 9px;
+  border-radius: 4px;
+  position: absolute;
+  top: 25px;
+  left: 25px;
 }
 
 .card-footer {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    grid-template-areas:
-        "cardTitle cardTitle cardTitle cardTitle"
-        "price price rating rating";
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  grid-template-areas:
+    "cardTitle cardTitle cardTitle cardTitle"
+    "price price rating rating";
 }
 
 #card-title {
-    grid-area: cardTitle;
+  grid-area: cardTitle;
 }
 
 #price {
-    grid-area: price;
+  grid-area: price;
 }
 
 #rating {
-    grid-area: rating;
-    display: flex;
-    justify-content: flex-end;
+  grid-area: rating;
+  display: flex;
+  justify-content: flex-end;
 }
 .actions {
-    grid-area: actions;
+  grid-area: actions;
 }
 #addToCart {
-    display: none !important;
+  display: none !important;
 }
 
 @media only screen and (max-width: 749px) {
-    .iconBtn:hover {
-      background-color: initial !important;
-      color: initial !important;
-    }
+  .iconBtn:hover {
+    background-color: initial !important;
+    color: initial !important;
+  }
 }
 
 @media only screen and (max-width: 993px) {
-    .card-footer {
-        grid-template-areas:
-            "cardTitle cardTitle cardTitle cardTitle"
-            "rating rating rating rating"
-            "price price price price"
-            "actions actions actions actions ";
-        gap: 5px;
-    }
-    .product-card-container {
-        padding: var(--p-sm) !important;
-    }
+  .card-footer {
+    grid-template-areas:
+      "cardTitle cardTitle cardTitle cardTitle"
+      "rating rating rating rating"
+      "price price price price"
+      "actions actions actions actions ";
+    gap: 5px;
+  }
+  .product-card-container {
+    padding: var(--p-sm) !important;
+  }
 
-    #rating {
-        justify-content: flex-start;
-    }
+  #rating {
+    justify-content: flex-start;
+  }
 
-    .actions {
-        position: relative;
-        display: flex !important;
-        justify-content: space-between;
-        flex-direction: row;
-        top: 0;
-        right: 0;
-    }
-    .product-card-container:hover .actions {
-        position: relative;
-        display: flex !important;
-        justify-content: space-between;
-        flex-direction: row;
-        top: 0;
-        right: 0;
-
-    }
-    .iconBtn {
-        width: 25px;
-        height: 25px;
-        padding: 0;
-    }
-    .actions #cartIcon {
-        display: none;
-    }
-    #addToCart {
-        display: flex !important;
-    }
-    #discount-value {
-        left: 17px;
-        top: 17px;
-    }
-
+  .actions {
+    position: relative;
+    display: flex !important;
+    justify-content: space-between;
+    flex-direction: row;
+    top: 0;
+    right: 0;
+  }
+  .product-card-container:hover .actions {
+    position: relative;
+    display: flex !important;
+    justify-content: space-between;
+    flex-direction: row;
+    top: 0;
+    right: 0;
+  }
+  .iconBtn {
+    width: 25px;
+    height: 25px;
+    padding: 0;
+  }
+  .actions #cartIcon {
+    display: none;
+  }
+  #addToCart {
+    display: flex !important;
+  }
+  #discount-value {
+    left: 17px;
+    top: 17px;
+  }
 }

@@ -1,7 +1,12 @@
 <owl-carousel-o [options]="customOptions">
-    @for (item of data; track $index) {
-    <ng-template carouselSlide>
-        <img (click)="OnItemClick(item)" class="slider-image" src="{{item.image}}" alt="">
-    </ng-template>
-    }
+  @for (item of data; track $index) {
+  <ng-template carouselSlide>
+    <img
+      (click)="OnItemClick(item)"
+      class="slider-image"
+      src="{{ item.image }}"
+      alt=""
+    />
+  </ng-template>
+  }
 </owl-carousel-o>

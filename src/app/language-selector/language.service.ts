@@ -7,11 +7,22 @@ import { StaticFiles } from '../staticFiles';
   providedIn: 'root',
 })
 export class LanguageService {
-
   languages: ILanguage[] = [
-    { id: 1, name: 'English', shortName: 'ENG', code: 'en', image: '../../assets/flags/gb-eng.svg'},
-    { id: 2, name: 'Georgian', shortName: 'GEO', code: 'ge', image: '../../assets/flags/ge.svg'}
-  ]
+    {
+      id: 1,
+      name: 'English',
+      shortName: 'ENG',
+      code: 'en',
+      image: '../../assets/flags/gb-eng.svg',
+    },
+    {
+      id: 2,
+      name: 'Georgian',
+      shortName: 'GEO',
+      code: 'ge',
+      image: '../../assets/flags/ge.svg',
+    },
+  ];
 
   selectedLanguage = signal<ILanguage>(this.getCurrentLanguage());
 
@@ -31,6 +42,6 @@ export class LanguageService {
   }
 
   constructor(public translate: TranslateService) {
-    this.changeLanguage(this.getCurrentLanguage())
+    this.changeLanguage(this.getCurrentLanguage());
   }
 }

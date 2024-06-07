@@ -16,7 +16,7 @@ export class CurencyService {
 
   updateCurrency(currency: ICurrency) {
     localStorage.setItem('currency', JSON.stringify(currency));
-    this.currentCurency.set(currency)
+    this.currentCurency.set(currency);
   }
 
   getCurrentCurrency() {

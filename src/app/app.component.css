@@ -28,7 +28,7 @@
 .scroll-to-top:hover {
   background-color: black;
   color: white;
-  transition: .5s;
+  transition: 0.5s;
 }
 
 @media only screen and (max-width: 767px) {

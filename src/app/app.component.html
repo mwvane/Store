@@ -3,14 +3,14 @@
   <app-header id="header"></app-header>
   <app-linkmenu id="linkmenu"></app-linkmenu>
   @if (scrollToUp) {
-    <div>
-      <button class="scroll-to-top hilight" (click)="scrollToTop()">
-        <i class="bi bi-chevron-up"></i>
-      </button>
-    </div>
+  <div>
+    <button class="scroll-to-top hilight" (click)="scrollToTop()">
+      <i class="bi bi-chevron-up"></i>
+    </button>
+  </div>
   }
   <router-outlet></router-outlet>
 
-
-   <!-- ------ MODALS -------- -->
-   <app-login-modal></app-login-modal>
+  <!-- ------ MODALS -------- -->
+  <app-login-modal></app-login-modal>
+</div>

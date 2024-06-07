@@ -1,6 +1,6 @@
 export interface IMenuItem {
-    id: number
-    text: string
-    icon?: string
-    image?: string
+  id: number;
+  text: string;
+  icon?: string;
+  image?: string;
 }

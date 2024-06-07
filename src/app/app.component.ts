@@ -10,11 +10,11 @@ import { ModalService } from './Services/modal.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
-  scrollToUp: boolean = false
-  constructor(private viewportScroller: ViewportScroller){}
+  scrollToUp: boolean = false;
+  constructor(private viewportScroller: ViewportScroller) {}
   scrollToTop() {
     this.viewportScroller.scrollToPosition([0, 0]);
   }
@@ -30,16 +30,15 @@ export class AppComponent {
   ngOnDestroy() {
     window.removeEventListener('scroll', this.onWindowScroll.bind(this));
   }
-  currency : IMenuItem[] = [
-    {id: 1, text: "Dollar", icon: "bi bi-currency-dollar"},
-    {id: 2, text: "Euro", icon: "bi bi-currency-euro"},
-    {id: 3, text: "Pound", icon: "bi bi-currency-pound"},
+  currency: IMenuItem[] = [
+    { id: 1, text: 'Dollar', icon: 'bi bi-currency-dollar' },
+    { id: 2, text: 'Euro', icon: 'bi bi-currency-euro' },
+    { id: 3, text: 'Pound', icon: 'bi bi-currency-pound' },
+  ];
 
-  ]
-  
   title = 'store_front';
 
-  currencyChange(item: IMenuItem){
-    alert(item.text)
+  currencyChange(item: IMenuItem) {
+    alert(item.text);
   }
 }

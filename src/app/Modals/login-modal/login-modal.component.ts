@@ -5,8 +5,8 @@ import { ModalService } from '../../Services/modal.service';
 @Component({
   selector: 'app-login-modal',
   templateUrl: './login-modal.component.html',
-  styleUrl: './login-modal.component.css'
+  styleUrl: './login-modal.component.css',
 })
 export class LoginModalComponent {
-  constructor(private router: Router, public modalService : ModalService){}
+  constructor(private router: Router, public modalService: ModalService) {}
 }

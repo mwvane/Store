@@ -1,43 +1,55 @@
 <div class="container">
-    <!-- BANNER -->
-    <div class="row">
-        <div id="categories" class="col-3">
-            <app-categories></app-categories>
-        </div>
-        <div id="caroucel" class="col-9">
-            <app-carousel-holder [data]="bannerItems" [showSingle]="true"></app-carousel-holder>
-        </div>
+  <!-- BANNER -->
+  <div class="row">
+    <div id="categories" class="col-3">
+      <app-categories></app-categories>
     </div>
+    <div id="caroucel" class="col-9">
+      <app-carousel-holder
+        [data]="bannerItems"
+        [showSingle]="true"
+      ></app-carousel-holder>
+    </div>
+  </div>
 
-    <!-- OUR CATEGORYES -->
-    <div class="row">
-        <div class="col-12 category-caroucel section" style="height: 200px !important;">
-            <h4>our categories</h4>
-            <app-our-categories [data]="ourCategories" (sliderClick)="categoryClick($event)"></app-our-categories>
-        </div>
+  <!-- OUR CATEGORYES -->
+  <div class="row">
+    <div
+      class="col-12 category-caroucel section"
+      style="height: 200px !important"
+    >
+      <h4>our categories</h4>
+      <app-our-categories
+        [data]="ourCategories"
+        (sliderClick)="categoryClick($event)"
+      ></app-our-categories>
     </div>
+  </div>
 
-    <!-- SPECIAL -->
-    <div class="row">
-        <div class="col-12 category-caroucel section">
-            <h4>specials</h4>
-            <app-specials [data]="specialProducts" (sliderClick)="viewProduct($event)"></app-specials>
-        </div>
+  <!-- SPECIAL -->
+  <div class="row">
+    <div class="col-12 category-caroucel section">
+      <h4>specials</h4>
+      <app-specials
+        [data]="specialProducts"
+        (sliderClick)="viewProduct($event)"
+      ></app-specials>
     </div>
+  </div>
 
-    <!-- TRADING PRODUCTS -->
-    <div class="row">
-        <div class="col-12 category-caroucel section">
-            <h4>trading products</h4>
-            <app-specials [data]="trandingProducts"></app-specials>
-        </div>
+  <!-- TRADING PRODUCTS -->
+  <div class="row">
+    <div class="col-12 category-caroucel section">
+      <h4>trading products</h4>
+      <app-specials [data]="trandingProducts"></app-specials>
     </div>
+  </div>
 
-    <!-- LATESTS -->
-    <div class="row">
-        <div class="col-12 category-caroucel section">
-            <h4>latest</h4>
-            <app-specials [data]="specialProducts"></app-specials>
-        </div>
+  <!-- LATESTS -->
+  <div class="row">
+    <div class="col-12 category-caroucel section">
+      <h4>latest</h4>
+      <app-specials [data]="specialProducts"></app-specials>
     </div>
+  </div>
 </div>

@@ -6,15 +6,19 @@ import { LoginComponent } from './Pages/Auth/login/login.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 
 const routes: Routes = [
-  { path: "", title: "home", component: HomeComponent },
-  { path: "Home", title: "Home", component: HomeComponent },
-  { path: "Register", title: "Register", component: RegisterComponent },
-  { path: "Login", title: "Login", component: LoginComponent },
-  { path: "ProductDetails/:id", title: "ProductDetails", component: ProductDetailsComponent },
+  { path: '', title: 'home', component: HomeComponent },
+  { path: 'Home', title: 'Home', component: HomeComponent },
+  { path: 'Register', title: 'Register', component: RegisterComponent },
+  { path: 'Login', title: 'Login', component: LoginComponent },
+  {
+    path: 'ProductDetails/:id',
+    title: 'ProductDetails',
+    component: ProductDetailsComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

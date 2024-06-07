@@ -22,7 +22,7 @@ export class TopOfferComponent {
     { id: 4, text: '₾ Lari' },
   ];
 
-  language: ILanguage[] = StaticFiles.languages
+  language: ILanguage[] = StaticFiles.languages;
 
   currencyChange(item: IMenuItem) {
     this.currentCurrency = item.text;

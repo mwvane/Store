@@ -1,13 +1,31 @@
-<p-dialog header="login or register" [modal]="true" [(visible)]="this.modalService.loginDialog"
-    [style]="{ width: '25rem' }">
-    <div class="direction-y gap-3">
-        <div></div>
-        <span>{{'if you want to add to cart you mast be login or register first!' | translate}}</span>
+<p-dialog
+  header="login or register"
+  [modal]="true"
+  [(visible)]="this.modalService.loginDialog"
+  [style]="{ width: '25rem' }"
+>
+  <div class="direction-y gap-3">
+    <div></div>
+    <span>{{
+      "if you want to add to cart you mast be login or register first!"
+        | translate
+    }}</span>
 
-        <div class="d-flex gap-4">
-            <button routerLink="/Login" class="solidBtn capitalize fs-sm hilight" (click)="this.modalService.loginDialog = false">{{'login' | translate}}</button>
-            <button routerLink="/Register" class="solidBtn capitalize fs-sm hilight" (click)="this.modalService.loginDialog = false">{{'register' |
-                translate}}</button>
-        </div>
+    <div class="d-flex gap-4">
+      <button
+        routerLink="/Login"
+        class="solidBtn capitalize fs-sm hilight"
+        (click)="this.modalService.loginDialog = false"
+      >
+        {{ "login" | translate }}
+      </button>
+      <button
+        routerLink="/Register"
+        class="solidBtn capitalize fs-sm hilight"
+        (click)="this.modalService.loginDialog = false"
+      >
+        {{ "register" | translate }}
+      </button>
     </div>
+  </div>
 </p-dialog>

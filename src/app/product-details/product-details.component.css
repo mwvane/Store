@@ -1,37 +1,35 @@
 img {
-    object-fit: cover;
+  object-fit: cover;
 }
 
 .container {
-    display: grid;
-    grid-template-columns: 40% 60%;
-    gap: 15px;
-    grid-template-areas:
-        "mainImage details"
-        "mainImage details"
-        "pics details"
-    ;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  gap: 15px;
+  grid-template-areas:
+    "mainImage details"
+    "mainImage details"
+    "pics details";
 }
 
 .main-image {
-    grid-area: mainImage;
+  grid-area: mainImage;
 }
 
 .details {
-    grid-area: details;
+  grid-area: details;
 }
 
 .pics {
-    grid-area: pics;
+  grid-area: pics;
 }
 
 @media only screen and (max-width: 767px) {
-    .container {
-        grid-template-columns: 100%;
-        grid-template-areas:
-            "mainImage"
-            "pics"
-            "details"
-        ;
-    }
+  .container {
+    grid-template-columns: 100%;
+    grid-template-areas:
+      "mainImage"
+      "pics"
+      "details";
+  }
 }

@@ -5,7 +5,7 @@
       <div class="sidebar mx-1 d-none fs-lg" (click)="openSidebar()">
         <i class="bi bi-list"></i>
       </div>
-      <img routerLink ="/Home" src="../../assets/images/logo.png" alt="logo" />
+      <img routerLink="/Home" src="../../assets/images/logo.png" alt="logo" />
     </div>
     <div class="searchbar">
       <form [formGroup]="searchForm" (ngSubmit)="search()">
@@ -51,7 +51,9 @@
             <div class="cartdetails">
               <div class="bage">10</div>
 
-              <span id="cart-tittle" class="nowrap">{{ "my cart" | translate }}</span>
+              <span id="cart-tittle" class="nowrap">{{
+                "my cart" | translate
+              }}</span>
             </div>
           </div>
           <app-menu [template]="cartMenu"></app-menu>
@@ -123,7 +125,7 @@
 
       <div class="sidebar-item-container">
         @for (item of categoryService.categories; track $index) {
-            <app-expand [data]="item" [border]="true"></app-expand>
+        <app-expand [data]="item" [border]="true"></app-expand>
         }
       </div>
     </div>

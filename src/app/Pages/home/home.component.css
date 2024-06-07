@@ -3,10 +3,10 @@
 }
 
 @media only screen and (max-width: 993px) {
-    #categories {
-      display: none;
-    }
-    #caroucel {
-      width: 100%;
-    }
+  #categories {
+    display: none;
   }
+  #caroucel {
+    width: 100%;
+  }
+}

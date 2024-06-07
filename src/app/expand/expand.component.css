@@ -16,5 +16,5 @@
   text-transform: capitalize;
 }
 .sidebar-item:hover {
-    color: var(--lightGreen) !important;
+  color: var(--lightGreen) !important;
 }

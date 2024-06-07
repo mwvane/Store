@@ -8,14 +8,13 @@ import { CategoryService } from '../Services/category.service';
 })
 export class CategoriesComponent {
   constructor(public categoryService: CategoryService) {}
-  @Input() open: boolean = true
-  expand(categories : any){
-    this.open = !this.open
-    if(!this.open){
-      categories.style.minHeight = "auto"
-    }
-    else{
-      categories.style.minHeight = "100%"
+  @Input() open: boolean = true;
+  expand(categories: any) {
+    this.open = !this.open;
+    if (!this.open) {
+      categories.style.minHeight = 'auto';
+    } else {
+      categories.style.minHeight = '100%';
     }
   }
 }

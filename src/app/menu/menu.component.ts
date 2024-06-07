@@ -23,19 +23,18 @@ export class MenuComponent implements OnInit, AfterViewInit {
     this.menuId = `dropbtn-${Helpers.generateRandomString(8)}`;
   }
 
-  constructor(private elRef: ElementRef){}
+  constructor(private elRef: ElementRef) {}
 
   ngAfterViewInit(): void {
-    var parent = this.elRef.nativeElement.parentElement
-    if(parent.classList.contains("menu")){
-      if(this.toggleOnHover){
-        parent.addEventListener('mouseenter',this.toggle.bind(this))
-        parent.addEventListener('mouseleave',this.toggle.bind(this))
+    var parent = this.elRef.nativeElement.parentElement;
+    if (parent.classList.contains('menu')) {
+      if (this.toggleOnHover) {
+        parent.addEventListener('mouseenter', this.toggle.bind(this));
+        parent.addEventListener('mouseleave', this.toggle.bind(this));
+      } else {
+        parent.addEventListener('click', this.toggle.bind(this));
       }
-      else{
-        parent.addEventListener('click',this.toggle.bind(this))
-      }
-      parent.style.position = "relative"
+      parent.style.position = 'relative';
     }
     //  parent.id = this.menuId
   }
@@ -46,12 +45,9 @@ export class MenuComponent implements OnInit, AfterViewInit {
   @Input() toggleOnHover: boolean = false;
   @Input() direction: Directions = Directions.down;
   @Output() optionClick = new EventEmitter();
-  @ViewChild('menuPanel')  menuPanel: any
+  @ViewChild('menuPanel') menuPanel: any;
   @HostListener('document:click', ['$event'])
-
   onDocumentClick(event: any) {
-    
-    
     var dropdowns = document.getElementsByClassName('dropdown-content');
     var i;
     for (i = 0; i < dropdowns.length; i++) {
@@ -82,19 +78,19 @@ export class MenuComponent implements OnInit, AfterViewInit {
     const width = el.clientWidth;
     const height = el.clientHeight;
     const gap = 20;
-    if(this.direction == Directions.right){
+    if (this.direction == Directions.right) {
       el.style.left = `${width + gap}px`;
       el.style.top = `${0}px`;
-      return
+      return;
     }
 
     if (location.right > windowWidth) {
       el.style.left = `${windowWidth - location.right - gap}px`;
-      return
+      return;
     }
     if (location.left < 0) {
       el.style.left = 0;
-      return
+      return;
     }
   }
 }
@@ -103,5 +99,5 @@ export enum Directions {
   right,
   left,
   up,
-  down
+  down,
 }

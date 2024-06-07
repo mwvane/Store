@@ -3,10 +3,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 @Component({
   selector: 'app-rating',
   templateUrl: './rating.component.html',
-  styleUrl: './rating.component.css'
+  styleUrl: './rating.component.css',
 })
 export class RatingComponent implements OnInit {
-  
   @Input() rating: number = 0;
   @Input() maxRating: number = 5;
   @Input() readOnly: boolean = false;
@@ -15,26 +14,26 @@ export class RatingComponent implements OnInit {
 
   hovered: number = 0;
   ngOnInit(): void {
-    this.rating = this.value
+    this.rating = this.value;
   }
 
   get stars(): any[] {
-    let array = []
-    for(let i = 1; i<= this.maxRating; i++){
-      array.push(i)
+    let array = [];
+    for (let i = 1; i <= this.maxRating; i++) {
+      array.push(i);
     }
     return array;
   }
 
   rate(rating: number): void {
-    if(!this.readOnly){
+    if (!this.readOnly) {
       this.rating = rating;
       this.ratingChange.emit(this.rating);
     }
   }
 
   hover(index: number): void {
-    if(!this.readOnly){
+    if (!this.readOnly) {
       this.hovered = index;
     }
   }

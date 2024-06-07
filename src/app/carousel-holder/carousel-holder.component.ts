@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output, TemplateRef } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  TemplateRef,
+} from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { IMenuItem } from '../Models/menuIte';
 
@@ -39,20 +46,20 @@ export class CarouselHolderComponent implements OnInit {
       nav: this.nav,
     };
   }
-  @Input() timeout : number = 4
-  @Input() data : IMenuItem[] = []
-  @Input() showSingle: boolean = false
-  @Input() itemsOnXsm: number = 1
-  @Input() itemsOnMd: number = 3
-  @Input() itemsOnSm: number = 2
-  @Input() itemsOnLg: number = 4
-  @Input() itemsOnXlg: number = 6
-  @Input() dots: boolean = true
-  @Input() nav: boolean = false
-  @Input() loop: boolean = true
-  @Output() itemClick = new EventEmitter()
-  customOptions: any 
-  OnItemClick(item: IMenuItem){
-    this.itemClick.emit(item)
+  @Input() timeout: number = 4;
+  @Input() data: IMenuItem[] = [];
+  @Input() showSingle: boolean = false;
+  @Input() itemsOnXsm: number = 1;
+  @Input() itemsOnMd: number = 3;
+  @Input() itemsOnSm: number = 2;
+  @Input() itemsOnLg: number = 4;
+  @Input() itemsOnXlg: number = 6;
+  @Input() dots: boolean = true;
+  @Input() nav: boolean = false;
+  @Input() loop: boolean = true;
+  @Output() itemClick = new EventEmitter();
+  customOptions: any;
+  OnItemClick(item: IMenuItem) {
+    this.itemClick.emit(item);
   }
 }

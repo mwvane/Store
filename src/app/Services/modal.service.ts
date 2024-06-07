@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ModalService {
-
-  constructor() { }
-  loginDialog: boolean = false
+  constructor() {}
+  loginDialog: boolean = false;
 }

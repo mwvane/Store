@@ -1,10 +1,17 @@
 <div class="star-rating">
-    @for (item of stars; track $index) {}
-    <span *ngFor="let star of stars; let i = index" (click)="rate(i + 1)" (mouseover)="hover(i + 1)"
-        (mouseleave)="hover(0)">
-        <i class="bi" [ngClass]="{
-        'bi-star-fill': (hovered || rating) > i, 
-        'bi-star': (hovered || rating) <= i 
-      }"></i>
-    </span>
+  @for (item of stars; track $index) {}
+  <span
+    *ngFor="let star of stars; let i = index"
+    (click)="rate(i + 1)"
+    (mouseover)="hover(i + 1)"
+    (mouseleave)="hover(0)"
+  >
+    <i
+      class="bi"
+      [ngClass]="{
+        'bi-star-fill': (hovered || rating) > i,
+        'bi-star': (hovered || rating) <= i
+      }"
+    ></i>
+  </span>
 </div>

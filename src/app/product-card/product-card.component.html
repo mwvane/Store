@@ -1,27 +1,50 @@
 <div class="product-card-container p-3 border round-md">
-    <div class="card-body w-100">
-        <img src="{{data?.images![0]}}" alt="">
-    </div>
-    @if (this.data?.discount) {
-    <span id="discount-value">{{data?.discount?.value}}%</span>
-    }
-    <div class="card-footer">
-        <span id="card-title" class="bold fs-md">{{data?.name}}</span>
+  <div class="card-body w-100">
+    <img src="{{ (data?.images)![0] }}" alt="" />
+  </div>
+  @if (this.data?.discount) {
+  <span id="discount-value">{{ data?.discount?.value }}%</span>
+  }
+  <div class="card-footer">
+    <span id="card-title" class="bold fs-md">{{ data?.name }}</span>
 
-        <div id="price">
-            <span
-                class="bold">{{this.currencyService.currentCurency().symbol}}<span>{{descountedPrice?.toFixed(2)}}</span></span>
-            @if(data?.discount){
-            <span
-                class="deleted mx-2 fs-sm">{{this.currencyService.currentCurency().symbol}}<span>{{this.data?.price?.toFixed(2)}}</span></span>
-            }
-        </div>
-
-        <app-rating id="rating" [readOnly]="true" [value]="data?.rating!"></app-rating>
-        <div class="actions">
-            <button (click)="OnChangeFavorite($event)" class="iconBtn hilight"><i [ngClass]="data?.isFavorite ? 'bi bi-heart-fill text-cian': 'bi bi-heart'"></i></button>
-            <button id="cartIcon" class="iconBtn hilight"><i class="bi bi-cart-plus"></i></button>
-            <button (click)="OnAddToCart($event)" id="addToCart" style="font-size: 12px !important; height: 26px;" class="solidBtn d-flex hilight"><i class="bi bi-cart-plus mx-1"></i>{{'add' | translate}}</button>
-        </div>
+    <div id="price">
+      <span class="bold"
+        >{{ this.currencyService.currentCurency().symbol
+        }}<span>{{ descountedPrice?.toFixed(2) }}</span></span
+      >
+      @if(data?.discount){
+      <span class="deleted mx-2 fs-sm"
+        >{{ this.currencyService.currentCurency().symbol
+        }}<span>{{ this.data?.price?.toFixed(2) }}</span></span
+      >
+      }
     </div>
+
+    <app-rating
+      id="rating"
+      [readOnly]="true"
+      [value]="data?.rating!"
+    ></app-rating>
+    <div class="actions">
+      <button (click)="OnChangeFavorite($event)" class="iconBtn hilight">
+        <i
+          [ngClass]="
+            data?.isFavorite ? 'bi bi-heart-fill text-cian' : 'bi bi-heart'
+          "
+        ></i>
+      </button>
+      <button id="cartIcon" class="iconBtn hilight">
+        <i class="bi bi-cart-plus"></i>
+      </button>
+      <button
+        (click)="OnAddToCart($event)"
+        id="addToCart"
+        style="font-size: 12px !important; height: 26px"
+        class="solidBtn d-flex hilight"
+      >
+        <i class="bi bi-cart-plus mx-1"></i>{{ "add" | translate }}
+      </button>
+    </div>
+  </div>
 </div>

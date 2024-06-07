@@ -4,8 +4,12 @@
     <span>{{ currencyService.currentCurency().fullName }}</span>
     <i class="bi bi-chevron-down"></i>
   </div>
-  <app-menu [template]="cyrrencyTemplate" [closeParent]="closeParent" style="margin-top: 25px"
-    (optionClick)="currencyService.updateCurrency($event)"></app-menu>
+  <app-menu
+    [template]="cyrrencyTemplate"
+    [closeParent]="closeParent"
+    style="margin-top: 25px"
+    (optionClick)="currencyService.updateCurrency($event)"
+  ></app-menu>
 </div>
 
 <!-- ---- TEMPLATES------ -->
