@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { IMenuItem } from '../Models/menuIte';
+import { IMenuItem } from '../../Models/menuIte';
 
 @Component({
   selector: 'app-our-categories',

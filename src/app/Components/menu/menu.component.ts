@@ -10,8 +10,8 @@ import {
   TemplateRef,
   ViewChild,
 } from '@angular/core';
-import { IMenuItem } from '../Models/menuIte';
-import { Helpers } from '../helpers';
+import { IMenuItem } from '../../Models/menuIte';
+import { Helpers } from '../../helpers';
 
 @Component({
   selector: 'app-menu',

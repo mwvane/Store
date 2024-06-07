@@ -1,7 +1,7 @@
 import { Component, ElementRef, ViewChild, viewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { IMenuItem } from '../../Models/menuIte';
-import { Directions } from '../../menu/menu.component';
+import { Directions } from '../../Components/menu/menu.component';
 import { CategoryService } from '../../Services/category.service';
 import { Router } from '@angular/router';
 

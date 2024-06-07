@@ -1,7 +1,7 @@
 import { Injectable, OnInit, signal } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { ILanguage } from '../Models/language';
-import { StaticFiles } from '../staticFiles';
+import { ILanguage } from '../../Models/language';
+import { StaticFiles } from '../../staticFiles';
 
 @Injectable({
   providedIn: 'root',

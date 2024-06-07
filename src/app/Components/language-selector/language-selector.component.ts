@@ -1,6 +1,6 @@
 import { Component, Input, inject } from '@angular/core';
-import { ILanguage } from '../Models/language';
-import { StaticFiles } from '../staticFiles';
+import { ILanguage } from '../../Models/language';
+import { StaticFiles } from '../../staticFiles';
 import { LanguageService } from './language.service';
 
 @Component({

@@ -5,7 +5,7 @@ import {
   TemplateRef,
   ViewChild,
 } from '@angular/core';
-import { ICategory } from '../Models/category';
+import { ICategory } from '../../Models/category';
 
 @Component({
   selector: 'app-expand',

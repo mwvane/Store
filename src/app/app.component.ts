@@ -1,5 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { LanguageService } from './language-selector/language.service';
+import { LanguageService } from './Components/language-selector/language.service';
 import { TranslateService } from '@ngx-translate/core';
 import { MenuItem } from 'primeng/api';
 import { IMenuItem } from './Models/menuIte';
