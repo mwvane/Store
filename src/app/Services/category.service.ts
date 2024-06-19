@@ -1,58 +1,42 @@
 import { Injectable, signal } from '@angular/core';
 import { ICategory } from '../Models/category';
+import { HttpClient } from '@angular/common/http';
+import { env } from '../env';
+import { IResponse } from '../Models/response';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CategoryService {
-  constructor() {}
-  // temp
-  categories: ICategory[] = [
-    {
-      id: 1,
-      name: 'console',
-      icon: 'bi bi-controller',
-      subCategories: [
-        { id: 2, name: 'playstation', icon: 'bi bi-joystick' },
-        { id: 3, name: 'xbox', icon: 'bi bi-xbox' },
-      ],
-    },
-    {
-      id: 4,
-      name: 'clothes',
-      icon: 'bi bi-backpack2',
-      subCategories: [
-        { id: 5, name: 'hat', icon: 'bi bi-mortarboard' },
-        { id: 6, name: 'jacket', icon: 'bi bi-scissors' },
-      ],
-    },
-    {
-      id: 7,
-      name: 'tecnics',
-      icon: 'bi bi-laptop',
-      subCategories: [
-        { id: 8, name: 'smarthones', icon: 'bi bi-tablet' },
-        { id: 9, name: 'TV', icon: 'bi bi-tv' },
-        { id: 10, name: 'watches', icon: 'bi bi-watch' },
-      ],
-    },
-    {
-      id: 11,
-      name: 'software',
-      icon: 'bi bi-braces',
-    },
-    {
-      id: 12,
-      name: 'laptop components',
-      icon: 'bi bi-memory',
-      subCategories: [
-        { id: 13, name: 'RAM', icon: 'bi bi-nvme' },
-        { id: 14, name: 'video cards', icon: 'bi bi-nvidia' },
-        { id: 15, name: 'webcam', icon: 'bi bi-webcam' },
-        { id: 16, name: 'mouse', icon: 'bi bi-mouse2' },
-        { id: 17, name: 'keyboard', icon: 'bi bi-keyboard' },
-        { id: 18, name: 'SSD', icon: 'bi bi-device-ssd' },
-      ],
-    },
-  ];
+  private _categories = signal<ICategory[]>([])
+  isLoading : boolean = false
+  constructor(private http : HttpClient) {}
+
+  get categories(){
+    return this._categories()
+  }
+
+  getCategories(){
+    this.isLoading = true
+    this.http.get<IResponse>(`${env.baseUrl}Category/GetCategories`).subscribe(res => {
+      this.isLoading = false
+      if(res.data){
+        this._categories.set(res.data)
+        return true
+      }
+      return res.error
+    })
+  }
+
+  addCategory(category: ICategory){
+    this.isLoading = true
+    this.http.post<IResponse>(`${env.baseUrl}Category/AddCategory`,category).subscribe(res => {
+      this.isLoading = false
+      if(res.data){
+        this._categories().push(res.data)
+        return res.data
+      }
+      return res.error
+    })
+  }
 }

@@ -1,4 +1,4 @@
-<div #categories class="main-container light-border round-md hilight">
+<div #categories class="main-container light-border round-md">
   <div class="categories" (click)="expand(categories)">
     <div class="menu-btn center">
       <i class="bi bi-list"></i>
@@ -7,9 +7,10 @@
   </div>
   @if (this.open) {
   <div class="expand-container p-2">
+    <app-spinner [spin]="this.categoryService.isLoading"></app-spinner>
     <div class="category-container">
-      @for (item of categoryService.categories; track $index) {
-      <app-expand [data]="item" [border]="true"></app-expand>
+       @for (item of this.categoryService.categories; track $index) {
+        <app-expand [data]="item" [border]="true"></app-expand>
       }
     </div>
   </div>

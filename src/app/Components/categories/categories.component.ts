@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input } from '@angular/core';
+import { Component, ElementRef, Input, OnInit } from '@angular/core';
 import { CategoryService } from '../../Services/category.service';
 
 @Component({
@@ -6,8 +6,13 @@ import { CategoryService } from '../../Services/category.service';
   templateUrl: './categories.component.html',
   styleUrl: './categories.component.css',
 })
-export class CategoriesComponent {
+export class CategoriesComponent implements OnInit {
+
   constructor(public categoryService: CategoryService) {}
+
+  ngOnInit(): void {
+    this.categoryService.getCategories()
+  }
   @Input() open: boolean = true;
   expand(categories: any) {
     this.open = !this.open;

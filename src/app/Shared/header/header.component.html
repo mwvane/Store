@@ -122,8 +122,8 @@
         <span>{{ "categories" | translate }}</span>
         <i (click)="closeCategories()" class="bi bi-x fs-lg"></i>
       </div>
-
       <div class="sidebar-item-container">
+        <app-spinner [spin]="this.categoryService.isLoading"></app-spinner>
         @for (item of categoryService.categories; track $index) {
         <app-expand [data]="item" [border]="true"></app-expand>
         }
