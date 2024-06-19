@@ -211,6 +211,21 @@ span {
   color: var(--lightGreen);
 }
 
+/* ------- SELECT --------= */
+
+select {
+  border: var(--border);
+  outline: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("../src/assets/icons/navigation/chevron-down.svg");
+  background-repeat: no-repeat, repeat;
+  background-position: right 12px top 50%, 0 0;
+  background-size: 0.9em auto, 100%;
+  min-width: 150px;
+}
+
 /* ---------- BUTTONS ---------- */
 .rectBtn {
   outline: none;

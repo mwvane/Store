@@ -1,11 +1,26 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit, signal } from '@angular/core';
 import { IProduct } from '../Models/product';
+import { HttpClient } from '@angular/common/http';
+import { env } from '../env';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
-  constructor() {}
+  productsFromDb = signal<IProduct[]>([])
+  constructor(private http : HttpClient) {
+    this.getProducts()
+  }
+
+  getProducts(){
+    this.http.get<any>(`${env.baseUrl}Product/GetProducts`).subscribe(res => {
+      if(res.data){
+        this.productsFromDb.set(res.data)
+        console.log(this.productsFromDb())
+      }
+    })
+  }
+
   products: IProduct[] = [
     {
       id: 1,

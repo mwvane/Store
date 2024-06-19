@@ -1,7 +1,7 @@
 <div class="main-container">
   <div class="space-between" (click)="expand()">
     <div class="sidebar-item">
-      <i class="{{ data.icon }}"></i>
+      <i class="{{ data.image }}"></i>
       <span>{{ data.name }}</span>
     </div>
     @if (data.subCategories?.length) {
@@ -12,7 +12,7 @@
   <div class="expand-container px-3 py-2 round-sm">
     @for (item of data.subCategories; track $index) {
     <div class="sidebar-item fs-sm">
-      <i class="{{ item.icon }}"></i>
+      <i class="{{ item.image }}"></i>
       <span>{{ item.name }}</span>
     </div>
     }

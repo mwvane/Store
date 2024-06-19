@@ -31,6 +31,10 @@ import { SectionComponent } from './Components/section/section.component';
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
 import { DialogModule } from 'primeng/dialog';
 import { LoginModalComponent } from './Modals/login-modal/login-modal.component';
+import { SpacialsComponent } from './Pages/spacials/spacials.component';
+import { DataViewModule } from 'primeng/dataview';
+import { ProductGridComponent } from './Components/product-grid/product-grid.component';
+import { SpinnerComponent } from './Components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +58,9 @@ import { LoginModalComponent } from './Modals/login-modal/login-modal.component'
     SectionComponent,
     ProductDetailsComponent,
     LoginModalComponent,
+    SpacialsComponent,
+    ProductGridComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,6 +78,7 @@ import { LoginModalComponent } from './Modals/login-modal/login-modal.component'
     ReactiveFormsModule,
     CarouselModule,
     DialogModule,
+    DataViewModule
   ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],

@@ -12,9 +12,13 @@
 }
 .actions {
   position: absolute;
-  top: 25px;
-  right: 25px;
+  top: 15px;
+  right: 15px;
   display: none;
+}
+
+.product-card-container {
+  position: relative;
 }
 
 .product-card-container:hover .actions {
@@ -33,8 +37,8 @@
   padding: 2px 9px;
   border-radius: 4px;
   position: absolute;
-  top: 25px;
-  left: 25px;
+  top: 15px;
+  left: 15px;
 }
 
 .card-footer {

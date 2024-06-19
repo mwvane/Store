@@ -18,3 +18,9 @@
 .sidebar-item:hover {
   color: var(--lightGreen) !important;
 }
+
+.icon {
+  width: 18px;
+  object-fit: cover;
+  fill: red;
+}
