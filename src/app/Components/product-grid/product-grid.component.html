@@ -1,0 +1,59 @@
+<div class="grid-container">
+    <div class="filter-container border round-sm p-1 space-between center-y">
+        <div class="view-format">
+          <div class="center-y gap-2">
+            <i
+              #listView
+              (click)="setListView()"
+              class="bi bi-list-task pointer active"
+              style="font-size: 30px"
+            ></i>
+            <i
+              #gridView
+              (click)="setGridView()"
+              class="bi bi-grid-3x3-gap fs-lg pointer"
+            ></i>
+          </div>
+        </div>
+        <div class="filters">
+          <div class="filter-select">
+            <div class="">
+              <label for="sort">{{ "sort by" | translate }}:</label>
+            </div>
+            <div class="">
+              <select class="mx-2 fs-sm rect-select" name="" id="sort">
+                <option value="1">{{ "default" | translate }}</option>
+                <option value="2">{{ "name" | translate }}(A-Z)</option>
+                <option value="3">{{ "name" | translate }}(Z-A)</option>
+                <option value="4">{{ "price" | translate }}(low-high)</option>
+                <option value="5">{{ "rating" | translate }}(higest)</option>
+                <option value="5">{{ "rating" | translate }}(lowest)</option>
+              </select>
+            </div>
+          </div>
+          <div class="filter-select">
+            <div class="">
+              <label for="show">{{ "show" | translate }}:</label>
+            </div>
+            <div class="">
+              <select class="mx-2 fs-sm rect-select" name="" id="show">
+                <option value="1">10</option>
+                <option value="2">20</option>
+                <option value="3">50</option>
+                <option value="4">75</option>
+                <option value="5">100</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="grid mt-3">
+        <div class="row">
+            @for (product of products; track product.id) {
+                <div [ngClass] = "layout == 'grid' ? 'col-sm-6 col-md-4 col-lg-3 mt-3': 'col-12 mt-3' ">
+                    <app-product-card [data]="product"></app-product-card>
+                </div>
+            }
+        </div>
+      </div>
+</div>
