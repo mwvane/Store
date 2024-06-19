@@ -1,0 +1,7 @@
+.spinner-border {
+    color: var(--lightGreen);
+}
+.sinner-container {
+    height: 100%;
+    min-height: 150px;
+}
