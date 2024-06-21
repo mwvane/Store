@@ -12,13 +12,10 @@
         <div class="w-100 d-flex">
           <div class="searchbar-categories" style="min-width: 200px">
             <select class="w-100" formControlName="category">
-              <option value="1">categories</option>
-              <option value="2">categories</option>
-              <option value="3">categories</option>
-              <option value="4">categories</option>
-              <option value="1">categories</option>
-              <option value="1">categories</option>
-              <option value="1">categories</option>
+              <option value="1">All Categories</option>   
+              @for (category of categoryService.categories; track $index) {
+                <option value="{{category.id}}">{{category.name}}</option>
+              }
             </select>
           </div>
 

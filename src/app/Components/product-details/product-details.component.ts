@@ -17,7 +17,7 @@ export class ProductDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       this.product = this.productService.products.find((item) => {
-        return item.id == params['id'];
+        return item.productId == params['id'];
       });
       this.currentImage = this.product!.images![0];
     });

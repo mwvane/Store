@@ -23,7 +23,7 @@ export class ProductService {
 
   products: IProduct[] = [
     {
-      id: 1,
+      productId: 1,
       name: 'blue jacket',
       price: 99,
       quantity: 0,
@@ -46,7 +46,7 @@ export class ProductService {
       },
     },
     {
-      id: 5,
+      productId: 5,
       name: 'blue balb',
       price: 12,
       quantity: 1,
@@ -68,7 +68,7 @@ export class ProductService {
       },
     },
     {
-      id: 2,
+      productId: 2,
       name: 'bottle cian',
       price: 20,
       quantity: 10,
@@ -85,7 +85,7 @@ export class ProductService {
       ],
     },
     {
-      id: 3,
+      productId: 3,
       name: 'yellow jacket',
       price: 999,
       quantity: 10,
@@ -101,7 +101,7 @@ export class ProductService {
       ],
     },
     {
-      id: 4,
+      productId: 4,
       name: 'yellow balb',
       price: 50,
       quantity: 10,
@@ -125,7 +125,7 @@ export class ProductService {
       },
     },
     {
-      id: 6,
+      productId: 6,
       name: 'rose dishes',
       price: 30,
       quantity: 9,
@@ -148,7 +148,7 @@ export class ProductService {
       },
     },
     {
-      id: 7,
+      productId: 7,
       name: 'smart watch',
       price: 30,
       quantity: 9,
@@ -171,7 +171,7 @@ export class ProductService {
       },
     },
     {
-      id: 8,
+      productId: 8,
       name: 'ear buds',
       price: 140,
       quantity: 9,

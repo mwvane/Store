@@ -75,7 +75,7 @@ export class HomeComponent {
     alert(item.text);
   }
   viewProduct(product: IProduct) {
-    this.router.navigate(['ProductDetails', product.id]);
+    this.router.navigate(['ProductDetails', product.productId]);
   }
   addToCart(product: IProduct) {}
 }

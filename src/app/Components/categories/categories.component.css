@@ -16,7 +16,6 @@
   align-items: center;
   border-radius: 10px 10px 0 0;
   color: white;
-  min-width: 260px;
   cursor: pointer;
 }
 .categories:hover {
@@ -36,6 +35,11 @@
   background-color: rgba(255, 255, 255, 0.2);
 }
 .main-container {
-  max-height: 300px;
-  overflow: auto;
+  min-width: 240px;
+}
+.expand-container {
+  width: 100% !important;
+  max-height: 390px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
