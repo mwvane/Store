@@ -1,7 +1,9 @@
 import {
   Component,
   ElementRef,
+  EventEmitter,
   Input,
+  Output,
   TemplateRef,
   ViewChild,
 } from '@angular/core';
@@ -16,6 +18,7 @@ export class ExpandComponent {
   @Input() data: ICategory = { id: 0, name: 'category' };
   @Input() border: boolean = false;
   @Input() shadow: boolean = false;
+  @Output() itemClick = new EventEmitter()
 
   isOpen = false;
   expand() {
@@ -26,5 +29,8 @@ export class ExpandComponent {
         this.isOpen = true;
       }
     }
+  }
+  onItemClick(item : ICategory){
+    this.itemClick.emit(item)
   }
 }

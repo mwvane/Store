@@ -35,6 +35,12 @@ import { SpacialsComponent } from './Pages/spacials/spacials.component';
 import { DataViewModule } from 'primeng/dataview';
 import { ProductGridComponent } from './Components/product-grid/product-grid.component';
 import { SpinnerComponent } from './Components/spinner/spinner.component';
+import { DashboardComponent } from './Admin/Pages/dashboard/dashboard.component';
+import { AdminHeaderComponent } from './Admin/Shared/admin-header/admin-header.component';
+import { AddProductComponent } from './Admin/Pages/add-product/add-product.component';
+import { AdminSidebarComponent } from './Admin/Shared/admin-sidebar/admin-sidebar.component';
+import { FileUploderComponent } from './Components/file-uploder/file-uploder.component';
+import { MultiSelectModule } from 'primeng/multiselect';
 
 @NgModule({
   declarations: [
@@ -61,6 +67,11 @@ import { SpinnerComponent } from './Components/spinner/spinner.component';
     SpacialsComponent,
     ProductGridComponent,
     SpinnerComponent,
+    DashboardComponent,
+    AdminHeaderComponent,
+    AddProductComponent,
+    AdminSidebarComponent,
+    FileUploderComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,7 +89,8 @@ import { SpinnerComponent } from './Components/spinner/spinner.component';
     ReactiveFormsModule,
     CarouselModule,
     DialogModule,
-    DataViewModule
+    DataViewModule,
+    MultiSelectModule
   ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],

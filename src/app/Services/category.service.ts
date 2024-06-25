@@ -9,11 +9,15 @@ import { IResponse } from '../Models/response';
 })
 export class CategoryService {
   private _categories = signal<ICategory[]>([])
+  private _allCategories = signal<ICategory[]>([])
   isLoading : boolean = false
   constructor(private http : HttpClient) {}
 
   get categories(){
     return this._categories()
+  }
+  get allCategories(){
+    return this._allCategories()
   }
 
   getCategories(){
@@ -22,6 +26,17 @@ export class CategoryService {
       this.isLoading = false
       if(res.data){
         this._categories.set(res.data)
+        return true
+      }
+      return res.error
+    })
+  }
+  getAllCategories(){
+    this.isLoading = true
+    this.http.get<IResponse>(`${env.baseUrl}Category/GetAllCategories`).subscribe(res => {
+      this.isLoading = false
+      if(res.data){
+        this._allCategories.set(res.data)
         return true
       }
       return res.error

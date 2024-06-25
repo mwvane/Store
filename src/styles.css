@@ -1,30 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
 @import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
-@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
-@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+@import "ngx-owl-carousel-o/lib/styles/scss/owl.carousel";
+@import "ngx-owl-carousel-o/lib/styles/scss/owl.theme.default";
 @font-face {
-  font-family: 'FiraGO';
-  src: url("../node_modules/@fontsource/firago/files/firago-latin-400-normal.woff") format('woff2'),
-       url('../node_modules/@fontsource/firago/files/firago-latin-400-italic.woff') format('woff'),
-       url('../node_modules/@fontsource/firago/files/firago-latin-600-normal.woff') format('woff')
-       url('../node_modules/@fontsource/firago/files/firago-latin-600-italic.woff') format('woff');
+  font-family: "FiraGO";
+  src: url("../node_modules/@fontsource/firago/files/firago-latin-400-normal.woff")
+      format("woff2"),
+    url("../node_modules/@fontsource/firago/files/firago-latin-400-italic.woff")
+      format("woff"),
+    url("../node_modules/@fontsource/firago/files/firago-latin-600-normal.woff")
+      format("woff")
+      url("../node_modules/@fontsource/firago/files/firago-latin-600-italic.woff")
+      format("woff");
   font-weight: normal;
   font-style: normal;
 }
+/* @font-face {
+  font-family: "Mark GEO";
+  src: url("assets/Mark_GEO/Mark_GEO.woff") format(woff);
+} */
 * {
-  font-family: 'FiraGO', sans-serif;
+  font-family: "FiraGO", sans-serif;
+  /* font-family: 'Mark GEO ', sans-serif; */
 }
 :root {
   --gray: #f5f5f5;
-  --lightGray: #F6F4F5;
+  --lightGray: #f6f4f5;
   --lightGreen: #95bf46;
   --disabled: #d5efa4;
   --disabled-gray: #878984;
   --shadow: 0 0px 5px rgba(0, 0, 0, 0.175);
-  --hilight: rgba(149, 191, 70, 1) 0px 4px 36px 0px, rgba(149, 191, 70, 1) 0px 0px 0px 1px;
+  --hilight: rgba(149, 191, 70, 1) 0px 4px 36px 0px,
+    rgba(149, 191, 70, 1) 0px 0px 0px 1px;
   --border: 1px solid #e7e7e7;
-  --light-border: 1px solid rgba(231, 231, 231, .6);
+  --light-border: 1px solid rgba(231, 231, 231, 0.6);
   --xsm: 0.7rem;
   --sm: 0.9rem;
   --md: 1rem;
@@ -45,7 +55,7 @@
 
 /* Style the scrollbar track */
 ::-webkit-scrollbar-track {
-  background: white;
+  background: transparent;
   /* Set track background color */
   border-radius: 6px;
   /* Add rounded corners */
@@ -53,14 +63,14 @@
 
 /* Style the scrollbar thumb */
 ::-webkit-scrollbar-thumb {
-  background: var(--lightGreen);
+  background: rgba(122, 121, 121, 0.2);
   /* Set thumb background color */
   border-radius: 6px;
 }
 
 /* Style the thumb on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #666;
+  background: var(--lightGreen);
   /* Change color on hover */
 }
 
@@ -73,9 +83,6 @@
     max-width: 100% !important;
   }
 
-  .section {
-    margin-top: 18px !important;
-  }
   .section h4 {
     font-size: 16px !important;
   }
@@ -114,13 +121,13 @@
   gap: 2rem;
 }
 .pb-1 {
-  padding-bottom: .25rem;
+  padding-bottom: 0.25rem;
 }
 .pb-2 {
-  padding-bottom: .5rem;
+  padding-bottom: 0.5rem;
 }
 .pb-3 {
-  padding-bottom: .75rem;
+  padding-bottom: 0.75rem;
 }
 .pb-4 {
   padding-bottom: 1rem;
@@ -174,6 +181,29 @@
 
 span {
   text-transform: capitalize;
+}
+.requared {
+  font-size: 16px !important;
+  color: red;
+  font-weight: 600;
+  padding-right: 6px;
+}
+
+/* ------ INPUT ----- */
+
+.input-light {
+  min-width: 200px;
+  width: 100%;
+  outline: none;
+  border: var(--border);
+  border-radius: 4px;
+  padding: 8px 16px;
+}
+.form-container input:focus {
+  border: 1px solid var(--lightGreen);
+}
+.form-container select:focus {
+  border: 1px solid var(--lightGreen);
 }
 
 /* ------------ Other ------------ */
@@ -299,12 +329,46 @@ select {
   border-radius: 16px;
 }
 
-
-
 .hover:hover {
   color: var(--lightGreen);
 }
 
-.section {
-  margin-top: 20px;
+/* -----PRIMANGE---- */
+ /* multiselect */
+.p-multiselect * {
+  font-size: 1rem;
+  outline: none;
+}
+.p-multiselect {
+  width: 100%;
+}
+.p-multiselect:hover {
+  border-color: var(--lightGreen);
+}
+.p-focus {
+  border-color: var(--lightGreen);
+  box-shadow: none;
+}
+.p-multiselect-filter-container input:focus {
+  box-shadow: none;
+  border-color: var(--lightGreen);
+}
+.p-multiselect ul {
+  padding: 0 !important;
+}
+.p-multiselect-label {
+  padding: 0.5rem 1rem;
+}
+.p-inputtext {
+  padding: 0.2rem .9rem;
+}
+
+/* ----CHECKBOX----- */
+
+.p-checkbox .p-checkbox-box.p-highlight {
+  border-color: var(--lightGreen);
+  background: var(--lightGreen);
+}
+.p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box:hover {
+  border-color: var(--lightGreen);
 }

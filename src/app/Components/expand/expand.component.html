@@ -11,7 +11,7 @@
   @if (this.isOpen) {
   <div class="expand-container px-3 py-2 round-sm">
     @for (item of data.subCategories; track $index) {
-    <div class="sidebar-item fs-sm">
+    <div class="sidebar-item fs-sm" (click)="onItemClick(item)">
       <i class="{{ item.image }}"></i>
       <span>{{ item.name }}</span>
     </div>

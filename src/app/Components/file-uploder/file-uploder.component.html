@@ -1,0 +1,9 @@
+<div class="file-input-container">
+  <div class="direction-y center custom-file-button round-md">
+    <div class="center">
+        <i class="bi bi-cloud-arrow-up fs-xxlg" ></i>
+    </div>
+    <span class="fs-sm">select your files here <span class="link">click to browse</span></span>
+  </div>
+  <input multiple="true" type="file" id="fileInput" (change)="onSelectFile($event.target)" />
+</div>

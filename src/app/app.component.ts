@@ -6,6 +6,7 @@ import { IMenuItem } from './Models/menuIte';
 import { ViewportScroller } from '@angular/common';
 import { IProduct } from './Models/product';
 import { ModalService } from './Services/modal.service';
+import { AuthService } from './Services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,9 @@ import { ModalService } from './Services/modal.service';
 })
 export class AppComponent {
   scrollToUp: boolean = false;
-  constructor(private viewportScroller: ViewportScroller) {}
+  constructor(private viewportScroller: ViewportScroller, public authService : AuthService) {
+
+  }
   scrollToTop() {
     this.viewportScroller.scrollToPosition([0, 0]);
   }

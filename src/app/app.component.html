@@ -1,16 +1,28 @@
 <div class="mian-container">
-  <app-top-offer id="topoffer"></app-top-offer>
-  <app-header id="header"></app-header>
-  <app-linkmenu id="linkmenu"></app-linkmenu>
-  @if (scrollToUp) {
-  <div>
-    <button class="scroll-to-top hilight" (click)="scrollToTop()">
-      <i class="bi bi-chevron-up"></i>
-    </button>
-  </div>
+  @if (this.authService.currentUser.role != this.authService.userRoles.admin) {
+    <app-top-offer id="topoffer"></app-top-offer>
+    <app-header id="header"></app-header>
+    <app-linkmenu id="linkmenu"></app-linkmenu>
+    @if (scrollToUp) {
+    <div>
+      <button class="scroll-to-top hilight" (click)="scrollToTop()">
+        <i class="bi bi-chevron-up"></i>
+      </button>
+    </div>
+    }
+    <router-outlet></router-outlet>
   }
-  <router-outlet></router-outlet>
+  @else {
+  <!-- ----- ADMIN ------ -->
 
+    <app-admin-header></app-admin-header>
+    <div class="w-100 d-flex">
+      <app-admin-sidebar></app-admin-sidebar>
+      <div class="container">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  }
   <!-- ------ MODALS -------- -->
   <app-login-modal></app-login-modal>
 </div>

@@ -5,9 +5,12 @@ import { RegisterComponent } from './Pages/Auth/register/register.component';
 import { LoginComponent } from './Pages/Auth/login/login.component';
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
 import { SpacialsComponent } from './Pages/spacials/spacials.component';
+import { DashboardComponent } from './Admin/Pages/dashboard/dashboard.component';
+import { AddProductComponent } from './Admin/Pages/add-product/add-product.component';
 
 const routes: Routes = [
-  { path: '', title: 'home', component: HomeComponent },
+  // { path: '', title: 'home', component: HomeComponent },
+  { path: '', title: 'dashboard', component: DashboardComponent },
   { path: 'Home', title: 'Home', component: HomeComponent },
   { path: 'Register', title: 'Register', component: RegisterComponent },
   { path: 'Login', title: 'Login', component: LoginComponent },
@@ -17,6 +20,8 @@ const routes: Routes = [
     title: 'ProductDetails',
     component: ProductDetailsComponent,
   },
+  // admin
+  {path: "AddProduct", title: "AddProduct", component: AddProductComponent}
 ];
 
 @NgModule({

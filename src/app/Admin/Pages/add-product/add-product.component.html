@@ -1,0 +1,131 @@
+<div class="container">
+  <app-section [borderBottom]="true" [tittle]="'add product'"></app-section>
+  <form [formGroup]="productForm" (ngSubmit)="addProduct()">
+    <div class="row form-container">
+      <div class="col-md-12 col-lg-6 border round-md py-3 direction-y gap-4">
+        <!-- NAME -->
+        <div class="input-container">
+          <div class="d-flex info">
+            <i class="requared">*</i>
+            <label class="nowrap" for="name">{{ "name" | translate }}</label>
+          </div>
+          <input
+            class="input-light"
+            placeholder="{{ 'name' | translate }}"
+            type="text"
+            formControlName="name"
+          />
+        </div>
+        <!-- PRICE AND MANUFACTURER -->
+        <div class="d-flex gap-3">
+          <div class="input-container w-50">
+            <div class="d-flex info">
+              <i class="requared">*</i>
+              <label class="nowrap" for="price">{{
+                "price" | translate
+              }}</label>
+            </div>
+            <input
+              class="input-light"
+              placeholder="{{ 'price' | translate }}"
+              type="price"
+              formControlName="price"
+            />
+          </div>
+
+          <div class="input-container w-50">
+            <div class="d-flex info">
+              <i class="requared">*</i>
+              <label class="nowrap" for="price">{{
+                "manufacturer" | translate
+              }}</label>
+            </div>
+            <select
+              class="fs-sm fs-md input-light"
+              name=""
+              id="manufacturer"
+              formControlName="manufacturer"
+            >
+              <option value="0">{{ "manufacturer" | translate }}</option>
+              @for (item of this.manufacturerServcie.manufacturers; track
+              $index) {
+              <option value="{{ item.id }}">
+                {{ item.name | translate }}
+              </option>
+              }
+            </select>
+          </div>
+        </div>
+        <!-- CATEGORY AND OPTIONS -->
+        <div class="d-flex gap-3">
+          <div class="input-container w-50">
+            <div class="d-flex info">
+              <i class="requared">*</i>
+              <label class="nowrap" for="category">{{
+                "category" | translate
+              }}</label>
+            </div>
+            <select
+              class="fs-md input-light"
+              name=""
+              id="manufacturer"
+              formControlName="category"
+            >
+              <option value="0">{{ "category" | translate }}</option>
+              @for (item of this.categoryService.allCategories; track $index) {
+              <option value="{{ item.id }}">{{ item.name | translate }}</option>
+              }
+            </select>
+          </div>
+
+          <div class="input-container w-50">
+            <div class="d-flex info">
+              <i class="requared">*</i>
+              <label class="nowrap" for="options">{{
+                "options" | translate
+              }}</label>
+            </div>
+            <p-multiSelect
+              [options]="this.optionService.options"
+              formControlName="options"
+              optionLabel="name"
+              placeholder="{{'select options' | translate}}"
+              [loading]="this.optionService.isLoading"
+              class="w-100"
+            />
+          </div>
+        </div>
+        <!-- DESCRIPTION -->
+        <div class="input-container">
+          <div class="d-flex info">
+            <i class="requared">*</i>
+            <label class="nowrap" for="description">{{
+              "description" | translate
+            }}</label>
+          </div>
+          <textarea
+            class="input-light"
+            style="min-height: 150px"
+            placeholder="{{ 'description' | translate }}"
+            type="text"
+            formControlName="description"
+          >
+          </textarea>
+        </div>
+      </div>
+      <div
+        class="col-md-12 col-lg-6 border round-md"
+        style="position: relative"
+      >
+        <app-file-uploder></app-file-uploder>
+        <!-- SUBMIT BUTTON -->
+        <button
+          class="solidBtn hilight mt-3"
+          style="max-width: 140px; position: absolute; bottom: 15px"
+        >
+          add product
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
