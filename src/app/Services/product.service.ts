@@ -2,23 +2,37 @@ import { Injectable, OnInit, signal } from '@angular/core';
 import { IProduct } from '../Models/product';
 import { HttpClient } from '@angular/common/http';
 import { env } from '../env';
+import { formatDate } from '@angular/common';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
-  productsFromDb = signal<IProduct[]>([])
-  constructor(private http : HttpClient) {
-    this.getProducts()
+  formdata: FormData = new FormData();
+  productsFromDb = signal<IProduct[]>([]);
+  constructor(private http: HttpClient) {
+    this.getProducts();
   }
 
-  getProducts(){
-    this.http.get<any>(`${env.baseUrl}Product/GetProducts`).subscribe(res => {
-      if(res.data){
-        this.productsFromDb.set(res.data)
-        console.log(this.productsFromDb())
+  getProducts() {
+    this.http.get<any>(`${env.baseUrl}Product/GetProducts`).subscribe((res) => {
+      if (res.data) {
+        this.productsFromDb.set(res.data);
+        console.log(this.productsFromDb());
       }
-    })
+    });
+  }
+
+  addProduct(formData: FormData) {
+    debugger
+    this.http.post<any>(`${env.baseUrl}Product/AddProduct`, formData).subscribe(
+      (res) => {
+        if (res.data) {
+          this.productsFromDb.set(res.data);
+          console.log("test" + this.productsFromDb());
+        }
+      }
+    );
   }
 
   products: IProduct[] = [

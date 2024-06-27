@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
 @import "ngx-owl-carousel-o/lib/styles/scss/owl.carousel";
 @import "ngx-owl-carousel-o/lib/styles/scss/owl.theme.default";
 @font-face {
@@ -333,8 +334,18 @@ select {
   color: var(--lightGreen);
 }
 
+/* ----IMAGE----- */
+.preview-image {
+  width: 160px;
+  height: 167px;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  border: var(--border);
+}
+
 /* -----PRIMANGE---- */
- /* multiselect */
+/* multiselect */
 .p-multiselect * {
   font-size: 1rem;
   outline: none;
@@ -353,15 +364,47 @@ select {
   box-shadow: none;
   border-color: var(--lightGreen);
 }
+.p-multiselect-filter-container input:hover {
+  border-color: var(--lightGreen);
+}
 .p-multiselect ul {
   padding: 0 !important;
 }
 .p-multiselect-label {
   padding: 0.5rem 1rem;
 }
-.p-inputtext {
-  padding: 0.2rem .9rem;
+.p-multiselect-filter-container input {
+  padding: 0.2rem 0.9rem;
 }
+
+/* dropdown */
+.p-dropdown {
+  width: 100%;
+}
+.p-dropdown:hover {
+  border: 1px solid var(--lightGreen);
+}
+.p-inputtext {
+  padding: 0.5rem 1rem;
+}
+.p-dropdown-items {
+  padding: 0 !important;
+}
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
+  color: inherit;
+}
+.p-dropdown-filter-container input {
+  padding: 0.2rem 0.9rem;
+
+}
+.p-dropdown-filter-container input:focus {
+  box-shadow: none;
+  border-color: var(--lightGreen);
+}
+.p-dropdown-filter-container input:hover {
+  border-color: var(--lightGreen);
+}
+
 
 /* ----CHECKBOX----- */
 

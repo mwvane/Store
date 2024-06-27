@@ -41,6 +41,8 @@ import { AddProductComponent } from './Admin/Pages/add-product/add-product.compo
 import { AdminSidebarComponent } from './Admin/Shared/admin-sidebar/admin-sidebar.component';
 import { FileUploderComponent } from './Components/file-uploder/file-uploder.component';
 import { MultiSelectModule } from 'primeng/multiselect';
+import { DropdownModule } from 'primeng/dropdown';
+import { SpinnerModule } from 'primeng/spinner';
 
 @NgModule({
   declarations: [
@@ -72,6 +74,7 @@ import { MultiSelectModule } from 'primeng/multiselect';
     AddProductComponent,
     AdminSidebarComponent,
     FileUploderComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -90,7 +93,9 @@ import { MultiSelectModule } from 'primeng/multiselect';
     CarouselModule,
     DialogModule,
     DataViewModule,
-    MultiSelectModule
+    MultiSelectModule,
+    DropdownModule,
+    SpinnerModule
   ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],

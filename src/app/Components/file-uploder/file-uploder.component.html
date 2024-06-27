@@ -5,5 +5,5 @@
     </div>
     <span class="fs-sm">select your files here <span class="link">click to browse</span></span>
   </div>
-  <input multiple="true" type="file" id="fileInput" (change)="onSelectFile($event.target)" />
+  <input multiple="true" type="file" id="fileInput" (change)="onSelectFile($event.target)" accept="{{this.fileType}}" />
 </div>

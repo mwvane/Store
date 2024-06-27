@@ -40,20 +40,15 @@
                 "manufacturer" | translate
               }}</label>
             </div>
-            <select
-              class="fs-sm fs-md input-light"
-              name=""
-              id="manufacturer"
+            <p-dropdown
+              [options]="this.manufacturerServcie.manufacturers"
               formControlName="manufacturer"
-            >
-              <option value="0">{{ "manufacturer" | translate }}</option>
-              @for (item of this.manufacturerServcie.manufacturers; track
-              $index) {
-              <option value="{{ item.id }}">
-                {{ item.name | translate }}
-              </option>
-              }
-            </select>
+              optionLabel="name"
+              [loading]="this.manufacturerServcie.isLoading"
+              [filter]="true"
+              filterBy="name"
+              placeholder="select a manufacturer"
+            />
           </div>
         </div>
         <!-- CATEGORY AND OPTIONS -->
@@ -65,17 +60,15 @@
                 "category" | translate
               }}</label>
             </div>
-            <select
-              class="fs-md input-light"
-              name=""
-              id="manufacturer"
+            <p-dropdown
+              [options]="this.categoryService.allCategories"
               formControlName="category"
-            >
-              <option value="0">{{ "category" | translate }}</option>
-              @for (item of this.categoryService.allCategories; track $index) {
-              <option value="{{ item.id }}">{{ item.name | translate }}</option>
-              }
-            </select>
+              optionLabel="name"
+              [loading]="this.categoryService.isLoading"
+              [filter]="true"
+              filterBy="name"
+              placeholder="select a category"
+            />
           </div>
 
           <div class="input-container w-50">
@@ -88,13 +81,14 @@
             <p-multiSelect
               [options]="this.optionService.options"
               formControlName="options"
-              optionLabel="name"
-              placeholder="{{'select options' | translate}}"
+              optionLabel="{{ ['name'] }}"
+              placeholder="{{ 'select options' | translate }}"
               [loading]="this.optionService.isLoading"
               class="w-100"
             />
           </div>
         </div>
+
         <!-- DESCRIPTION -->
         <div class="input-container">
           <div class="d-flex info">
@@ -114,14 +108,19 @@
         </div>
       </div>
       <div
-        class="col-md-12 col-lg-6 border round-md"
-        style="position: relative"
+        class="col-md-12 col-lg-6 border round-md image-container"
       >
-        <app-file-uploder></app-file-uploder>
+        @for (item of this.imagesUrls; track $index) {
+        <img class="preview-image" [src]="item" alt="test" />
+        }
+        <app-file-uploder
+          (selectFiles)="selectImages($event)"
+        ></app-file-uploder>
         <!-- SUBMIT BUTTON -->
+
         <button
           class="solidBtn hilight mt-3"
-          style="max-width: 140px; position: absolute; bottom: 15px"
+          style="max-width: 140px;"
         >
           add product
         </button>
