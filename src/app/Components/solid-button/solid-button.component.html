@@ -1,0 +1,12 @@
+<button class="solidBtn hilight nowrap">
+  <div class="d-flex space-between gap-3">
+    <span>{{ tittle }}</span>
+    @if(this.isLoading){
+    <div
+      style="width: 15px; height: 15px"
+      class="spinner-border"
+      role="status"
+    ></div>
+    }
+  </div>
+</button>
