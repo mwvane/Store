@@ -14,10 +14,10 @@ export class AddProductComponent implements OnInit {
   productForm = new FormGroup({
     name: new FormControl('', [Validators.required]),
     price: new FormControl('', [Validators.required]),
-    manufacturer: new FormControl(0, [Validators.required]),
-    category: new FormControl(0, [Validators.required]),
-    // productImages: new FormControl(new FormData(), [Validators.required]),
-    options: new FormControl(0, [Validators.required]),
+    manufacturer: new FormControl('', [Validators.required]),
+    category: new FormControl('', [Validators.required]),
+    productImages: new FormControl('', [Validators.required]),
+    options: new FormControl('', [Validators.required]),
     description: new FormControl('', [Validators.required]),
   });
 
@@ -34,13 +34,36 @@ export class AddProductComponent implements OnInit {
     public categoryService: CategoryService,
     public manufacturerServcie: ManufacturerService,
     public optionService: OptionService,
-    private productService: ProductService
+    public productService: ProductService
   ) {}
 
-  addProduct() {
-    console.log(this.productForm.controls);
-    this.formData.append("product", JSON.stringify(this.productForm.value))
-    this.productService.addProduct(this.formData);
+  async addProduct() {
+    try {
+      if (!this.productService.loading) {
+        this.formData.append(
+          'product',
+          JSON.stringify({
+            name: this.productForm.controls.name.value,
+            price: this.productForm.controls.price.value,
+            manufacturer: this.productForm.controls.manufacturer.value,
+            category: this.productForm.controls.category.value,
+            options: this.productForm.controls.options.value,
+            description: this.productForm.controls.description.value,
+          })
+        );
+        const isAdded = await this.productService.addProduct(this.formData);
+        if (isAdded) {
+          console.log('Product successfully added');
+          this.productForm.reset();
+          this.selectedFiles = [];
+          this.formData = new FormData();
+          this.imagesUrls = [];
+        }
+      }
+    } catch (error) {
+      console.error('Failed to add product', error);
+      // Handle the error appropriately
+    }
   }
 
   selectImages(images: FileList) {
@@ -48,6 +71,11 @@ export class AddProductComponent implements OnInit {
       this.formData.append(`images`, images[i], images[i].name);
     }
     this.selectedFiles = images;
+    if (this.selectedFiles.length >= 1) {
+      this.productForm.patchValue({
+        productImages: 'true',
+      });
+    }
 
     // priview images
     if (images.length) {

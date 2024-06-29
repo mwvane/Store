@@ -189,11 +189,21 @@ span {
   font-weight: 600;
   padding-right: 6px;
 }
+.text-error {
+  color: red;
+  font-size: 12px;
+}
+
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
 /* ------ INPUT ----- */
 
 .input-light {
-  min-width: 200px;
+  min-width: 100px;
   width: 100%;
   outline: none;
   border: var(--border);
@@ -343,6 +353,12 @@ select {
   border-radius: 10px;
   border: var(--border);
 }
+.thumb {
+  max-width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 6px;
+}
 
 /* -----PRIMANGE---- */
 /* multiselect */
@@ -395,7 +411,6 @@ select {
 }
 .p-dropdown-filter-container input {
   padding: 0.2rem 0.9rem;
-
 }
 .p-dropdown-filter-container input:focus {
   box-shadow: none;
@@ -405,7 +420,6 @@ select {
   border-color: var(--lightGreen);
 }
 
-
 /* ----CHECKBOX----- */
 
 .p-checkbox .p-checkbox-box.p-highlight {
@@ -414,4 +428,43 @@ select {
 }
 .p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box:hover {
   border-color: var(--lightGreen);
+}
+
+/* -----TABLE----- */
+.p-datatable-table {
+  text-transform: capitalize;
+}
+.p-paginator-pages button {
+  border-radius: 50%;
+  width: 30px !important;
+  height: 30px !important;
+}
+.p-paginator-pages .p-inputtext {
+  padding: 0 !important;
+}
+.p-highlight {
+  color: white;
+  background-color: var(--lightGreen);
+}
+.p-paginator .p-paginator-pages .p-paginator-page {
+  min-width: 20px;
+}
+.p-paginator .p-dropdown {
+  margin-left: 0;
+  margin-right: 0;
+  height: 2.3rem;
+}
+.p-button-icon-only {
+  height: 25px;
+  width: 25px;
+  border: none;
+  border-radius: 50px;
+}
+.p-button-outlined {
+  box-shadow: none;
+}
+.p-button {
+  padding: 0.2rem 0.8rem;
+  border-radius: 14px;
+  margin: 2px;
 }

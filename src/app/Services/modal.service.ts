@@ -6,4 +6,7 @@ import { Injectable } from '@angular/core';
 export class ModalService {
   constructor() {}
   loginDialog: boolean = false;
+
+  // ----CONFIRM DIALOG------
+  confirmDilaog: boolean = false
 }

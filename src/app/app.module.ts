@@ -13,7 +13,7 @@ import { MenuModule } from 'primeng/menu';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MenuComponent } from './Components/menu/menu.component';
 import { HeaderComponent } from './Shared/header/header.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CurrencyComponent } from './Components/currency/currency.component';
 import { LinkmenuComponent } from './Shared/linkmenu/linkmenu.component';
 import { ExpandComponent } from './Components/expand/expand.component';
@@ -43,6 +43,12 @@ import { FileUploderComponent } from './Components/file-uploder/file-uploder.com
 import { MultiSelectModule } from 'primeng/multiselect';
 import { DropdownModule } from 'primeng/dropdown';
 import { SpinnerModule } from 'primeng/spinner';
+import { FormErrorComponent } from './Components/form-error/form-error.component';
+import { SolidButtonComponent } from './Components/solid-button/solid-button.component';
+import { ProductListComponent } from './Admin/Pages/product-list/product-list.component';
+import { TableModule } from 'primeng/table';
+import { ToolbarModule } from 'primeng/toolbar';
+import { ConfirmDialogComponent } from './Modals/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +80,10 @@ import { SpinnerModule } from 'primeng/spinner';
     AddProductComponent,
     AdminSidebarComponent,
     FileUploderComponent,
+    FormErrorComponent,
+    SolidButtonComponent,
+    ProductListComponent,
+    ConfirmDialogComponent,
     
   ],
   imports: [
@@ -95,7 +105,10 @@ import { SpinnerModule } from 'primeng/spinner';
     DataViewModule,
     MultiSelectModule,
     DropdownModule,
-    SpinnerModule
+    SpinnerModule,
+    TableModule,
+    FormsModule,
+    ToolbarModule
   ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],

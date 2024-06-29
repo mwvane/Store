@@ -15,6 +15,10 @@
             type="text"
             formControlName="name"
           />
+          <app-form-error
+            [formControl]="this.productForm.controls.name"
+            [errorId]="3"
+          ></app-form-error>
         </div>
         <!-- PRICE AND MANUFACTURER -->
         <div class="d-flex gap-3">
@@ -31,6 +35,10 @@
               type="price"
               formControlName="price"
             />
+            <app-form-error
+              [formControl]="this.productForm.controls.price"
+              [errorId]="2"
+            ></app-form-error>
           </div>
 
           <div class="input-container w-50">
@@ -49,6 +57,10 @@
               filterBy="name"
               placeholder="select a manufacturer"
             />
+            <app-form-error
+              [formControl]="this.productForm.controls.manufacturer"
+              [errorId]="2"
+            ></app-form-error>
           </div>
         </div>
         <!-- CATEGORY AND OPTIONS -->
@@ -69,6 +81,10 @@
               filterBy="name"
               placeholder="select a category"
             />
+            <app-form-error
+              [formControl]="this.productForm.controls.category"
+              [errorId]="2"
+            ></app-form-error>
           </div>
 
           <div class="input-container w-50">
@@ -86,6 +102,10 @@
               [loading]="this.optionService.isLoading"
               class="w-100"
             />
+            <app-form-error
+              [formControl]="this.productForm.controls.options"
+              [errorId]="2"
+            ></app-form-error>
           </div>
         </div>
 
@@ -105,25 +125,30 @@
             formControlName="description"
           >
           </textarea>
+          <app-form-error
+            [formControl]="this.productForm.controls.description"
+            [errorId]="2"
+          ></app-form-error>
         </div>
       </div>
-      <div
-        class="col-md-12 col-lg-6 border round-md image-container"
-      >
-        @for (item of this.imagesUrls; track $index) {
-        <img class="preview-image" [src]="item" alt="test" />
-        }
-        <app-file-uploder
-          (selectFiles)="selectImages($event)"
-        ></app-file-uploder>
+      <div class="col-md-12 col-lg-6 border round-md">
+        <div class="image-container">
+          @for (item of this.imagesUrls; track $index) {
+          <img class="preview-image" [src]="item" alt="test" />
+          }
+          <app-file-uploder
+            (selectFiles)="selectImages($event)"
+          ></app-file-uploder>
+        </div>
         <!-- SUBMIT BUTTON -->
 
-        <button
-          class="solidBtn hilight mt-3"
-          style="max-width: 140px;"
-        >
-          add product
-        </button>
+        <div class="action">
+          <app-solid-button
+            [disabled]="this.productForm.invalid"
+            [tittle]="'add product'"
+            [isLoading]="this.productService.loading"
+          ></app-solid-button>
+        </div>
       </div>
     </div>
   </form>

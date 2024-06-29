@@ -1,38 +1,92 @@
 import { Injectable, OnInit, signal } from '@angular/core';
 import { IProduct } from '../Models/product';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { env } from '../env';
-import { formatDate } from '@angular/common';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
   formdata: FormData = new FormData();
-  productsFromDb = signal<IProduct[]>([]);
+  private _productsFromDb = signal<IProduct[]>([]);
+  loading: boolean = false;
   constructor(private http: HttpClient) {
-    this.getProducts();
+    //this.getProducts();
   }
-
+  get productsFromDb() {
+    return this._productsFromDb();
+  }
   getProducts() {
     this.http.get<any>(`${env.baseUrl}Product/GetProducts`).subscribe((res) => {
       if (res.data) {
-        this.productsFromDb.set(res.data);
-        console.log(this.productsFromDb());
+        this._productsFromDb.set(res.data);
+        console.log(this._productsFromDb());
       }
     });
   }
 
-  addProduct(formData: FormData) {
-    debugger
-    this.http.post<any>(`${env.baseUrl}Product/AddProduct`, formData).subscribe(
-      (res) => {
-        if (res.data) {
-          this.productsFromDb.set(res.data);
-          console.log("test" + this.productsFromDb());
-        }
-      }
-    );
+  addProduct(formData: FormData): Promise<boolean> {
+    return new Promise((resolve, reject) => {
+      this.http
+        .post<any>(`${env.baseUrl}Product/AddProduct`, formData)
+        .subscribe(
+          (res) => {
+            this.loading = false;
+            if (res.data) {
+              this._productsFromDb.set([...this._productsFromDb(), res.data]);
+              resolve(true);
+            } else {
+              reject(false);
+            }
+          },
+          (error) => {
+            this.loading = false;
+            reject(false);
+          }
+        );
+    });
+  }
+
+  deleteProduct(productId: number): Promise<boolean> {
+    return new Promise((resolve, reject) => {
+      this.http
+        .delete<any>(`${env.baseUrl}Product/DeleteProduct/${productId}`)
+        .subscribe(
+          (response) => {
+            const currentProducts = this.productsFromDb;
+            const updatedProducts = currentProducts.filter(
+              (product) => product.productId !== productId
+            );
+            this._productsFromDb.set(updatedProducts);
+            resolve(true);
+          },
+          (error) => reject(false)
+        );
+    });
+  }
+  deleteProducts(products: any[]): Promise<boolean> {
+    var productIds: number[] = [];
+    products.map((p) => productIds.push(p.productId));
+    debugger;
+    return new Promise((resolve, reject) => {
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+      });
+      this.http
+        .delete<any>(`${env.baseUrl}Product/DeleteProducts`, {
+          headers,
+          body: productIds,
+        })
+        .subscribe(
+          (response) => {
+            var currentProducts = this.productsFromDb;
+            const updatedProducts = currentProducts.filter(product => !productIds.includes(product.productId!));
+            this._productsFromDb.set(updatedProducts);
+            resolve(true);
+          },
+          (error) => reject(false)
+        );
+    });
   }
 
   products: IProduct[] = [

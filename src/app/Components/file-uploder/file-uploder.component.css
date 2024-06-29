@@ -5,8 +5,8 @@
 
 .file-input-container input[type="file"] {
     position: absolute;
-    width: 150px;
-    height: 200px;
+    width: 100%x;
+    height: 100%;
     top: 0;
     left: 0;
     opacity: 0;
@@ -19,7 +19,7 @@
     cursor: pointer;
     border: 2px dashed gray;
     color : black;
-    width: 160px;
+    max-width: 150px;
     text-align: center;
 }
 

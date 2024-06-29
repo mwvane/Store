@@ -7,6 +7,7 @@ import { ProductDetailsComponent } from './Components/product-details/product-de
 import { SpacialsComponent } from './Pages/spacials/spacials.component';
 import { DashboardComponent } from './Admin/Pages/dashboard/dashboard.component';
 import { AddProductComponent } from './Admin/Pages/add-product/add-product.component';
+import { ProductListComponent } from './Admin/Pages/product-list/product-list.component';
 
 const routes: Routes = [
   // { path: '', title: 'home', component: HomeComponent },
@@ -21,7 +22,8 @@ const routes: Routes = [
     component: ProductDetailsComponent,
   },
   // admin
-  {path: "AddProduct", title: "AddProduct", component: AddProductComponent}
+  {path: "AddProduct", title: "AddProduct", component: AddProductComponent},
+  {path: "ProductList", title: "ProductList", component: ProductListComponent}
 ];
 
 @NgModule({
