@@ -23,7 +23,7 @@ export class AdminSidebarComponent {
       item: [
         {
           id: 2,
-          name: 'ecommerce',
+          name: 'product',
           image: 'bi bi-cart',
           subCategories: [
             { id: 3, name: 'add product', image: 'bi bi-cart-plus', url: "AddProduct" },
@@ -46,6 +46,15 @@ export class AdminSidebarComponent {
           subCategories: [
             {id:12, name: "manufacturer list", image: "bi bi-list-nested", url: "ManufacturerList"},
             {id:13, name: "new manufacturer", image: "bi bi-plus-circle", url: "NewManufacturer"}
+          ]
+        },
+        {
+          id: 6,
+          name: "Options",
+          image: "bi bi-card-checklist",
+          subCategories: [
+            {id:14, name: "Option list", image: "bi bi-list-nested", url: "OptionList"},
+            {id:15, name: "new option", image: "bi bi-plus-circle", url: "NewOption"}
           ]
         },
         {

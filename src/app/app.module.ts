@@ -51,6 +51,7 @@ import { ToolbarModule } from 'primeng/toolbar';
 import { ConfirmDialogComponent } from './Modals/confirm-dialog/confirm-dialog.component';
 import { CategoryListComponent } from './Admin/Pages/Category/category-list/category-list.component';
 import { ManufacturerListComponent } from './Admin/Pages/Manufacturer/manufacturer-list/manufacturer-list.component';
+import { OptionListComponent } from './Admin/Pages/Option/option-list/option-list.component';
 
 @NgModule({
   declarations: [
@@ -88,6 +89,7 @@ import { ManufacturerListComponent } from './Admin/Pages/Manufacturer/manufactur
     ConfirmDialogComponent,
     CategoryListComponent,
     ManufacturerListComponent,
+    OptionListComponent,
     
   ],
   imports: [

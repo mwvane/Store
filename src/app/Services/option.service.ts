@@ -1,6 +1,6 @@
 import { Injectable, signal } from '@angular/core';
 import { IOption } from '../Models/option';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { IResponse } from '../Models/response';
 import { env } from '../env';
 
@@ -28,4 +28,29 @@ export class OptionService {
       return res.error
     })
   }
+
+  deleteOption(options: any[]): Promise<boolean> {
+    var optionIds: number[] = [];
+    options.map((m) => optionIds.push(m.id));
+    return new Promise((resolve, reject) => {
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+      });
+      this.http
+        .delete<any>(`${env.baseUrl}Option/DeleteOption`, {
+          headers,
+          body: optionIds,
+        })
+        .subscribe(
+          (response) => {
+            var currentOptions = this.options;
+            const updatedOptions = currentOptions.filter(option => !optionIds.includes(option.id!));
+            this._options.set(updatedOptions);
+            resolve(true);
+          },
+          (error) => reject(false)
+        );
+    });
+  }
+
 }
