@@ -49,6 +49,8 @@ import { ProductListComponent } from './Admin/Pages/product-list/product-list.co
 import { TableModule } from 'primeng/table';
 import { ToolbarModule } from 'primeng/toolbar';
 import { ConfirmDialogComponent } from './Modals/confirm-dialog/confirm-dialog.component';
+import { CategoryListComponent } from './Admin/Pages/Category/category-list/category-list.component';
+import { ManufacturerListComponent } from './Admin/Pages/Manufacturer/manufacturer-list/manufacturer-list.component';
 
 @NgModule({
   declarations: [
@@ -84,6 +86,8 @@ import { ConfirmDialogComponent } from './Modals/confirm-dialog/confirm-dialog.c
     SolidButtonComponent,
     ProductListComponent,
     ConfirmDialogComponent,
+    CategoryListComponent,
+    ManufacturerListComponent,
     
   ],
   imports: [

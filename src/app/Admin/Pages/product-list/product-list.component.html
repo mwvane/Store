@@ -128,4 +128,4 @@
 </div>
 
 <!-- ----MODALS----- -->
-<app-confirm-dialog [bodyText]="'do you want to delete selected product?'" (yes)="deleteSelectedProducts()"></app-confirm-dialog>
+<app-confirm-dialog [bodyText]="this.warningService.warnings['deteteProduct']" (yes)="deleteSelectedProducts()"></app-confirm-dialog>

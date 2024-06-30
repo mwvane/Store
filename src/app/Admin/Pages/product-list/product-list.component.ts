@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../../Services/product.service';
 import moment from 'moment';
 import { ModalService } from '../../../Services/modal.service';
+import { WarningService } from '../../../Services/warning.service';
 
 @Component({
   selector: 'app-product-list',
@@ -12,7 +13,8 @@ export class ProductListComponent implements OnInit {
   selectedProducts: any;
   constructor(
     public productService: ProductService,
-    private modalService: ModalService
+    private modalService: ModalService,
+    public warningService: WarningService
   ) {}
   ngOnInit(): void {
     this.productService.getProducts()

@@ -40,6 +40,15 @@ export class AdminSidebarComponent {
           ]
         },
         {
+          id: 5,
+          name: "Manufacturer",
+          image: "bi bi-box",
+          subCategories: [
+            {id:12, name: "manufacturer list", image: "bi bi-list-nested", url: "ManufacturerList"},
+            {id:13, name: "new manufacturer", image: "bi bi-plus-circle", url: "NewManufacturer"}
+          ]
+        },
+        {
           id: 4,
           name: "order",
           image: "bi bi-file-earmark-plus",
@@ -77,6 +86,7 @@ export class AdminSidebarComponent {
     }
   ];
   itemClick(item: ICategory){
+    debugger
     this.router.navigate([item.url])
   }
 }

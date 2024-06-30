@@ -1,6 +1,6 @@
 import { Injectable, signal } from '@angular/core';
 import { ICategory } from '../Models/category';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { env } from '../env';
 import { IResponse } from '../Models/response';
 
@@ -53,5 +53,29 @@ export class CategoryService {
       }
       return res.error
     })
+  }
+
+  deleteCategory(categories: any[]): Promise<boolean> {
+    var categoryIds: number[] = [];
+    categories.map((c) => categoryIds.push(c.id));
+    return new Promise((resolve, reject) => {
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+      });
+      this.http
+        .delete<any>(`${env.baseUrl}Category/DeleteCategory`, {
+          headers,
+          body: categoryIds,
+        })
+        .subscribe(
+          (response) => {
+            var currentCategories = this.allCategories;
+            const updatedCategories = currentCategories.filter(category => !categoryIds.includes(category.id!));
+            this._allCategories.set(updatedCategories);
+            resolve(true);
+          },
+          (error) => reject(false)
+        );
+    });
   }
 }

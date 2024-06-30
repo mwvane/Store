@@ -1,6 +1,6 @@
 import { Injectable, signal } from '@angular/core';
 import { IManufacturer } from '../Models/manufacturer';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { IResponse } from '../Models/response';
 import { env } from '../env';
 
@@ -27,5 +27,29 @@ export class ManufacturerService {
       }
       return res.error
     })
+  }
+
+  deleteManufacturer(manufacturers: any[]): Promise<boolean> {
+    var manufacturerIds: number[] = [];
+    manufacturers.map((m) => manufacturerIds.push(m.id));
+    return new Promise((resolve, reject) => {
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+      });
+      this.http
+        .delete<any>(`${env.baseUrl}Manufacturer/DeleteManufacturer`, {
+          headers,
+          body: manufacturerIds,
+        })
+        .subscribe(
+          (response) => {
+            var currentCategories = this.manufacturers;
+            const updatedCategories = currentCategories.filter(category => !manufacturerIds.includes(category.id!));
+            this._manufacturers.set(updatedCategories);
+            resolve(true);
+          },
+          (error) => reject(false)
+        );
+    });
   }
 }

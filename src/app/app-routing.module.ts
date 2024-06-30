@@ -8,6 +8,8 @@ import { SpacialsComponent } from './Pages/spacials/spacials.component';
 import { DashboardComponent } from './Admin/Pages/dashboard/dashboard.component';
 import { AddProductComponent } from './Admin/Pages/add-product/add-product.component';
 import { ProductListComponent } from './Admin/Pages/product-list/product-list.component';
+import { CategoryListComponent } from './Admin/Pages/Category/category-list/category-list.component';
+import { ManufacturerListComponent } from './Admin/Pages/Manufacturer/manufacturer-list/manufacturer-list.component';
 
 const routes: Routes = [
   // { path: '', title: 'home', component: HomeComponent },
@@ -23,7 +25,9 @@ const routes: Routes = [
   },
   // admin
   {path: "AddProduct", title: "AddProduct", component: AddProductComponent},
-  {path: "ProductList", title: "ProductList", component: ProductListComponent}
+  {path: "ProductList", title: "ProductList", component: ProductListComponent},
+  {path: "CategoryList", title: "CategoryList", component: CategoryListComponent},
+  {path: "ManufacturerList", title: "ManufacturerList", component: ManufacturerListComponent}
 ];
 
 @NgModule({
