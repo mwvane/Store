@@ -52,6 +52,7 @@ import { ConfirmDialogComponent } from './Modals/confirm-dialog/confirm-dialog.c
 import { CategoryListComponent } from './Admin/Pages/Category/category-list/category-list.component';
 import { ManufacturerListComponent } from './Admin/Pages/Manufacturer/manufacturer-list/manufacturer-list.component';
 import { OptionListComponent } from './Admin/Pages/Option/option-list/option-list.component';
+import { AddOptionComponent } from './Admin/Pages/Option/add-option/add-option.component';
 
 @NgModule({
   declarations: [
@@ -90,6 +91,7 @@ import { OptionListComponent } from './Admin/Pages/Option/option-list/option-lis
     CategoryListComponent,
     ManufacturerListComponent,
     OptionListComponent,
+    AddOptionComponent,
     
   ],
   imports: [

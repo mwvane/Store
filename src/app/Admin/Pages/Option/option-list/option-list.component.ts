@@ -40,8 +40,4 @@ export class OptionListComponent {
   formatdate(date: any) {
     return moment(date).endOf('day').fromNow();
   }
-  getOptionTypeName(value: number){
-    const colorEnum = optionType[value];
-    return colorEnum
-  }
 }

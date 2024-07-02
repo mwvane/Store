@@ -26,8 +26,8 @@ export class AdminSidebarComponent {
           name: 'product',
           image: 'bi bi-cart',
           subCategories: [
-            { id: 3, name: 'add product', image: 'bi bi-cart-plus', url: "AddProduct" },
-            { id: 4, name: 'product list', image: 'bi bi-cart-plus', url: "ProductList" },
+            { id: 3, name: 'product list', image: 'bi bi-cart-plus', url: "ProductList" },
+            { id: 4, name: 'new product', image: 'bi bi-cart-plus', url: "AddProduct" },
           ],
         },
         {

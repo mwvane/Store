@@ -1,0 +1,77 @@
+<div class="container">
+  <app-section [borderBottom]="true" [tittle]="'add option'"></app-section>
+  <form [formGroup]="this.optionForm" (ngSubmit)="addOption()">
+    <div class="row form-container">
+      <div class="col-12 border round-md py-3 direction-y gap-4">
+        <!-- NAME -->
+        <div class="input-container">
+          <div class="d-flex info">
+            <i class="requared">*</i>
+            <label class="nowrap" for="name">{{ "name" | translate }}</label>
+          </div>
+          <input
+            class="input-light"
+            placeholder="{{ 'name' | translate }}"
+            type="text"
+            formControlName="name"
+          />
+          <app-form-error
+            [formControl]="this.optionForm.controls.name"
+            [errorId]="2"
+          ></app-form-error>
+        </div>
+        <!-- VALUE -->
+        <div class="d-flex gap-3">
+          <div class="input-container w-100">
+            <div class="d-flex info">
+              <i class="requared">*</i>
+              <label class="nowrap" for="value">{{
+                "value" | translate
+              }}</label>
+            </div>
+            <input
+              class="input-light"
+              placeholder="{{ 'value' | translate }}"
+              type="text"
+              formControlName="value"
+            />
+            <app-form-error
+              [formControl]="this.optionForm.controls.value"
+              [errorId]="2"
+            ></app-form-error>
+          </div>
+
+          <div class="input-container w-100">
+            <div class="d-flex info">
+              <i class="requared">*</i>
+              <label class="nowrap" for="optionType">{{
+                "optionType" | translate
+              }}</label>
+            </div>
+            <p-dropdown
+              [options]="this.optionService.optionTypes"
+              formControlName="optionType"
+              optionLabel="name"
+              optionValue="id"
+              [filter]="true"
+              filterBy="name"
+              placeholder="select a option type"
+            />
+            <app-form-error
+              [formControl]="this.optionForm.controls.optionType"
+              [errorId]="2"
+            ></app-form-error>
+          </div>
+          
+        </div>
+        <div class="action">
+          <app-solid-button
+            [disabled]="this.optionForm.invalid"
+            [tittle]="'add option'"
+            [isLoading]="this.optionService.isLoading"
+          ></app-solid-button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

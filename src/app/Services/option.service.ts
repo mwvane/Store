@@ -3,30 +3,63 @@ import { IOption } from '../Models/option';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { IResponse } from '../Models/response';
 import { env } from '../env';
+import { IOPtenType } from '../Models/optionType';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class OptionService {
+  private _options = signal<IOption[]>([]);
+  private _optionTypes = signal<IOPtenType[]>([])
+  isLoading: boolean = false;
+  constructor(private http: HttpClient) {}
 
-  private _options = signal<IOption[]>([])
-  isLoading : boolean = false
-  constructor(private http : HttpClient) {}
-  
-  get options(){
-    return this._options()
+  get options() {
+    return this._options();
   }
 
-  getOptions(){
-    this.isLoading = true
-    this.http.get<IResponse>(`${env.baseUrl}Option/GetOptions`).subscribe(res => {
-      this.isLoading = false
-      if(res.data){
-        this._options.set(res.data)
-        return true
-      }
-      return res.error
-    })
+  get optionTypes(){
+    return this._optionTypes()
+  }
+
+  getOptions() {
+    this.isLoading = true;
+    this.http
+      .get<IResponse>(`${env.baseUrl}Option/GetOptions`)
+      .subscribe((res) => {
+        this.isLoading = false;
+        if (res.data) {
+          this._options.set(res.data);
+          return true;
+        }
+        return res.error;
+      });
+  }
+  getOptionTypes() {
+    this.isLoading = true;
+    this.http
+      .get<IResponse>(`${env.baseUrl}Option/GetOptionTypes`)
+      .subscribe((res) => {
+        this.isLoading = false;
+        if (res.data) {
+          this._optionTypes.set(res.data);
+          return true;
+        }
+        return res.error;
+      });
+  }
+  
+  addOption(option: any) {
+    return new Promise((resolve, reject) => {
+      this.http.post<any>(`${env.baseUrl}Option/AddOption`, option).subscribe(
+        (response) => {
+          var currentOptions = this.options;
+          var updatedOptions = [...currentOptions, response];
+          this._options.set(updatedOptions);
+        },
+        (error) => reject(false)
+      );
+    });
   }
 
   deleteOption(options: any[]): Promise<boolean> {
@@ -44,7 +77,9 @@ export class OptionService {
         .subscribe(
           (response) => {
             var currentOptions = this.options;
-            const updatedOptions = currentOptions.filter(option => !optionIds.includes(option.id!));
+            const updatedOptions = currentOptions.filter(
+              (option) => !optionIds.includes(option.id!)
+            );
             this._options.set(updatedOptions);
             resolve(true);
           },
@@ -52,5 +87,4 @@ export class OptionService {
         );
     });
   }
-
 }

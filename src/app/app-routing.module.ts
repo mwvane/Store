@@ -11,6 +11,7 @@ import { ProductListComponent } from './Admin/Pages/product-list/product-list.co
 import { CategoryListComponent } from './Admin/Pages/Category/category-list/category-list.component';
 import { ManufacturerListComponent } from './Admin/Pages/Manufacturer/manufacturer-list/manufacturer-list.component';
 import { OptionListComponent } from './Admin/Pages/Option/option-list/option-list.component';
+import { AddOptionComponent } from './Admin/Pages/Option/add-option/add-option.component';
 
 const routes: Routes = [
   // { path: '', title: 'home', component: HomeComponent },
@@ -29,7 +30,8 @@ const routes: Routes = [
   {path: "ProductList", title: "ProductList", component: ProductListComponent},
   {path: "CategoryList", title: "CategoryList", component: CategoryListComponent},
   {path: "ManufacturerList", title: "ManufacturerList", component: ManufacturerListComponent},
-  {path: "OptionList", title: "OptionList", component: OptionListComponent}
+  {path: "OptionList", title: "OptionList", component: OptionListComponent},
+  {path: "NewOption", title: "NewOption", component: AddOptionComponent}
 ];
 
 @NgModule({
