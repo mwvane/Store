@@ -36,7 +36,7 @@ export class AdminSidebarComponent {
           image: "bi bi-layers",
           subCategories: [
             {id:5, name: "category list", image: "bi bi-list-nested", url: "CategoryList"},
-            {id:6, name: "new category", image: "bi bi-plus-circle", url: "NewCategory"}
+            {id:6, name: "new category", image: "bi bi-plus-circle", url: "AddCategory"}
           ]
         },
         {

@@ -8,7 +8,7 @@
           label="New"
           icon="pi pi-plus"
           class="mr-2"
-          routerLink="/AddProduct"
+          routerLink="/AddCategory"
         />
         <p-button
           pRipple
@@ -68,13 +68,14 @@
             {{ category.name }}
           </td>
           <td>
-            @if(category.Image){
-            <img
+            @if(category.image){
+              <i class="{{category.image}}"></i>
+            <!-- <img
               [src]="category.Image"
               alt="image"
               width="50"
               class="thumb"
-            />
+            /> -->
             } @else { N/A }
           </td>
           <td>

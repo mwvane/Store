@@ -55,6 +55,7 @@ import { OptionListComponent } from './Admin/Pages/Option/option-list/option-lis
 import { AddOptionComponent } from './Admin/Pages/Option/add-option/add-option.component';
 import { AddOptionTypeComponent } from './Admin/Pages/OptionType/add-option-type/add-option-type.component';
 import { OptionTypeListComponent } from './Admin/Pages/OptionType/option-type-list/option-type-list.component';
+import { AddCategoryComponent } from './Admin/Pages/Category/add-category/add-category.component';
 
 @NgModule({
   declarations: [
@@ -96,6 +97,7 @@ import { OptionTypeListComponent } from './Admin/Pages/OptionType/option-type-li
     AddOptionComponent,
     AddOptionTypeComponent,
     OptionTypeListComponent,
+    AddCategoryComponent,
     
   ],
   imports: [

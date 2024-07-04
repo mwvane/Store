@@ -1,0 +1,80 @@
+<p>add-category works!</p>
+<div class="container">
+  <app-section [borderBottom]="true" [tittle]="'add option'"></app-section>
+  <form [formGroup]="this.categoryForm" (ngSubmit)="addCategory()">
+    <div class="row form-container">
+      <div class="col-12 border round-md py-3 direction-y gap-4">
+        <!-- NAME -->
+        <div class="input-container">
+          <div class="d-flex info">
+            <i class="requared">*</i>
+            <label class="nowrap" for="name">{{ "name" | translate }}</label>
+          </div>
+          <input
+            class="input-light"
+            placeholder="{{ 'name' | translate }}"
+            type="text"
+            formControlName="name"
+          />
+          <app-form-error
+            [formControl]="this.categoryForm.controls.name"
+            [errorId]="2"
+          ></app-form-error>
+        </div>
+        <!-- -----IMAGE----- -->
+        <div class="input-container">
+            <div class="d-flex info">
+              <i class="requared">*</i>
+              <label class="nowrap" for="image">{{ "image" | translate }}</label>
+            </div>
+            <input
+              class="input-light"
+              placeholder="{{ 'Image' | translate }}"
+              type="text"
+              formControlName="image"
+            />
+            <app-form-error
+              [formControl]="this.categoryForm.controls.image"
+              [errorId]="2"
+            ></app-form-error>
+          </div>
+        <!-- ParentCategory -->
+        <div class="d-flex gap-3">
+          <div class="input-container w-100">
+            <div class="d-flex info">
+              <!-- <i class="requared">*</i> -->
+              <label class="nowrap" for="optionType">{{
+                "optionType" | translate
+              }}</label>
+            </div>
+            <div class="space-between gap-3">
+              <p-dropdown
+                class="w-100"
+                [options]="this.categoryService.allCategories"
+                formControlName="parentCategoryId"
+                optionLabel="name"
+                optionValue="id"
+                [filter]="true"
+                filterBy="name"
+                placeholder="select a option type"
+                [loading]="categoryService.isLoading"
+              />
+            </div>
+
+            <app-form-error
+              [formControl]="this.categoryForm.controls.parentCategoryId"
+              [errorId]="2"
+            ></app-form-error>
+          </div>
+        </div>
+        <div class="action">
+          <app-solid-button
+            [disabled]="this.categoryForm.invalid"
+            [tittle]="'add option'"
+            [isLoading]="this.categoryService.isLoading"
+          ></app-solid-button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
