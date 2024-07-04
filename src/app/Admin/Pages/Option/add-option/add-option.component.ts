@@ -8,7 +8,7 @@ import { optionType } from '../../../../Enums/optionType';
   templateUrl: './add-option.component.html',
   styleUrl: './add-option.component.css',
 })
-export class AddOptionComponent implements OnInit, AfterViewInit {
+export class AddOptionComponent implements OnInit {
   optionTypes: any = [];
   optionForm = new FormGroup({
     name: new FormControl('', [Validators.required]),
@@ -22,9 +22,6 @@ export class AddOptionComponent implements OnInit, AfterViewInit {
   }
 
   constructor(public optionService: OptionService) {}
-  ngAfterViewInit(): void {
-    this.optionTypes = this.getOptionTypeNames();
-  }
 
   async addOption() {
     var optenForSave = {
@@ -35,20 +32,12 @@ export class AddOptionComponent implements OnInit, AfterViewInit {
     try {
       const isAdded = await this.optionService.addOption(optenForSave);
       if (isAdded) {
-        console.log('option successfully added');
+        alert('option successfully added');
         this.optionForm.reset();
       }
     } catch (error) {
       console.error('Failed to add option', error);
       // Handle the error appropriately
     }
-  }
-
-  getOptionTypeNames() {
-    const optionsTpes: { id: number; name: string}[] = [];
-    for (let key of Object.keys(optionType)) {
-      optionsTpes.push({ id: 1, name: key});
-    }
-    return optionsTpes;
   }
 }

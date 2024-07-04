@@ -58,11 +58,29 @@ export class AdminSidebarComponent {
           ]
         },
         {
+          id: 7,
+          name: "Option types",
+          image: "bi bi-card-checklist",
+          subCategories: [
+            {id:16, name: "Option type list", image: "bi bi-list-nested", url: "OptionTypeList"},
+            {id:17, name: "new option type", image: "bi bi-plus-circle", url: "AddOptionType"}
+          ]
+        },
+        {
+          id: 8,
+          name: "Countries",
+          image: "bi bi-globe-americas",
+          subCategories: [
+            {id:16, name: "country list", image: "bi bi-list-nested", url: "OptionList"},
+            {id:17, name: "new country", image: "bi bi-plus-circle", url: "NewOption"}
+          ]
+        },
+        {
           id: 4,
           name: "order",
           image: "bi bi-file-earmark-plus",
           subCategories: [
-            {id:7, name: "order list", image: "bi bi-list-task", url: "OrdrList"},
+            {id:7, name: "order list", image: "bi bi-list-task", url: "OrderList"},
             {id:8, name: "order details", image: "bi bi-ticket-detailed", url: "OdrerDetails"},
             {id:9, name: "order tracking", image: "bi bi-arrow-right", url: "OrdrTracking"}
           ]
@@ -95,7 +113,6 @@ export class AdminSidebarComponent {
     }
   ];
   itemClick(item: ICategory){
-    debugger
     this.router.navigate([item.url])
   }
 }

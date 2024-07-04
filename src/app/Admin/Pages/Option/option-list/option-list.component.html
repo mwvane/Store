@@ -8,7 +8,7 @@
         label="New"
         icon="pi pi-plus"
         class="mr-2"
-        routerLink="/AddProduct"
+        routerLink="/NewOption"
       />
       <p-button
         pRipple
@@ -37,20 +37,20 @@
     dataKey="id"
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
     [showCurrentPageReport]="true"
-    [loading]="this.optionService.isLoading"
+    [loading]="this.optionService.isLoadingOptions"
   >
     <ng-template pTemplate="header">
       <tr>
-        <th style="width: 4rem">
+        <th style="width: 2rem">
           <p-tableHeaderCheckbox />
         </th>
         <th pSortableColumn="id" style="min-width: 7rem">
           id <p-sortIcon field="id" />
         </th>
-        <th pSortableColumn="name" style="min-width: 15rem">
+        <th pSortableColumn="name" style="min-width: 10rem">
           Name <p-sortIcon field="name" />
         </th>
-        <th pSortableColumn="value" style="min-width: 15rem">
+        <th pSortableColumn="value" style="min-width: 10rem">
           value <p-sortIcon field="value" />
         </th>
         <th pSortableColumn="optionType.name" style="min-width: 9rem">

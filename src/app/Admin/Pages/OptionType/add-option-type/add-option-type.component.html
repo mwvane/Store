@@ -1,0 +1,33 @@
+<div class="container">
+  <app-section [borderBottom]="true" [tittle]="'add option'"></app-section>
+  <form [formGroup]="this.optionTypeForm" (ngSubmit)="addOptionType()">
+    <div class="row form-container">
+      <div class="col-12 border round-md py-3 direction-y gap-4">
+        <!-- NAME -->
+        <div class="input-container">
+          <div class="d-flex info">
+            <i class="requared">*</i>
+            <label class="nowrap" for="name">{{ "name" | translate }}</label>
+          </div>
+          <input
+            class="input-light"
+            placeholder="{{ 'name' | translate }}"
+            type="text"
+            formControlName="name"
+          />
+          <app-form-error
+            [formControl]="this.optionTypeForm.controls.name"
+            [errorId]="2"
+          ></app-form-error>
+          <div class="action mt-3">
+            <app-solid-button
+              [disabled]="this.optionTypeForm.invalid"
+              [tittle]="'add option'"
+              [isLoading]="this.optionService.loadinOptionTypes"
+            ></app-solid-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

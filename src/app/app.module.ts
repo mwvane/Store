@@ -53,6 +53,8 @@ import { CategoryListComponent } from './Admin/Pages/Category/category-list/cate
 import { ManufacturerListComponent } from './Admin/Pages/Manufacturer/manufacturer-list/manufacturer-list.component';
 import { OptionListComponent } from './Admin/Pages/Option/option-list/option-list.component';
 import { AddOptionComponent } from './Admin/Pages/Option/add-option/add-option.component';
+import { AddOptionTypeComponent } from './Admin/Pages/OptionType/add-option-type/add-option-type.component';
+import { OptionTypeListComponent } from './Admin/Pages/OptionType/option-type-list/option-type-list.component';
 
 @NgModule({
   declarations: [
@@ -92,6 +94,8 @@ import { AddOptionComponent } from './Admin/Pages/Option/add-option/add-option.c
     ManufacturerListComponent,
     OptionListComponent,
     AddOptionComponent,
+    AddOptionTypeComponent,
+    OptionTypeListComponent,
     
   ],
   imports: [

@@ -10,6 +10,7 @@
   align-items: center;
   gap: 18px;
   cursor: pointer;
+  padding: 4px 0;
 }
 .sidebar-item span {
   letter-spacing: 1px;

@@ -11,7 +11,8 @@ import { IOPtenType } from '../Models/optionType';
 export class OptionService {
   private _options = signal<IOption[]>([]);
   private _optionTypes = signal<IOPtenType[]>([])
-  isLoading: boolean = false;
+  isLoadingOptions: boolean = false;
+  loadinOptionTypes = false;
   constructor(private http: HttpClient) {}
 
   get options() {
@@ -23,11 +24,11 @@ export class OptionService {
   }
 
   getOptions() {
-    this.isLoading = true;
+    this.isLoadingOptions = true;
     this.http
       .get<IResponse>(`${env.baseUrl}Option/GetOptions`)
       .subscribe((res) => {
-        this.isLoading = false;
+        this.isLoadingOptions = false;
         if (res.data) {
           this._options.set(res.data);
           return true;
@@ -36,11 +37,11 @@ export class OptionService {
       });
   }
   getOptionTypes() {
-    this.isLoading = true;
+    this.loadinOptionTypes = true;
     this.http
       .get<IResponse>(`${env.baseUrl}Option/GetOptionTypes`)
       .subscribe((res) => {
-        this.isLoading = false;
+        this.loadinOptionTypes = false;
         if (res.data) {
           this._optionTypes.set(res.data);
           return true;
@@ -56,6 +57,20 @@ export class OptionService {
           var currentOptions = this.options;
           var updatedOptions = [...currentOptions, response];
           this._options.set(updatedOptions);
+          resolve(true)
+        },
+        (error) => reject(false)
+      );
+    });
+  }
+  addOptionType(optionType: any) {
+    return new Promise((resolve, reject) => {
+      this.http.post<any>(`${env.baseUrl}Option/AddOptionType`, optionType).subscribe(
+        (response) => {
+          var currentOptionTypes = this.optionTypes;
+          var updatedOptions = [...currentOptionTypes, response];
+          this._options.set(updatedOptions);
+          resolve(true);
         },
         (error) => reject(false)
       );

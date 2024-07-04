@@ -21,6 +21,7 @@
           ></app-form-error>
         </div>
         <!-- VALUE -->
+        <div></div>
         <div class="d-flex gap-3">
           <div class="input-container w-100">
             <div class="d-flex info">
@@ -48,27 +49,35 @@
                 "optionType" | translate
               }}</label>
             </div>
-            <p-dropdown
-              [options]="this.optionService.optionTypes"
-              formControlName="optionType"
-              optionLabel="name"
-              optionValue="id"
-              [filter]="true"
-              filterBy="name"
-              placeholder="select a option type"
-            />
+            <div class="space-between gap-3">
+              <p-dropdown
+                class="w-100"
+                [options]="this.optionService.optionTypes"
+                formControlName="optionType"
+                optionLabel="name"
+                optionValue="id"
+                [filter]="true"
+                filterBy="name"
+                placeholder="select a option type"
+                [loading]="optionService.loadinOptionTypes"
+              />
+              <app-solid-button
+                [tittle]="'add type'"
+                routerLink="/AddOptionType"
+              ></app-solid-button>
+            </div>
+
             <app-form-error
               [formControl]="this.optionForm.controls.optionType"
               [errorId]="2"
             ></app-form-error>
           </div>
-          
         </div>
         <div class="action">
           <app-solid-button
             [disabled]="this.optionForm.invalid"
             [tittle]="'add option'"
-            [isLoading]="this.optionService.isLoading"
+            [isLoading]="this.optionService.isLoadingOptions"
           ></app-solid-button>
         </div>
       </div>
