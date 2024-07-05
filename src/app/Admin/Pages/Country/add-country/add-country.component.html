@@ -1,6 +1,6 @@
 <div class="container">
-  <app-section [borderBottom]="true" [tittle]="'add option type'"></app-section>
-  <form [formGroup]="this.optionTypeForm" (ngSubmit)="addOptionType()">
+  <app-section [borderBottom]="true" [tittle]="'add option'"></app-section>
+  <form [formGroup]="this.countryForm" (ngSubmit)="this.addCountry()">
     <div class="row form-container">
       <div class="col-12 border round-md py-3 direction-y gap-4">
         <!-- NAME -->
@@ -16,17 +16,18 @@
             formControlName="name"
           />
           <app-form-error
-            [formControl]="this.optionTypeForm.controls.name"
+            [formControl]="this.countryForm.controls.name"
             [errorId]="2"
           ></app-form-error>
-          <div class="action mt-3">
-            <app-solid-button
-              [disabled]="this.optionTypeForm.invalid"
-              [tittle]="'add option'"
-              [isLoading]="this.optionService.loadinOptionTypes"
-            ></app-solid-button>
-          </div>
         </div>
+        <div class="action">
+          <app-solid-button
+            [disabled]="this.countryForm.invalid"
+            [tittle]="'add option'"
+            [isLoading]="this.countryService.isloading"
+          ></app-solid-button>
+        </div>
+        <app-upload></app-upload>
       </div>
     </div>
   </form>

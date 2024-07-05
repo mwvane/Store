@@ -45,7 +45,7 @@ export class AdminSidebarComponent {
           image: "bi bi-box",
           subCategories: [
             {id:12, name: "manufacturer list", image: "bi bi-list-nested", url: "ManufacturerList"},
-            {id:13, name: "new manufacturer", image: "bi bi-plus-circle", url: "NewManufacturer"}
+            {id:13, name: "new manufacturer", image: "bi bi-plus-circle", url: "AddManufacturer"}
           ]
         },
         {
@@ -71,8 +71,8 @@ export class AdminSidebarComponent {
           name: "Countries",
           image: "bi bi-globe-americas",
           subCategories: [
-            {id:16, name: "country list", image: "bi bi-list-nested", url: "OptionList"},
-            {id:17, name: "new country", image: "bi bi-plus-circle", url: "NewOption"}
+            {id:16, name: "country list", image: "bi bi-list-nested", url: "CountryList"},
+            {id:17, name: "new country", image: "bi bi-plus-circle", url: "AddCountry"}
           ]
         },
         {

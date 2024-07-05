@@ -1,0 +1,65 @@
+<div class="container">
+    <app-section [borderBottom]="true" [tittle]="'add manufacturer'"></app-section>
+    <form [formGroup]="this.manufacturerForm" (ngSubmit)="this.addManufacturer()">
+      <div class="row form-container">
+        <div class="col-12 border round-md py-3 direction-y gap-4">
+          <!-- NAME -->
+          <div class="input-container">
+            <div class="d-flex info">
+              <i class="requared">*</i>
+              <label class="nowrap" for="name">{{ "name" | translate }}</label>
+            </div>
+            <input
+              class="input-light"
+              placeholder="{{ 'name' | translate }}"
+              type="text"
+              formControlName="name"
+            />
+            <app-form-error
+              [formControl]="this.manufacturerForm.controls.name"
+              [errorId]="2"
+            ></app-form-error>
+          </div>
+          <div class="d-flex gap-3">
+            <div class="input-container w-100">
+              <div class="d-flex info">
+                <i class="requared">*</i>
+                <label class="nowrap" for="countryId">{{
+                  "countryId" | translate
+                }}</label>
+              </div>
+              <div class="space-between gap-3">
+                <p-dropdown
+                  class="w-100"
+                  [options]="this.countryService.countries"
+                  formControlName="country"
+                  optionLabel="name"
+                  [filter]="true"
+                  filterBy="name"
+                  placeholder="select a country"
+                  [loading]="countryService.isloading"
+                />
+                <app-solid-button
+                  [tittle]="'add country'"
+                  routerLink="/AddCountry"
+                ></app-solid-button>
+              </div>
+  
+              <app-form-error
+                [formControl]="this.manufacturerForm.controls.country"
+                [errorId]="2"
+              ></app-form-error>
+            </div>
+          </div>
+          <div class="action">
+            <app-solid-button
+              [disabled]="this.manufacturerForm.invalid"
+              [tittle]="'add option'"
+              [isLoading]="this.manufacturerService.isLoading"
+            ></app-solid-button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  

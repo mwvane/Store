@@ -56,6 +56,12 @@ import { AddOptionComponent } from './Admin/Pages/Option/add-option/add-option.c
 import { AddOptionTypeComponent } from './Admin/Pages/OptionType/add-option-type/add-option-type.component';
 import { OptionTypeListComponent } from './Admin/Pages/OptionType/option-type-list/option-type-list.component';
 import { AddCategoryComponent } from './Admin/Pages/Category/add-category/add-category.component';
+import { AddManufacturerComponent } from './Admin/Pages/Manufacturer/add-manufacturer/add-manufacturer.component';
+import { AddCountryComponent } from './Admin/Pages/Country/add-country/add-country.component';
+import { CountryListComponent } from './Admin/Pages/Country/country-list/country-list.component';
+import { FileUploadModule } from 'primeng/fileupload';
+import { UploadComponent } from './Components/upload/upload.component';
+import { BadgeModule } from 'primeng/badge';
 
 @NgModule({
   declarations: [
@@ -98,6 +104,10 @@ import { AddCategoryComponent } from './Admin/Pages/Category/add-category/add-ca
     AddOptionTypeComponent,
     OptionTypeListComponent,
     AddCategoryComponent,
+    AddManufacturerComponent,
+    AddCountryComponent,
+    CountryListComponent,
+    UploadComponent,
     
   ],
   imports: [
@@ -122,7 +132,9 @@ import { AddCategoryComponent } from './Admin/Pages/Category/add-category/add-ca
     SpinnerModule,
     TableModule,
     FormsModule,
-    ToolbarModule
+    ToolbarModule,
+    FileUploadModule,
+    BadgeModule
   ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],

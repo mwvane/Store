@@ -11,7 +11,7 @@
         label="New"
         icon="pi pi-plus"
         class="mr-2"
-        routerLink="/AddProduct"
+        routerLink="/AddManufacturer"
       />
       <p-button
         pRipple
@@ -73,7 +73,7 @@
           {{ manufacturer.name }}
         </td>
         <td>
-          {{ manufacturer.countryName }}
+          {{ manufacturer.country.name }}
         </td>
         <td>
           <p-button

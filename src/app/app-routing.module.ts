@@ -15,6 +15,9 @@ import { AddOptionComponent } from './Admin/Pages/Option/add-option/add-option.c
 import { AddOptionTypeComponent } from './Admin/Pages/OptionType/add-option-type/add-option-type.component';
 import { OptionTypeListComponent } from './Admin/Pages/OptionType/option-type-list/option-type-list.component';
 import { AddCategoryComponent } from './Admin/Pages/Category/add-category/add-category.component';
+import { AddManufacturerComponent } from './Admin/Pages/Manufacturer/add-manufacturer/add-manufacturer.component';
+import { AddCountryComponent } from './Admin/Pages/Country/add-country/add-country.component';
+import { CountryListComponent } from './Admin/Pages/Country/country-list/country-list.component';
 
 const routes: Routes = [
   // { path: '', title: 'home', component: HomeComponent },
@@ -33,11 +36,14 @@ const routes: Routes = [
   {path: "ProductList", title: "ProductList", component: ProductListComponent},
   {path: "CategoryList", title: "CategoryList", component: CategoryListComponent},
   {path: "ManufacturerList", title: "ManufacturerList", component: ManufacturerListComponent},
+  {path: "AddManufacturer", title: "AddManufacturer", component: AddManufacturerComponent},
   {path: "OptionList", title: "OptionList", component: OptionListComponent},
   {path: "NewOption", title: "NewOption", component: AddOptionComponent},
   {path: "AddOptionType", title: "AddOptionType", component: AddOptionTypeComponent},
   {path: "OptionTypeList", title: "OptionTypeList", component: OptionTypeListComponent},
-  {path: "AddCategory", title: "AddCategory", component: AddCategoryComponent}
+  {path: "AddCategory", title: "AddCategory", component: AddCategoryComponent},
+  {path: "AddCountry", title: "AddCountry", component: AddCountryComponent},
+  {path: "CountryList", title: "CountryList", component: CountryListComponent}
 ];
 
 @NgModule({

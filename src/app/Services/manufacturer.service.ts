@@ -5,28 +5,50 @@ import { IResponse } from '../Models/response';
 import { env } from '../env';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ManufacturerService {
+  private _manufacturers = signal<IManufacturer[]>([]);
+  isLoading: boolean = false;
+  constructor(private http: HttpClient) {}
 
-  private _manufacturers = signal<IManufacturer[]>([])
-  isLoading : boolean = false
-  constructor(private http : HttpClient) {}
-  
-  get manufacturers(){
-    return this._manufacturers()
+  get manufacturers() {
+    return this._manufacturers();
   }
 
-  getManufacturers(){
-    this.isLoading = true
-    this.http.get<IResponse>(`${env.baseUrl}Manufacturer/GetManufacturers`).subscribe(res => {
-      this.isLoading = false
-      if(res.data){
-        this._manufacturers.set(res.data)
-        return true
-      }
-      return res.error
-    })
+  getManufacturers() {
+    this.isLoading = true;
+    this.http
+      .get<IManufacturer[]>(`${env.baseUrl}Manufacturer/GetManufacturers`)
+      .subscribe((res) => {
+        this.isLoading = false;
+        if (res) {
+          this._manufacturers.set(res);
+        }
+      });
+  }
+
+  addManufacturer(manufacturer: IManufacturer) {
+    return new Promise((resolve, reject) => {
+      this.isLoading = true;
+      this.http
+        .post(`${env.baseUrl}Manufacturer/AddManufacturer`, manufacturer)
+        .subscribe(
+          (response) => {
+            if (response) {
+              const currentManufacturers = this.manufacturers;
+              const updatedManufacturers = [...currentManufacturers, response];
+              this._manufacturers.set(updatedManufacturers as IManufacturer[]);
+              this.isLoading = false;
+              resolve(true);
+            }
+          },
+          (error) => {
+            this.isLoading = false;
+            reject(false);
+          }
+        );
+    });
   }
 
   deleteManufacturer(manufacturers: any[]): Promise<boolean> {
@@ -44,7 +66,9 @@ export class ManufacturerService {
         .subscribe(
           (response) => {
             var currentCategories = this.manufacturers;
-            const updatedCategories = currentCategories.filter(category => !manufacturerIds.includes(category.id!));
+            const updatedCategories = currentCategories.filter(
+              (category) => !manufacturerIds.includes(category.id!)
+            );
             this._manufacturers.set(updatedCategories);
             resolve(true);
           },
