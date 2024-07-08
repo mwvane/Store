@@ -11,6 +11,7 @@ import { ProductService } from '../../../Services/product.service';
   styleUrl: './add-product.component.css',
 })
 export class AddProductComponent implements OnInit {
+  isEditMode: boolean = false
   productForm = new FormGroup({
     name: new FormControl('', [Validators.required]),
     price: new FormControl('', [Validators.required]),

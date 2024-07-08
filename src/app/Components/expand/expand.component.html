@@ -1,20 +1,27 @@
 <div class="main-container">
   <div class="space-between" (click)="expand()">
-    <div class="sidebar-item">
-      <i class="{{ data.image }}"></i>
-      <span>{{ data.name }}</span>
+    <div class="sidebar-item space-between px-3">
+      <div class="d-flex gap-2">
+        <i class="{{ data.image }}"></i>
+        <span>{{ data.name }}</span>
+      </div>
+      @if (data.subCategories?.length) {
+      <i class="bi bi-chevron-down"></i>
+      }
     </div>
-    @if (data.subCategories?.length) {
-    <i class="bi bi-chevron-down"></i>
-    }
   </div>
   @if (this.isOpen) {
-  <div class="expand-container px-3 py-2 round-sm">
+  <div class="expand-container py-2 round-sm">
     @for (item of data.subCategories; track $index) {
-    <div class="sidebar-item fs-sm" (click)="onItemClick(item)">
-      <i class="{{ item.image }}"></i>
-      <span>{{ item.name }}</span>
-    </div>
+      <div
+      #el
+        [ngClass]="item.isActive ? 'active' : ''"
+        class="sidebar-item fs-sm px-4"
+        (click)="onItemClick(item, el)"
+      >
+        <i class="{{ item.image }}"></i>
+        <span>{{ item.name }}</span>
+      </div>
     }
   </div>
   }

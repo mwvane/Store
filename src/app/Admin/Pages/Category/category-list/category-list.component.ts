@@ -3,27 +3,31 @@ import { CategoryService } from '../../../../Services/category.service';
 import { ModalService } from '../../../../Services/modal.service';
 import moment from 'moment';
 import { WarningService } from '../../../../Services/warning.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-category-list',
   templateUrl: './category-list.component.html',
-  styleUrl: './category-list.component.css'
+  styleUrl: './category-list.component.css',
 })
 export class CategoryListComponent {
-  selectedCategories:any = []
+  selectedCategories: any = [];
   constructor(
     public categoryService: CategoryService,
     private modalService: ModalService,
-    public warningService: WarningService
+    public warningService: WarningService,
+    private router: Router
   ) {}
   ngOnInit(): void {
-    this.categoryService.getAllCategories()
+    this.categoryService.getAllCategories();
   }
-  editCategory(category: any) {}
+  editCategory(category: any) {
+    this.router.navigate(['UpdateCategory', category.id]);
+  }
 
   confirmDialog(category: any = null) {
     this.modalService.confirmDilaog = true;
-    if(category){
+    if (category) {
       this.selectedCategories = [category];
     }
   }

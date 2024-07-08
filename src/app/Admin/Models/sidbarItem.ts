@@ -4,4 +4,5 @@ export interface ISidebarItem {
     id: number
     tittle: string
     item: ICategory[]
+    isActive?: boolean
 }

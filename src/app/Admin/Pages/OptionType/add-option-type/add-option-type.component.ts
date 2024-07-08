@@ -9,6 +9,7 @@ import { OptionService } from '../../../../Services/option.service';
 })
 export class AddOptionTypeComponent implements OnInit {
   optionTypes: any = [];
+  isEditMode: boolean = false
   optionTypeForm = new FormGroup({
     name: new FormControl('', [Validators.required]),
   });

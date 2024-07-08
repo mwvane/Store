@@ -3,6 +3,7 @@ import { ManufacturerService } from '../../../../Services/manufacturer.service';
 import { ModalService } from '../../../../Services/modal.service';
 import { WarningService } from '../../../../Services/warning.service';
 import moment from 'moment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-manufacturer-list',
@@ -14,12 +15,15 @@ export class ManufacturerListComponent implements OnInit {
   constructor(
     public manufacturerService: ManufacturerService,
     private modalService: ModalService,
-    public warningService: WarningService
+    public warningService: WarningService,
+    private router: Router
   ) {}
   ngOnInit(): void {
     this.manufacturerService.getManufacturers();
   }
-  editManufacturer(manufacturer: any) {}
+  editManufacturer(manufacturer: any) {
+    this.router.navigate(['UpdateManufacturer', manufacturer.id]);
+  }
 
   confirmDialog(manufacturer: any = null) {
     this.modalService.confirmDilaog = true;

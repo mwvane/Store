@@ -11,6 +11,7 @@ export class CategoryService {
   private _categories = signal<ICategory[]>([]);
   private _allCategories = signal<ICategory[]>([]);
   isLoading: boolean = false;
+  isLoadingCategoryById: boolean = false;
   constructor(private http: HttpClient) {}
 
   get categories() {
@@ -47,8 +48,22 @@ export class CategoryService {
       });
   }
 
+  getCategoryById(id: number) {
+    return new Promise((resolve, reject) => {
+      this.isLoadingCategoryById = true;
+      this.http.get(`${env.baseUrl}Category/GetCategoryById/${id}`).subscribe(
+        (res) => {
+          this.isLoadingCategoryById = false;
+          if (res) {
+            resolve(res);
+          }
+        },
+        (error) => reject('category not found')
+      );
+    });
+  }
+
   addCategory(category: any) {
-    debugger
     return new Promise((resolve, reject) => {
       this.isLoading = true;
       this.http
@@ -65,6 +80,25 @@ export class CategoryService {
           },
           (error) => reject(false)
         );
+    });
+  }
+  UpdateCategory(category: any) {
+    return new Promise((resolve, reject) => {
+      this.isLoading = true;
+      this.http.put(`${env.baseUrl}Category/UpdateCategory`, category).subscribe(
+        (response) => {
+          this.isLoading = false;
+          if (response) {
+            const currentCategories = this.categories;
+            const updatedCategories = currentCategories.map((c) =>
+              c.id == category.id ? { ...c, category } : c
+            );
+            this._categories.set(updatedCategories);
+            resolve(true);
+          }
+        },
+        (error) => reject(false)
+      );
     });
   }
 

@@ -8,5 +8,6 @@ import { Button } from 'primeng/button';
 })
 export class SolidButtonComponent extends Button {
   @Input() tittle: string = 'solid btn'
+  @Input() btnIcon: string = ''
   @Input() isLoading: boolean = false
 }

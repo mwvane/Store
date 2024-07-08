@@ -30,7 +30,13 @@ export class ExpandComponent {
       }
     }
   }
-  onItemClick(item : ICategory){
+  onItemClick(item : ICategory, el: any){
+    let items: any = document.getElementsByClassName('sidebar-item')
+    for(let i of items){
+      i.classList.remove('active')
+    }
+    debugger
+    el.classList.add('active')
     this.itemClick.emit(item)
   }
 }

@@ -1,12 +1,16 @@
 <div class="sidebar-container w-100">
-    <div class="w-100">
-      <div class="shadow vh-100 px-3 w-100">
-        @for (sidbarItem of this.sidbarItems; track $index) {
-          <app-section [tittle]="sidbarItem.tittle" [borderBottom]="true"></app-section>
-        @for (item of sidbarItem.item; track $index) {
-        <app-expand [data]="item" (itemClick)="itemClick($event)"></app-expand>
-        } }
+  <div class="w-100">
+    <div class="shadow w-100">
+      @for (sidbarItem of this.sidbarItems; track $index) {
+      <div class="px-3">
+        <app-section
+          [tittle]="sidbarItem.tittle"
+          [borderBottom]="true"
+        ></app-section>
       </div>
+      @for (item of sidbarItem.item; track $index) {
+      <app-expand [data]="item" (itemClick)="itemClick($event)"></app-expand>
+      } }
     </div>
   </div>
-  
+</div>

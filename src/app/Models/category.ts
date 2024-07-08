@@ -5,4 +5,5 @@ export interface ICategory {
   subCategories?: ICategory[];
   parentCategoryId? : number
   url?: string
+  isActive? : boolean
 }

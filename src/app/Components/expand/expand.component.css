@@ -25,3 +25,11 @@
   object-fit: cover;
   fill: red;
 }
+.sidebar-item:hover {
+  background-color: var(--lightGreen);
+  color: white !important;
+}
+.active {
+  background-color: var(--lightGreen);
+  color: white !important;
+}

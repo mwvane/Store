@@ -63,6 +63,7 @@
               />
               <app-solid-button
                 [tittle]="'add type'"
+                [btnIcon] = "'bi bi-plus'"
                 routerLink="/AddOptionType"
               ></app-solid-button>
             </div>
@@ -76,8 +77,14 @@
         <div class="action">
           <app-solid-button
             [disabled]="this.optionForm.invalid"
+            [btnIcon] = "this.isEditMode ? 'bi bi-arrow-clockwise' :  'bi bi-save' "
             [tittle]="'add option'"
             [isLoading]="this.optionService.isLoadingOptions"
+          ></app-solid-button>
+          <app-solid-button
+            [tittle]="'show options'"
+            [btnIcon]="'bi bi-list-nested'"
+            routerLink="/OptionList"
           ></app-solid-button>
         </div>
       </div>

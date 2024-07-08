@@ -360,6 +360,11 @@ select {
   border-radius: 6px;
 }
 
+.action {
+  display: flex;
+  gap: 20px;
+}
+
 /* -----PRIMANGE---- */
 /* multiselect */
 .p-multiselect * {

@@ -10,6 +10,7 @@ import { optionType } from '../../../../Enums/optionType';
 })
 export class AddOptionComponent implements OnInit {
   optionTypes: any = [];
+  isEditMode: boolean = false
   optionForm = new FormGroup({
     name: new FormControl('', [Validators.required]),
     value: new FormControl('', [Validators.required]),

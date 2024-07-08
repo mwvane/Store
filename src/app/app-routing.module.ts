@@ -37,11 +37,13 @@ const routes: Routes = [
   {path: "CategoryList", title: "CategoryList", component: CategoryListComponent},
   {path: "ManufacturerList", title: "ManufacturerList", component: ManufacturerListComponent},
   {path: "AddManufacturer", title: "AddManufacturer", component: AddManufacturerComponent},
+  {path: "UpdateManufacturer/:id", title: "UpdateManufacturer", component: AddManufacturerComponent},
   {path: "OptionList", title: "OptionList", component: OptionListComponent},
   {path: "NewOption", title: "NewOption", component: AddOptionComponent},
   {path: "AddOptionType", title: "AddOptionType", component: AddOptionTypeComponent},
   {path: "OptionTypeList", title: "OptionTypeList", component: OptionTypeListComponent},
   {path: "AddCategory", title: "AddCategory", component: AddCategoryComponent},
+  {path: "UpdateCategory/:id", title: "UpdateCategory", component: AddCategoryComponent},
   {path: "AddCountry", title: "AddCountry", component: AddCountryComponent},
   {path: "CountryList", title: "CountryList", component: CountryListComponent}
 ];

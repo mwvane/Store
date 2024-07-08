@@ -1,7 +1,6 @@
-<p>add-category works!</p>
 <div class="container">
-  <app-section [borderBottom]="true" [tittle]="'add option'"></app-section>
-  <form [formGroup]="this.categoryForm" (ngSubmit)="addCategory()">
+  <app-section [borderBottom]="true" [tittle]="this.isEditMode ? 'update category' : 'add category'"></app-section>
+  <form [formGroup]="this.categoryForm" (ngSubmit)="this.isEditMode ? updateCategory() : addCategory()">
     <div class="row form-container">
       <div class="col-12 border round-md py-3 direction-y gap-4">
         <!-- NAME -->
@@ -44,7 +43,7 @@
             <div class="d-flex info">
               <!-- <i class="requared">*</i> -->
               <label class="nowrap" for="optionType">{{
-                "optionType" | translate
+                "parent category" | translate
               }}</label>
             </div>
             <div class="space-between gap-3">
@@ -69,9 +68,15 @@
         </div>
         <div class="action">
           <app-solid-button
-            [disabled]="this.categoryForm.invalid"
-            [tittle]="'add option'"
+            [disabled]="this.categoryForm.invalid && this.categoryForm.touched"
+            [btnIcon] = "this.isEditMode ? 'bi bi-arrow-clockwise' :  'bi bi-save' "
+            [tittle]="this.isEditMode ? 'update category' : 'add category'"
             [isLoading]="this.categoryService.isLoading"
+          ></app-solid-button>
+          <app-solid-button
+            [tittle]="'show categories'"
+            [btnIcon]="'bi bi-list-nested'"
+            routerLink="/CategoryList"
           ></app-solid-button>
         </div>
       </div>

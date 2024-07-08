@@ -51,6 +51,41 @@ export class ManufacturerService {
     });
   }
 
+  upadetManufacturer(manufacturer: any){
+    debugger
+    return new Promise((resolve, reject) => {
+      this.isLoading = true;
+      this.http.put(`${env.baseUrl}Manufacturer/UpdateManufacturer`, manufacturer).subscribe(
+        (response) => {
+          this.isLoading = false;
+          if (response) {
+            const currentManufacturers = this.manufacturers;
+            const updatedManufacturers = currentManufacturers.map((m) =>
+              m.id == manufacturer.id ? { ...m, manufacturer } : m
+            );
+            this._manufacturers.set(updatedManufacturers);
+            resolve(true);
+          }
+        },
+        (error) => reject(false)
+      );
+    });
+  }
+  getManufacturerById(id:number){
+    return new Promise((resolve, reject) => {
+      this.isLoading = true;
+      this.http.get(`${env.baseUrl}Manufacturer/GetManufacturerById/${id}`).subscribe(
+        (res) => {
+          this.isLoading = false;
+          if (res) {
+            resolve(res);
+          }
+        },
+        (error) => reject('manufacturer not found')
+      );
+    });
+  }
+
   deleteManufacturer(manufacturers: any[]): Promise<boolean> {
     var manufacturerIds: number[] = [];
     manufacturers.map((m) => manufacturerIds.push(m.id));
