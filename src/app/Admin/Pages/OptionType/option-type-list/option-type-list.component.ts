@@ -32,7 +32,7 @@ export class OptionTypeListComponent {
       this.selectedOptions
     );
     if (isdeleted) {
-      alert('category deleted');
+      alert('option type successfully deleted');
     }
   }
 }

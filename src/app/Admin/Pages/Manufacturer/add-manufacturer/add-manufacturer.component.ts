@@ -39,7 +39,6 @@ export class AddManufacturerComponent {
   async getManufacturerById(id: number){
     var manufacturer: any = await this.manufacturerService.getManufacturerById(id);
     if (manufacturer) {
-      debugger
       this.currentManufacturer = manufacturer;
       this.manufacturerForm.patchValue({
         id: manufacturer.id,

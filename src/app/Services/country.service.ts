@@ -1,6 +1,6 @@
 import { Injectable, Signal, signal } from '@angular/core';
 import { IContry } from '../Models/country';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { env } from '../env';
 
 @Injectable({
@@ -33,8 +33,9 @@ export class CountryService {
 
   addCountry(country: IContry) {
     return new Promise((resolve, reject) => {
-      this.http.post(`${env}Country/AddCountry`, country).subscribe(
+      this.http.post(`${env.baseUrl}Country/AddCountry`, country).subscribe(
         (response) => {
+          debugger
           if (response) {
             const currentCountries = this.countries;
             const updatedCountries = [...currentCountries, response];
@@ -44,6 +45,29 @@ export class CountryService {
         },
         (error) => reject(false)
       );
+    });
+  }
+  deleteCountry(countries: any[]): Promise<boolean> {
+    var countryIds: number[] = [];
+    countries.map((m) => countryIds.push(m.id));
+    return new Promise((resolve, reject) => {
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+      });
+      this.http.delete<any>(`${env.baseUrl}Country/DeleteCountry`, {
+          headers,
+          body: countryIds,
+        })
+        .subscribe(response => {
+            var currentCountries = this.countries;
+            const updatedCountries = currentCountries.filter(
+              (country) => !countryIds.includes(country.id!)
+            );
+            this._countries.set(updatedCountries);
+            resolve(true);
+          },
+          (error) => reject(false)
+        );
     });
   }
 }

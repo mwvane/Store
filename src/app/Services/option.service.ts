@@ -77,6 +77,42 @@ export class OptionService {
     });
   }
 
+  upadateOption(option: any){
+    return new Promise((resolve, reject) => {
+      this.isLoadingOptions = true;
+      this.http.put(`${env.baseUrl}Option/UpdateOption`, option).subscribe(
+        (response) => {
+          this.isLoadingOptions = false;
+          if (response) {
+            const currentOptions = this.options;
+            const updatedOptions = currentOptions.map((o) =>
+              o.id == option.id ? { ...o, option } : o
+            );
+            this._options.set(updatedOptions);
+            resolve(true);
+          }
+        },
+        (error) => reject(false)
+      );
+    });
+  }
+
+  getOptionById(id:number){
+    debugger
+    return new Promise((resolve, reject) => {
+      this.isLoadingOptions = true;
+      this.http.get(`${env.baseUrl}Option/GetOptionById/${id}`).subscribe(
+        (res) => {
+          this.isLoadingOptions = false;
+          if (res) {
+            resolve(res);
+          }
+        },
+        (error) => reject('option not found')
+      );
+    });
+  }
+
   deleteOption(options: any[]): Promise<boolean> {
     var optionIds: number[] = [];
     options.map((m) => optionIds.push(m.id));

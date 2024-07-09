@@ -1,6 +1,12 @@
 <div class="container">
-  <app-section [borderBottom]="true" [tittle]="'add option'"></app-section>
-  <form [formGroup]="this.optionForm" (ngSubmit)="addOption()">
+  <app-section
+    [borderBottom]="true"
+    [tittle]="this.isEditMode ? 'update option' : 'add option'"
+  ></app-section>
+  <form
+    [formGroup]="this.optionForm"
+    (ngSubmit)="this.isEditMode ? updateOption() : addOption()"
+  >
     <div class="row form-container">
       <div class="col-12 border round-md py-3 direction-y gap-4">
         <!-- NAME -->
@@ -53,7 +59,7 @@
               <p-dropdown
                 class="w-100"
                 [options]="this.optionService.optionTypes"
-                formControlName="optionType"
+                formControlName="optionTypeId"
                 optionLabel="name"
                 optionValue="id"
                 [filter]="true"
@@ -63,13 +69,13 @@
               />
               <app-solid-button
                 [tittle]="'add type'"
-                [btnIcon] = "'bi bi-plus'"
+                [btnIcon]="'bi bi-plus'"
                 routerLink="/AddOptionType"
               ></app-solid-button>
             </div>
 
             <app-form-error
-              [formControl]="this.optionForm.controls.optionType"
+              [formControl]="this.optionForm.controls.optionTypeId"
               [errorId]="2"
             ></app-form-error>
           </div>
@@ -77,8 +83,8 @@
         <div class="action">
           <app-solid-button
             [disabled]="this.optionForm.invalid"
-            [btnIcon] = "this.isEditMode ? 'bi bi-arrow-clockwise' :  'bi bi-save' "
-            [tittle]="'add option'"
+            [btnIcon]="this.isEditMode ? 'bi bi-arrow-clockwise' : 'bi bi-save'"
+            [tittle]="this.isEditMode ? 'update option' : 'add option'"
             [isLoading]="this.optionService.isLoadingOptions"
           ></app-solid-button>
           <app-solid-button

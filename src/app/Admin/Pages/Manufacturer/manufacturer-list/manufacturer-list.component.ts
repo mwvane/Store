@@ -37,7 +37,7 @@ export class ManufacturerListComponent implements OnInit {
       this.selectedManufacturers
     );
     if (isdeleted) {
-      alert('category deleted');
+      alert('manufacturer sucessfully deleted');
     }
   }
   formatdate(date: any) {

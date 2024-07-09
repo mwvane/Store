@@ -4,6 +4,7 @@ import { ModalService } from '../../../../Services/modal.service';
 import { WarningService } from '../../../../Services/warning.service';
 import moment from 'moment';
 import { optionType } from '../../../../Enums/optionType';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-option-list',
@@ -15,12 +16,15 @@ export class OptionListComponent {
   constructor(
     public optionService: OptionService,
     private modalService: ModalService,
-    public warningService: WarningService
+    public warningService: WarningService,
+    private router: Router
   ) {}
   ngOnInit(): void {
     this.optionService.getOptions();
   }
-  editOption(option: any) {}
+  editOption(option: any) {
+    this.router.navigate(['UpdateOption', option.id]);
+  }
 
   confirmDialog(option: any = null) {
     this.modalService.confirmDilaog = true;
@@ -34,7 +38,7 @@ export class OptionListComponent {
       this.selectedOptions
     );
     if (isdeleted) {
-      alert('category deleted');
+      alert('option successfully deleted');
     }
   }
   formatdate(date: any) {
