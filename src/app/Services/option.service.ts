@@ -3,14 +3,15 @@ import { IOption } from '../Models/option';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { IResponse } from '../Models/response';
 import { env } from '../env';
-import { IOPtenType } from '../Models/optionType';
+import { IOptionType } from '../Models/optionType';
+import { ReorderableColumn } from 'primeng/table';
 
 @Injectable({
   providedIn: 'root',
 })
 export class OptionService {
   private _options = signal<IOption[]>([]);
-  private _optionTypes = signal<IOPtenType[]>([])
+  private _optionTypes = signal<IOptionType[]>([])
   isLoadingOptions: boolean = false;
   loadinOptionTypes = false;
   constructor(private http: HttpClient) {}
@@ -26,7 +27,7 @@ export class OptionService {
   getOptions() {
     this.isLoadingOptions = true;
     this.http
-      .get<IResponse>(`${env.baseUrl}Option/GetOptions`)
+      .get<IResponse<IOption[]>>(`${env.baseUrl}Option/GetOptions`)
       .subscribe((res) => {
         this.isLoadingOptions = false;
         if (res.data) {
@@ -39,7 +40,7 @@ export class OptionService {
   getOptionTypes() {
     this.loadinOptionTypes = true;
     this.http
-      .get<IResponse>(`${env.baseUrl}Option/GetOptionTypes`)
+      .get<IResponse<IOptionType[]>>(`${env.baseUrl}Option/GetOptionTypes`)
       .subscribe((res) => {
         this.loadinOptionTypes = false;
         if (res.data) {
@@ -54,9 +55,7 @@ export class OptionService {
     return new Promise((resolve, reject) => {
       this.http.post<any>(`${env.baseUrl}Option/AddOption`, option).subscribe(
         (response) => {
-          var currentOptions = this.options;
-          var updatedOptions = [...currentOptions, response];
-          this._options.set(updatedOptions);
+          this.getOptions()
           resolve(true)
         },
         (error) => reject(false)
@@ -67,9 +66,7 @@ export class OptionService {
     return new Promise((resolve, reject) => {
       this.http.post<any>(`${env.baseUrl}Option/AddOptionType`, optionType).subscribe(
         (response) => {
-          var currentOptionTypes = this.optionTypes;
-          var updatedOptions = [...currentOptionTypes, response];
-          this._options.set(updatedOptions);
+          this.getOptions()
           resolve(true);
         },
         (error) => reject(false)
@@ -78,18 +75,35 @@ export class OptionService {
   }
 
   upadateOption(option: any){
+    debugger
     return new Promise((resolve, reject) => {
       this.isLoadingOptions = true;
-      this.http.put(`${env.baseUrl}Option/UpdateOption`, option).subscribe(
+      this.http.put<IResponse<IOption>>(`${env.baseUrl}Option/UpdateOption`, option).subscribe(
         (response) => {
           this.isLoadingOptions = false;
-          if (response) {
-            const currentOptions = this.options;
-            const updatedOptions = currentOptions.map((o) =>
-              o.id == option.id ? { ...o, option } : o
-            );
-            this._options.set(updatedOptions);
-            resolve(true);
+          if (response.success) {
+            this.getOptions()
+            resolve(response.success);
+          }
+          else{
+            reject(response.error?.join("\n"))
+          }
+        },
+        (error) => reject(false)
+      );
+    });
+  }
+
+  upadateOptionType(optionType: any){
+    return new Promise((resolve, reject) => {
+      this.http.put<IResponse<IOptionType>>(`${env.baseUrl}Option/UpdateOptionType`, optionType).subscribe(
+        (response) => {
+         if (response.success) {
+            this.getOptionTypes()
+            resolve(response.success);
+          }
+          else{
+            reject(response.error?.join("\n"))
           }
         },
         (error) => reject(false)
@@ -98,7 +112,6 @@ export class OptionService {
   }
 
   getOptionById(id:number){
-    debugger
     return new Promise((resolve, reject) => {
       this.isLoadingOptions = true;
       this.http.get(`${env.baseUrl}Option/GetOptionById/${id}`).subscribe(
@@ -112,26 +125,62 @@ export class OptionService {
       );
     });
   }
+  getOptionTypeById<IOptionType>(id:number){
+    return new Promise((resolve, reject) => {
+      this.loadinOptionTypes = true;
+      this.http.get<IResponse<IOptionType>>(`${env.baseUrl}Option/GetOptionTypeById/${id}`).subscribe(
+        (res) => {
+          if (res.data) {
+            resolve(res.data);
+          }
+          this.loadinOptionTypes = false
+        },
+        (error) => reject('option type not found')
+      );
+    });
+  }
 
   deleteOption(options: any[]): Promise<boolean> {
     var optionIds: number[] = [];
-    options.map((m) => optionIds.push(m.id));
+    options.map((m) => optionIds.push(m.optionId));
     return new Promise((resolve, reject) => {
       const headers = new HttpHeaders({
         'Content-Type': 'application/json',
       });
       this.http
-        .delete<any>(`${env.baseUrl}Option/DeleteOption`, {
+        .delete<IResponse<IOption>>(`${env.baseUrl}Option/DeleteOption`, {
           headers,
           body: optionIds,
         })
         .subscribe(
           (response) => {
-            var currentOptions = this.options;
-            const updatedOptions = currentOptions.filter(
-              (option) => !optionIds.includes(option.id!)
+            this.getOptions()
+            resolve(true);
+          },
+          (error) => reject(false)
+        );
+    });
+  }
+
+  deleteOptionType(optionTypes: any[]): Promise<boolean> {
+    var optionTypeIds: number[] = [];
+    optionTypes.map((o) => optionTypeIds.push(o.id));
+    return new Promise((resolve, reject) => {
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+      });
+      this.http
+        .delete<IResponse<IOptionType>>(`${env.baseUrl}Option/DeleteOptionType`, {
+          headers,
+          body: optionTypeIds,
+        })
+        .subscribe(
+          response => {
+            var currentOptionTypes = this.optionTypes;
+            const updatedOptionTypes = currentOptionTypes.filter(
+              (optionType) => !optionTypeIds.includes(optionType.id!)
             );
-            this._options.set(updatedOptions);
+            this._optionTypes.set(updatedOptionTypes);
             resolve(true);
           },
           (error) => reject(false)

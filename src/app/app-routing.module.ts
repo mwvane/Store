@@ -42,6 +42,7 @@ const routes: Routes = [
   {path: "NewOption", title: "NewOption", component: AddOptionComponent},
   {path: "UpdateOption/:id", title: "UpdateOption", component: AddOptionComponent},
   {path: "AddOptionType", title: "AddOptionType", component: AddOptionTypeComponent},
+  {path: "UpdateOptionType/:id", title: "UpdateOptionType", component: AddOptionTypeComponent},
   {path: "OptionTypeList", title: "OptionTypeList", component: OptionTypeListComponent},
   {path: "AddCategory", title: "AddCategory", component: AddCategoryComponent},
   {path: "UpdateCategory/:id", title: "UpdateCategory", component: AddCategoryComponent},

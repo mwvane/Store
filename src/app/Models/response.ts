@@ -1,4 +1,5 @@
-export interface IResponse {
-    data: any
-    error: string[]
+export interface IResponse<T> {
+    data?: T
+    success?: string
+    error?: string[]
 }

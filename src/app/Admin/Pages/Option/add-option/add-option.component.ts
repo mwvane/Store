@@ -14,7 +14,7 @@ export class AddOptionComponent implements OnInit {
   isEditMode: boolean = false;
   currentOption: any
   optionForm = new FormGroup({
-    id: new FormControl(''),
+    optionId: new FormControl(''),
     name: new FormControl('', [Validators.required]),
     value: new FormControl('', [Validators.required]),
     optionTypeId: new FormControl('', [Validators.required]),
@@ -42,13 +42,12 @@ export class AddOptionComponent implements OnInit {
     if (option) {
       this.currentOption = option;
       this.optionForm.patchValue({
-        id: option.id,
+        optionId: option.optionId,
         name: option.name,
         value: option.value,
         optionTypeId: option.optionTypeId
       });
     }
-    debugger
   }
 
   async addOption() {

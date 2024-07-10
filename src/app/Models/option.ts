@@ -1,7 +1,7 @@
 import { optionType } from "../Enums/optionType"
 
 export interface IOption {
-    id? : number
+    optionId? : number
     name: string
     value: string
     optionType: optionType

@@ -59,7 +59,7 @@ export class AddManufacturerComponent {
         this.manufacturerForm.reset();
       }
     } catch (error) {
-      alert('Failed to add option type');
+      alert('Failed to add manufacturer type');
       // Handle the error appropriately
     }
   }
@@ -69,11 +69,11 @@ export class AddManufacturerComponent {
         this.manufacturerForm.value
       );
       if (isUpdated) {
-        alert('category successfully updated');
+        alert('manufacturer successfully updated');
         this.manufacturerForm.reset();
       }
     } catch (error) {
-      console.error('Failed to add product', error);
+      console.error('Failed to update manufacturer', error);
       // Handle the error appropriately
     }
   }

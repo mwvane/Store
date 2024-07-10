@@ -19,11 +19,11 @@ export class ManufacturerService {
   getManufacturers() {
     this.isLoading = true;
     this.http
-      .get<IManufacturer[]>(`${env.baseUrl}Manufacturer/GetManufacturers`)
+      .get<IResponse<IManufacturer[]>>(`${env.baseUrl}Manufacturer/GetManufacturers`)
       .subscribe((res) => {
         this.isLoading = false;
-        if (res) {
-          this._manufacturers.set(res);
+        if (res.data) {
+          this._manufacturers.set(res.data);
         }
       });
   }
@@ -32,16 +32,17 @@ export class ManufacturerService {
     return new Promise((resolve, reject) => {
       this.isLoading = true;
       this.http
-        .post(`${env.baseUrl}Manufacturer/AddManufacturer`, manufacturer)
+        .post<IResponse<IManufacturer>>(
+          `${env.baseUrl}Manufacturer/AddManufacturer`,
+          manufacturer
+        )
         .subscribe(
           (response) => {
-            if (response) {
-              const currentManufacturers = this.manufacturers;
-              const updatedManufacturers = [...currentManufacturers, response];
-              this._manufacturers.set(updatedManufacturers as IManufacturer[]);
-              this.isLoading = false;
-              resolve(true);
+            if (response.success) {
+              this.getManufacturers();
             }
+            this.isLoading = false;
+            resolve(true);
           },
           (error) => {
             this.isLoading = false;
@@ -51,38 +52,42 @@ export class ManufacturerService {
     });
   }
 
-  upadetManufacturer(manufacturer: any){
-    debugger
+  upadetManufacturer(manufacturer: any) {
     return new Promise((resolve, reject) => {
       this.isLoading = true;
-      this.http.put(`${env.baseUrl}Manufacturer/UpdateManufacturer`, manufacturer).subscribe(
-        (response) => {
-          this.isLoading = false;
-          if (response) {
-            const currentManufacturers = this.manufacturers;
-            const updatedManufacturers = currentManufacturers.map((m) =>
-              m.id == manufacturer.id ? { ...m, manufacturer } : m
-            );
-            this._manufacturers.set(updatedManufacturers);
+      this.http
+        .put<IResponse<IManufacturer>>(
+          `${env.baseUrl}Manufacturer/UpdateManufacturer`,
+          manufacturer
+        )
+        .subscribe(
+          (response) => {
+            if (response.success) {
+              this.getManufacturers();
+            }
+            this.isLoading = false;
             resolve(true);
-          }
-        },
-        (error) => reject(false)
-      );
+          },
+          (error) => reject(false)
+        );
     });
   }
-  getManufacturerById(id:number){
+  getManufacturerById(id: number) {
     return new Promise((resolve, reject) => {
       this.isLoading = true;
-      this.http.get(`${env.baseUrl}Manufacturer/GetManufacturerById/${id}`).subscribe(
-        (res) => {
-          this.isLoading = false;
-          if (res) {
-            resolve(res);
-          }
-        },
-        (error) => reject('manufacturer not found')
-      );
+      this.http
+        .get<IResponse<IManufacturer>>(`${env.baseUrl}Manufacturer/GetManufacturerById/${id}`)
+        .subscribe(
+          (res) => {
+            this.isLoading = false;
+            if (res.data) {
+              resolve(res.data);
+            } else {
+              reject(res.error);
+            }
+          },
+          (error) => reject('manufacturer not found')
+        );
     });
   }
 
@@ -94,18 +99,19 @@ export class ManufacturerService {
         'Content-Type': 'application/json',
       });
       this.http
-        .delete<any>(`${env.baseUrl}Manufacturer/DeleteManufacturer`, {
+        .delete<IResponse<IManufacturer>>(`${env.baseUrl}Manufacturer/DeleteManufacturer`, {
           headers,
           body: manufacturerIds,
         })
         .subscribe(
           (response) => {
-            var currentCategories = this.manufacturers;
-            const updatedCategories = currentCategories.filter(
-              (category) => !manufacturerIds.includes(category.id!)
-            );
-            this._manufacturers.set(updatedCategories);
-            resolve(true);
+            if (response.success) {
+              this.getManufacturers();
+              resolve(true);
+            }
+            else {
+              reject(response.error!.join('\n'))
+            }
           },
           (error) => reject(false)
         );

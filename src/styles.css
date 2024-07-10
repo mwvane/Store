@@ -479,4 +479,7 @@ select {
 .p-datatable .p-datatable-thead > tr > th {
   padding: .5rem;
 }
+.p-sortable-column-icon {
+  color: black
+}
 

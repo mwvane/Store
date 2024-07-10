@@ -23,7 +23,7 @@ export class OptionListComponent {
     this.optionService.getOptions();
   }
   editOption(option: any) {
-    this.router.navigate(['UpdateOption', option.id]);
+    this.router.navigate(['UpdateOption', option.optionId]);
   }
 
   confirmDialog(option: any = null) {
@@ -38,6 +38,7 @@ export class OptionListComponent {
       this.selectedOptions
     );
     if (isdeleted) {
+      this.selectedOptions = []
       alert('option successfully deleted');
     }
   }

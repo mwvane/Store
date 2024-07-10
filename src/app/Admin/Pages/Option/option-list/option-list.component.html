@@ -34,7 +34,7 @@
     [tableStyle]="{ 'min-width': '75rem' }"
     [(selection)]="selectedOptions"
     [rowHover]="true"
-    dataKey="id"
+    dataKey="optionId"
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
     [showCurrentPageReport]="true"
     [loading]="this.optionService.isLoadingOptions"
@@ -67,7 +67,7 @@
           <p-tableCheckbox [value]="option" />
         </td>
         <td>
-          {{ option.id }}
+          {{ option.optionId }}
         </td>
         <td>
           {{ option.name }}

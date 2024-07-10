@@ -1,6 +1,6 @@
 <div class="container">
-  <app-section [borderBottom]="true" [tittle]="'add option type'"></app-section>
-  <form [formGroup]="this.optionTypeForm" (ngSubmit)="addOptionType()">
+  <app-section [borderBottom]="true" [tittle]="this.isEditMode ? 'update option type' : 'add option type'"></app-section>
+  <form [formGroup]="this.optionTypeForm" (ngSubmit)="isEditMode ? updateOptionType() : addOptionType()">
     <div class="row form-container">
       <div class="col-12 border round-md py-3 direction-y gap-4">
         <!-- NAME -->
@@ -23,9 +23,14 @@
             <app-solid-button
               [disabled]="this.optionTypeForm.invalid"
               [btnIcon] = "this.isEditMode ? 'bi bi-arrow-clockwise' :  'bi bi-save' "
-              [tittle]="'add option type'"
+              [tittle]="this.isEditMode ? 'update option type' : 'add option type'"
               [isLoading]="this.optionService.loadinOptionTypes"
             ></app-solid-button>
+            <app-solid-button
+            [tittle]="'show options types'"
+            [btnIcon]="'bi bi-list-nested'"
+            routerLink="/OptionTypeList"
+          ></app-solid-button>
           </div>
         </div>
       </div>

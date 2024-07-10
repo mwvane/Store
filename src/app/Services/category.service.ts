@@ -24,7 +24,7 @@ export class CategoryService {
   getCategories() {
     this.isLoading = true;
     this.http
-      .get<IResponse>(`${env.baseUrl}Category/GetCategories`)
+      .get<IResponse<ICategory[]>>(`${env.baseUrl}Category/GetCategories`)
       .subscribe((res) => {
         this.isLoading = false;
         if (res.data) {
@@ -37,7 +37,7 @@ export class CategoryService {
   getAllCategories() {
     this.isLoading = true;
     this.http
-      .get<IResponse>(`${env.baseUrl}Category/GetAllCategories`)
+      .get<IResponse<ICategory[]>>(`${env.baseUrl}Category/GetAllCategories`)
       .subscribe((res) => {
         this.isLoading = false;
         if (res.data) {
@@ -67,16 +67,11 @@ export class CategoryService {
     return new Promise((resolve, reject) => {
       this.isLoading = true;
       this.http
-        .post<IResponse>(`${env.baseUrl}Category/AddCategory`, category)
+        .post<IResponse<ICategory>>(`${env.baseUrl}Category/AddCategory`, category)
         .subscribe(
           (response) => {
-            this.isLoading = false;
-            if (response) {
-              const currentCategories = this.categories;
-              const updatedCategories = { ...currentCategories, response };
-              this._categories.set(updatedCategories);
-              resolve(true);
-            }
+            this.getAllCategories();
+            resolve(true);
           },
           (error) => reject(false)
         );
@@ -85,20 +80,15 @@ export class CategoryService {
   UpdateCategory(category: any) {
     return new Promise((resolve, reject) => {
       this.isLoading = true;
-      this.http.put(`${env.baseUrl}Category/UpdateCategory`, category).subscribe(
-        (response) => {
-          this.isLoading = false;
-          if (response) {
-            const currentCategories = this.categories;
-            const updatedCategories = currentCategories.map((c) =>
-              c.id == category.id ? { ...c, category } : c
-            );
-            this._categories.set(updatedCategories);
+      this.http
+        .put(`${env.baseUrl}Category/UpdateCategory`, category)
+        .subscribe(
+          (response) => {
+            this.getAllCategories();
             resolve(true);
-          }
-        },
-        (error) => reject(false)
-      );
+          },
+          (error) => reject(false)
+        );
     });
   }
 
@@ -116,11 +106,7 @@ export class CategoryService {
         })
         .subscribe(
           (response) => {
-            var currentCategories = this.allCategories;
-            const updatedCategories = currentCategories.filter(
-              (category) => !categoryIds.includes(category.id!)
-            );
-            this._allCategories.set(updatedCategories);
+            this.getAllCategories()
             resolve(true);
           },
           (error) => reject(false)

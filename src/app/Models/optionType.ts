@@ -1,4 +1,4 @@
-export interface IOPtenType {
+export interface IOptionType {
     id: number
     name: string
 }

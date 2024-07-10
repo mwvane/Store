@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AddCategoryComponent implements OnInit {
   categoryForm = new FormGroup({
-    id: new FormControl(''),
+    id: new FormControl(0),
     name: new FormControl('', [Validators.required]),
     image: new FormControl('', [Validators.required]),
     parentCategoryId: new FormControl(null),
