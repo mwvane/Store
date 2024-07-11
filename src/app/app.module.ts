@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LanguageSelectorComponent } from './Components/language-selector/language-selector.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TopOfferComponent } from './Shared/top-offer/top-offer.component';
 import { ButtonModule } from 'primeng/button';
@@ -62,6 +62,9 @@ import { CountryListComponent } from './Admin/Pages/Country/country-list/country
 import { FileUploadModule } from 'primeng/fileupload';
 import { UploadComponent } from './Components/upload/upload.component';
 import { BadgeModule } from 'primeng/badge';
+import { NotifiactionComponent } from './Components/notifiaction/notifiaction.component';
+import { HttpErrorInterceptor } from './Services/httpErrorInterceptor';
+import { NotFoundComponent } from './Pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -108,7 +111,8 @@ import { BadgeModule } from 'primeng/badge';
     AddCountryComponent,
     CountryListComponent,
     UploadComponent,
-    
+    NotifiactionComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -134,9 +138,12 @@ import { BadgeModule } from 'primeng/badge';
     FormsModule,
     ToolbarModule,
     FileUploadModule,
-    BadgeModule
+    BadgeModule,
   ],
-  providers: [provideAnimationsAsync()],
+  providers: [
+    provideAnimationsAsync(),
+    { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

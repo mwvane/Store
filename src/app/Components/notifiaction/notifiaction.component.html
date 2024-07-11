@@ -1,0 +1,18 @@
+<p-dialog
+  header="{{ 'error' }}"
+  [modal]="true"
+  [(visible)]="this.notificationService.opened"
+  [style]="{ width: '27rem', maxWidth: '92%' }"
+  (onHide)="this.notificationService.notification.clear()"
+>
+  <div class="direction-y gap-3">
+    <div></div>
+    <span>{{ this.notificationService.error | translate }}</span>
+
+    <div class="d-flex gap-4">
+      <button class="solidBtn capitalize fs-sm hilight" (click)="this.notificationService.notification.clear()">
+        {{ 'ok' | translate }}
+      </button>
+    </div>
+  </div>
+</p-dialog>

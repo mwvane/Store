@@ -2,9 +2,9 @@ import { Injectable, signal } from '@angular/core';
 import { IOption } from '../Models/option';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { IResponse } from '../Models/response';
-import { env } from '../env';
 import { IOptionType } from '../Models/optionType';
-import { ReorderableColumn } from 'primeng/table';
+import { Urls } from '../urls';
+import { env } from '../env';
 
 @Injectable({
   providedIn: 'root',
@@ -25,9 +25,13 @@ export class OptionService {
   }
 
   getOptions() {
+    this.http
+    .post(`${env.baseUrl}Option/Test`, 0).subscribe(data => {
+      debugger
+    })
     this.isLoadingOptions = true;
     this.http
-      .get<IResponse<IOption[]>>(`${env.baseUrl}Option/GetOptions`)
+      .get<IResponse<IOption[]>>(Urls.optionUrls.getOptions)
       .subscribe((res) => {
         this.isLoadingOptions = false;
         if (res.data) {
@@ -40,7 +44,7 @@ export class OptionService {
   getOptionTypes() {
     this.loadinOptionTypes = true;
     this.http
-      .get<IResponse<IOptionType[]>>(`${env.baseUrl}Option/GetOptionTypes`)
+      .get<IResponse<IOptionType[]>>(Urls.optionUrls.getOptionTypes)
       .subscribe((res) => {
         this.loadinOptionTypes = false;
         if (res.data) {
@@ -53,7 +57,7 @@ export class OptionService {
   
   addOption(option: any) {
     return new Promise((resolve, reject) => {
-      this.http.post<any>(`${env.baseUrl}Option/AddOption`, option).subscribe(
+      this.http.post<any>(Urls.optionUrls.addOption, option).subscribe(
         (response) => {
           this.getOptions()
           resolve(true)
@@ -64,7 +68,7 @@ export class OptionService {
   }
   addOptionType(optionType: any) {
     return new Promise((resolve, reject) => {
-      this.http.post<any>(`${env.baseUrl}Option/AddOptionType`, optionType).subscribe(
+      this.http.post<any>(Urls.optionUrls.addOptionType, optionType).subscribe(
         (response) => {
           this.getOptions()
           resolve(true);
@@ -75,10 +79,9 @@ export class OptionService {
   }
 
   upadateOption(option: any){
-    debugger
     return new Promise((resolve, reject) => {
       this.isLoadingOptions = true;
-      this.http.put<IResponse<IOption>>(`${env.baseUrl}Option/UpdateOption`, option).subscribe(
+      this.http.put<IResponse<IOption>>(Urls.optionUrls.updateOption, option).subscribe(
         (response) => {
           this.isLoadingOptions = false;
           if (response.success) {
@@ -96,7 +99,7 @@ export class OptionService {
 
   upadateOptionType(optionType: any){
     return new Promise((resolve, reject) => {
-      this.http.put<IResponse<IOptionType>>(`${env.baseUrl}Option/UpdateOptionType`, optionType).subscribe(
+      this.http.put<IResponse<IOptionType>>(Urls.optionUrls.updateOptionType, optionType).subscribe(
         (response) => {
          if (response.success) {
             this.getOptionTypes()
@@ -114,9 +117,10 @@ export class OptionService {
   getOptionById(id:number){
     return new Promise((resolve, reject) => {
       this.isLoadingOptions = true;
-      this.http.get(`${env.baseUrl}Option/GetOptionById/${id}`).subscribe(
+      this.http.get(Urls.optionUrls.getOptionById(id)).subscribe(
         (res) => {
           this.isLoadingOptions = false;
+          throw new Error('This is a manual error!');
           if (res) {
             resolve(res);
           }
@@ -128,7 +132,7 @@ export class OptionService {
   getOptionTypeById<IOptionType>(id:number){
     return new Promise((resolve, reject) => {
       this.loadinOptionTypes = true;
-      this.http.get<IResponse<IOptionType>>(`${env.baseUrl}Option/GetOptionTypeById/${id}`).subscribe(
+      this.http.get<IResponse<IOptionType>>(Urls.optionUrls.getOptionTypeById(id)).subscribe(
         (res) => {
           if (res.data) {
             resolve(res.data);
@@ -148,7 +152,7 @@ export class OptionService {
         'Content-Type': 'application/json',
       });
       this.http
-        .delete<IResponse<IOption>>(`${env.baseUrl}Option/DeleteOption`, {
+        .delete<IResponse<IOption>>(Urls.optionUrls.deleteOption, {
           headers,
           body: optionIds,
         })
@@ -170,7 +174,7 @@ export class OptionService {
         'Content-Type': 'application/json',
       });
       this.http
-        .delete<IResponse<IOptionType>>(`${env.baseUrl}Option/DeleteOptionType`, {
+        .delete<IResponse<IOptionType>>(Urls.optionUrls.deleteOptionType, {
           headers,
           body: optionTypeIds,
         })
