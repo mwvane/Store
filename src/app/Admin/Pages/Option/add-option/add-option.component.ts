@@ -39,6 +39,7 @@ export class AddOptionComponent implements OnInit {
 
   async getOptionById(id: number){
     var option: any = await this.optionService.getOptionById(id);
+    debugger
     if (option) {
       this.currentOption = option;
       this.optionForm.patchValue({

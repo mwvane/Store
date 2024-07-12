@@ -21,7 +21,7 @@
       </ng-template>
   
       <ng-template pTemplate="right">
-        <p-button pRipple severity="help" label="Export" icon="pi pi-upload" />
+        <p-button (onClick)="this.exportservice.exportExcel(this.optionService.optionTypes, 'Option_Types')" pRipple severity="help" label="Export" icon="pi pi-upload" />
       </ng-template>
     </p-toolbar>
   

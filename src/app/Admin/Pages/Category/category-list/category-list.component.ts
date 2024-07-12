@@ -40,6 +40,7 @@ export class CategoryListComponent {
       alert('category deleted');
     }
   }
+  
   formatdate(date: any) {
     return moment(date).endOf('day').fromNow();
   }

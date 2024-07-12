@@ -19,10 +19,15 @@ import { AddManufacturerComponent } from './Admin/Pages/Manufacturer/add-manufac
 import { AddCountryComponent } from './Admin/Pages/Country/add-country/add-country.component';
 import { CountryListComponent } from './Admin/Pages/Country/country-list/country-list.component';
 import { NotFoundComponent } from './Pages/not-found/not-found.component';
+import { ServerErrorComponent } from './Pages/server-error/server-error.component';
+import { NetworkErrorComponent } from './Pages/network-error/network-error.component';
 
 const routes: Routes = [
   // { path: '', title: 'home', component: HomeComponent },
   { path: 'not-found', component: NotFoundComponent },
+  // { path: '**', component: NotFoundComponent },
+  { path: 'server-error', component: ServerErrorComponent },
+  { path: 'network-error', component: NetworkErrorComponent },
   { path: '', title: 'dashboard', component: DashboardComponent },
   { path: 'Home', title: 'Home', component: HomeComponent },
   { path: 'Register', title: 'Register', component: RegisterComponent },

@@ -21,7 +21,7 @@
     </ng-template>
 
     <ng-template pTemplate="right">
-      <p-button pRipple severity="help" label="Export" icon="pi pi-upload" />
+      <p-button (onClick)="exportData()" pRipple severity="help" label="Export" icon="pi pi-upload" />
     </ng-template>
   </p-toolbar>
 
@@ -61,7 +61,7 @@
     </ng-template>
 
     <!-- BODY -->
-    <ng-template pTemplate="body" let-option>
+    <ng-template #cols pTemplate="body" let-option>
       <tr>
         <td>
           <p-tableCheckbox [value]="option" />

@@ -63,8 +63,10 @@ import { FileUploadModule } from 'primeng/fileupload';
 import { UploadComponent } from './Components/upload/upload.component';
 import { BadgeModule } from 'primeng/badge';
 import { NotifiactionComponent } from './Components/notifiaction/notifiaction.component';
-import { HttpErrorInterceptor } from './Services/httpErrorInterceptor';
 import { NotFoundComponent } from './Pages/not-found/not-found.component';
+import { HttpErrorInterceptor } from './error handler/httpErrorInterceptor';
+import { ServerErrorComponent } from './Pages/server-error/server-error.component';
+import { NetworkErrorComponent } from './Pages/network-error/network-error.component';
 
 @NgModule({
   declarations: [
@@ -113,6 +115,8 @@ import { NotFoundComponent } from './Pages/not-found/not-found.component';
     UploadComponent,
     NotifiactionComponent,
     NotFoundComponent,
+    ServerErrorComponent,
+    NetworkErrorComponent,
   ],
   imports: [
     BrowserModule,

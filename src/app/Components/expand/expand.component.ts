@@ -35,7 +35,6 @@ export class ExpandComponent {
     for(let i of items){
       i.classList.remove('active')
     }
-    debugger
     el.classList.add('active')
     this.itemClick.emit(item)
   }

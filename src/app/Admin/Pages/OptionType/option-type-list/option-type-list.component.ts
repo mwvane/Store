@@ -4,6 +4,7 @@ import { ModalService } from '../../../../Services/modal.service';
 import { WarningService } from '../../../../Services/warning.service';
 import { Router } from '@angular/router';
 import { IOptionType } from '../../../../Models/optionType';
+import { ExportService } from '../../../../Export/export.service';
 
 @Component({
   selector: 'app-option-type-list',
@@ -16,6 +17,7 @@ export class OptionTypeListComponent {
     public optionService: OptionService,
     private modalService: ModalService,
     public warningService: WarningService,
+    public exportservice: ExportService,
     private router: Router
   ) {}
   ngOnInit(): void {
@@ -37,6 +39,7 @@ export class OptionTypeListComponent {
       this.selectedOptions
     );
     if (isdeleted) {
+      this.selectedOptions = []
       alert('option type successfully deleted');
     }
   }

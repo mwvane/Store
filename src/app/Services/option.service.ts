@@ -25,10 +25,6 @@ export class OptionService {
   }
 
   getOptions() {
-    this.http
-    .post(`${env.baseUrl}Option/Test`, 0).subscribe(data => {
-      debugger
-    })
     this.isLoadingOptions = true;
     this.http
       .get<IResponse<IOption[]>>(Urls.optionUrls.getOptions)
@@ -120,7 +116,6 @@ export class OptionService {
       this.http.get(Urls.optionUrls.getOptionById(id)).subscribe(
         (res) => {
           this.isLoadingOptions = false;
-          throw new Error('This is a manual error!');
           if (res) {
             resolve(res);
           }
@@ -129,6 +124,7 @@ export class OptionService {
       );
     });
   }
+  
   getOptionTypeById<IOptionType>(id:number){
     return new Promise((resolve, reject) => {
       this.loadinOptionTypes = true;

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CountryService } from '../../../../Services/country.service';
 import { ModalService } from '../../../../Services/modal.service';
 import { WarningService } from '../../../../Services/warning.service';
+import { ExportService } from '../../../../Export/export.service';
 
 @Component({
   selector: 'app-country-list',
@@ -13,6 +14,7 @@ export class CountryListComponent {
   constructor(
     public countryService: CountryService,
     private modalService: ModalService,
+    private exportService: ExportService,
     public warningService: WarningService
   ) {}
   ngOnInit(): void {
@@ -34,5 +36,15 @@ export class CountryListComponent {
     if (isdeleted) {
       alert('country successfully deleted');
     }
+  }
+  exportData() {
+    const countries: { id: number; name: string;}[] = [];
+    this.countryService.countries.map((country) => {
+      countries.push({
+        id: country.id!,
+        name: country.name,
+      });
+    });
+    this.exportService.exportExcel(countries, 'Manufacturers')
   }
 }
