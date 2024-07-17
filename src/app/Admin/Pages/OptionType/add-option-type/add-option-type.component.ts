@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { OptionService } from '../../../../Services/option.service';
 import { ActivatedRoute } from '@angular/router';
-import { optionType } from '../../../../Enums/optionType';
-import { IOptionType } from '../../../../Models/optionType';
 import { ToastService } from '../../../../toast/toast.service';
 import { Toast, toastType } from '../../../../toast/toast_model';
 

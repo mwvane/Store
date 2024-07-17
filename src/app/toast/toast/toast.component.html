@@ -1,19 +1,29 @@
-<div class="toast-container p-3">
+<div class="wrapper p-3">
   @if (this.toastService.showToasts) { @for (toast of
   this.toastService.toastlist; track $index) {
-  <div class="custom-toast {{ toast.status }}">
-    <div class="space-between">
-      <div class="space-between gap-3">
-        <i class="{{ getIconByStatus(toast.status) }}"></i>
-        <span class="bold">{{ toast.header }}</span>
+  <div style="background-color: black; border-radius: 10px">
+    <div class="custom-toast {{ toast.status }}">
+      <div class="flex-end">
+        <div class="btnClose hilight" (click)="hide($event, toast)">
+          <i class="bi bi-x-lg"></i>
+        </div>
       </div>
-      <div class="btnClosee" (click)="hide($event, toast)">
-        <i class="bi bi-x-lg"></i>
+      <div class="toast-body">
+        <div class="center">
+          <div
+            class="icon-container center"
+            style="width: 15px; height: 15px; background-color: black"
+          >
+            <i class="{{ getIconByStatus(toast.status) }} toast-icon"></i>
+          </div>
+        </div>
+        <div>
+          <span class="toast-header center">{{ toast.header }}</span>
+          <span>{{ toast.message }}</span>
+        </div>
       </div>
-    </div>
-    <div class="toast-body">
-      <span>{{ toast.message }}</span>
     </div>
   </div>
+
   } }
 </div>
