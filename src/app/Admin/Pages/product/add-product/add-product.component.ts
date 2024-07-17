@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { CategoryService } from '../../../Services/category.service';
-import { ManufacturerService } from '../../../Services/manufacturer.service';
-import { OptionService } from '../../../Services/option.service';
-import { ProductService } from '../../../Services/product.service';
+import { CategoryService } from '../../../../Services/category.service';
+import { ManufacturerService } from '../../../../Services/manufacturer.service';
+import { OptionService } from '../../../../Services/option.service';
+import { ProductService } from '../../../../Services/product.service';
 
 @Component({
   selector: 'app-add-product',

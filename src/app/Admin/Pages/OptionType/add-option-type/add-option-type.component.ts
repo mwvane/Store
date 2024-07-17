@@ -4,6 +4,8 @@ import { OptionService } from '../../../../Services/option.service';
 import { ActivatedRoute } from '@angular/router';
 import { optionType } from '../../../../Enums/optionType';
 import { IOptionType } from '../../../../Models/optionType';
+import { ToastService } from '../../../../toast/toast.service';
+import { Toast, toastType } from '../../../../toast/toast_model';
 
 @Component({
   selector: 'app-add-option-type',
@@ -33,13 +35,12 @@ export class AddOptionTypeComponent implements OnInit {
 
   constructor(
     public optionService: OptionService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private toastService: ToastService
   ) {}
 
   async getOptionTypeById(id: number) {
-    var optionType: any = await this.optionService.getOptionTypeById(
-      id
-    );
+    var optionType: any = await this.optionService.getOptionTypeById(id);
     if (optionType) {
       this.optionTypeForm.patchValue({
         optionTypeId: optionType.optionTypeId,
@@ -54,7 +55,13 @@ export class AddOptionTypeComponent implements OnInit {
         this.optionTypeForm.value
       );
       if (isAdded) {
-        alert('option type successfully added');
+        this.toastService.show(
+          new Toast(
+            'successfully added',
+            'option type successfully added',
+            toastType.success
+          )
+        );
         this.optionTypeForm.reset();
       }
     } catch (error) {
@@ -65,12 +72,27 @@ export class AddOptionTypeComponent implements OnInit {
 
   async updateOptionType() {
     try {
+      if(!this.optionTypeForm.dirty){
+        this.toastService.show(
+          new Toast(
+            'no changes',
+            'there is no any changes! change something and try again',
+            toastType.info
+          )
+        );
+        return
+      }
       const isUpdated = await this.optionService.upadateOptionType(
         this.optionTypeForm.value
       );
       if (isUpdated) {
-        alert('option successfully updated');
-        this.optionTypeForm.reset();
+        this.toastService.show(
+          new Toast(
+            'successfully updated',
+            'option type successfully updated',
+            toastType.success
+          )
+        );
       }
     } catch (error) {
       console.error(

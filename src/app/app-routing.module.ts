@@ -6,8 +6,8 @@ import { LoginComponent } from './Pages/Auth/login/login.component';
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
 import { SpacialsComponent } from './Pages/spacials/spacials.component';
 import { DashboardComponent } from './Admin/Pages/dashboard/dashboard.component';
-import { AddProductComponent } from './Admin/Pages/add-product/add-product.component';
-import { ProductListComponent } from './Admin/Pages/product-list/product-list.component';
+import { AddProductComponent } from './Admin/Pages/product/add-product/add-product.component';
+import { ProductListComponent } from './Admin/Pages/product/product-list/product-list.component';
 import { CategoryListComponent } from './Admin/Pages/Category/category-list/category-list.component';
 import { ManufacturerListComponent } from './Admin/Pages/Manufacturer/manufacturer-list/manufacturer-list.component';
 import { OptionListComponent } from './Admin/Pages/Option/option-list/option-list.component';
@@ -39,22 +39,70 @@ const routes: Routes = [
     component: ProductDetailsComponent,
   },
   // admin
-  {path: "AddProduct", title: "AddProduct", component: AddProductComponent},
-  {path: "ProductList", title: "ProductList", component: ProductListComponent},
-  {path: "CategoryList", title: "CategoryList", component: CategoryListComponent},
-  {path: "ManufacturerList", title: "ManufacturerList", component: ManufacturerListComponent},
-  {path: "AddManufacturer", title: "AddManufacturer", component: AddManufacturerComponent},
-  {path: "UpdateManufacturer/:id", title: "UpdateManufacturer", component: AddManufacturerComponent},
-  {path: "OptionList", title: "OptionList", component: OptionListComponent},
-  {path: "NewOption", title: "NewOption", component: AddOptionComponent},
-  {path: "UpdateOption/:id", title: "UpdateOption", component: AddOptionComponent},
-  {path: "AddOptionType", title: "AddOptionType", component: AddOptionTypeComponent},
-  {path: "UpdateOptionType/:id", title: "UpdateOptionType", component: AddOptionTypeComponent},
-  {path: "OptionTypeList", title: "OptionTypeList", component: OptionTypeListComponent},
-  {path: "AddCategory", title: "AddCategory", component: AddCategoryComponent},
-  {path: "UpdateCategory/:id", title: "UpdateCategory", component: AddCategoryComponent},
-  {path: "AddCountry", title: "AddCountry", component: AddCountryComponent},
-  {path: "CountryList", title: "CountryList", component: CountryListComponent}
+  { path: 'AddProduct', title: 'AddProduct', component: AddProductComponent },
+  {
+    path: 'ProductList',
+    title: 'ProductList',
+    component: ProductListComponent,
+  },
+  {
+    path: 'CategoryList',
+    title: 'CategoryList',
+    component: CategoryListComponent,
+  },
+  {
+    path: 'ManufacturerList',
+    title: 'ManufacturerList',
+    component: ManufacturerListComponent,
+  },
+  {
+    path: 'AddManufacturer',
+    title: 'AddManufacturer',
+    component: AddManufacturerComponent,
+  },
+  {
+    path: 'UpdateManufacturer/:id',
+    title: 'UpdateManufacturer',
+    component: AddManufacturerComponent,
+  },
+  { path: 'OptionList', title: 'OptionList', component: OptionListComponent },
+  { path: 'NewOption', title: 'NewOption', component: AddOptionComponent },
+  {
+    path: 'UpdateOption/:id',
+    title: 'UpdateOption',
+    component: AddOptionComponent,
+  },
+  {
+    path: 'AddOptionType',
+    title: 'AddOptionType',
+    component: AddOptionTypeComponent,
+  },
+  {
+    path: 'UpdateOptionType/:id',
+    title: 'UpdateOptionType',
+    component: AddOptionTypeComponent,
+  },
+  {
+    path: 'OptionTypeList',
+    title: 'OptionTypeList',
+    component: OptionTypeListComponent,
+  },
+  {
+    path: 'AddCategory',
+    title: 'AddCategory',
+    component: AddCategoryComponent,
+  },
+  {
+    path: 'UpdateCategory/:id',
+    title: 'UpdateCategory',
+    component: AddCategoryComponent,
+  },
+  { path: 'AddCountry', title: 'AddCountry', component: AddCountryComponent },
+  {
+    path: 'CountryList',
+    title: 'CountryList',
+    component: CountryListComponent,
+  },
 ];
 
 @NgModule({

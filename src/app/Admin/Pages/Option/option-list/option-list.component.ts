@@ -6,6 +6,8 @@ import moment from 'moment';
 import { optionType } from '../../../../Enums/optionType';
 import { Router } from '@angular/router';
 import { ExportService } from '../../../../Export/export.service';
+import { ToastService } from '../../../../toast/toast.service';
+import { Toast, toastType } from '../../../../toast/toast_model';
 
 @Component({
   selector: 'app-option-list',
@@ -19,6 +21,7 @@ export class OptionListComponent {
     private modalService: ModalService,
     public warningService: WarningService,
     public exportService: ExportService,
+    private toastService: ToastService,
     private router: Router
   ) {}
   ngOnInit(): void {
@@ -41,7 +44,7 @@ export class OptionListComponent {
     );
     if (isdeleted) {
       this.selectedOptions = []
-      alert('option successfully deleted');
+      this.toastService.show(new Toast("successfully deleted", "option(s) successfully deleted", toastType.success))
     }
   }
   exportData() {

@@ -4,6 +4,7 @@ import { ModalService } from '../../../../Services/modal.service';
 import moment from 'moment';
 import { WarningService } from '../../../../Services/warning.service';
 import { Router } from '@angular/router';
+import { ExportService } from '../../../../Export/export.service';
 
 @Component({
   selector: 'app-category-list',
@@ -16,6 +17,7 @@ export class CategoryListComponent {
     public categoryService: CategoryService,
     private modalService: ModalService,
     public warningService: WarningService,
+    private exportService: ExportService,
     private router: Router
   ) {}
   ngOnInit(): void {
@@ -39,6 +41,17 @@ export class CategoryListComponent {
     if (isdeleted) {
       alert('category deleted');
     }
+  }
+  exportData() {
+    const categories: { id: number; name: string; image: string}[] = [];
+    this.categoryService.allCategories.map((category) => {
+      categories.push({
+        id: category.id!,
+        name: category.name,
+        image: category.image!  
+      });
+    });
+    this.exportService.exportExcel(categories, 'categories')
   }
   
   formatdate(date: any) {

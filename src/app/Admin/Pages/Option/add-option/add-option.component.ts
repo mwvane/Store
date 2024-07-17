@@ -3,6 +3,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { OptionService } from '../../../../Services/option.service';
 import { optionType } from '../../../../Enums/optionType';
 import { ActivatedRoute } from '@angular/router';
+import { ToastService } from '../../../../toast/toast.service';
+import { Toast, toastType } from '../../../../toast/toast_model';
 
 @Component({
   selector: 'app-add-option',
@@ -34,12 +36,12 @@ export class AddOptionComponent implements OnInit {
 
   constructor(
     public optionService: OptionService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private toastService: ToastService
   ) {}
 
   async getOptionById(id: number){
     var option: any = await this.optionService.getOptionById(id);
-    debugger
     if (option) {
       this.currentOption = option;
       this.optionForm.patchValue({
@@ -60,7 +62,7 @@ export class AddOptionComponent implements OnInit {
     try {
       const isAdded = await this.optionService.addOption(optenForSave);
       if (isAdded) {
-        alert('option successfully added');
+        this.toastService.show(new Toast("successfully added", "option successfully added", toastType.success))
         this.optionForm.reset();
       }
     } catch (error) {

@@ -1,0 +1,19 @@
+<div class="toast-container p-3">
+  @if (this.toastService.showToasts) { @for (toast of
+  this.toastService.toastlist; track $index) {
+  <div class="custom-toast {{ toast.status }}">
+    <div class="space-between">
+      <div class="space-between gap-3">
+        <i class="{{ getIconByStatus(toast.status) }}"></i>
+        <span class="bold">{{ toast.header }}</span>
+      </div>
+      <div class="btnClosee" (click)="hide($event, toast)">
+        <i class="bi bi-x-lg"></i>
+      </div>
+    </div>
+    <div class="toast-body">
+      <span>{{ toast.message }}</span>
+    </div>
+  </div>
+  } }
+</div>

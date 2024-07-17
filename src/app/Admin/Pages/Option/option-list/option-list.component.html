@@ -30,6 +30,7 @@
     [value]="this.optionService.options"
     [rows]="8"
     [paginator]="true"
+    [lazyLoadOnInit]="true"
     [globalFilterFields]="['name', 'country.name', 'manufacturer.name']"
     [tableStyle]="{ 'min-width': '75rem' }"
     [(selection)]="selectedOptions"

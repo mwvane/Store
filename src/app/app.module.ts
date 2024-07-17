@@ -37,7 +37,7 @@ import { ProductGridComponent } from './Components/product-grid/product-grid.com
 import { SpinnerComponent } from './Components/spinner/spinner.component';
 import { DashboardComponent } from './Admin/Pages/dashboard/dashboard.component';
 import { AdminHeaderComponent } from './Admin/Shared/admin-header/admin-header.component';
-import { AddProductComponent } from './Admin/Pages/add-product/add-product.component';
+import { AddProductComponent } from './Admin/Pages/product/add-product/add-product.component';
 import { AdminSidebarComponent } from './Admin/Shared/admin-sidebar/admin-sidebar.component';
 import { FileUploderComponent } from './Components/file-uploder/file-uploder.component';
 import { MultiSelectModule } from 'primeng/multiselect';
@@ -45,7 +45,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { SpinnerModule } from 'primeng/spinner';
 import { FormErrorComponent } from './Components/form-error/form-error.component';
 import { SolidButtonComponent } from './Components/solid-button/solid-button.component';
-import { ProductListComponent } from './Admin/Pages/product-list/product-list.component';
+import { ProductListComponent } from './Admin/Pages/product/product-list/product-list.component';
 import { TableModule } from 'primeng/table';
 import { ToolbarModule } from 'primeng/toolbar';
 import { ConfirmDialogComponent } from './Modals/confirm-dialog/confirm-dialog.component';
@@ -67,6 +67,7 @@ import { NotFoundComponent } from './Pages/not-found/not-found.component';
 import { HttpErrorInterceptor } from './error handler/httpErrorInterceptor';
 import { ServerErrorComponent } from './Pages/server-error/server-error.component';
 import { NetworkErrorComponent } from './Pages/network-error/network-error.component';
+import { ToastComponent } from './toast/toast/toast.component';
 
 @NgModule({
   declarations: [
@@ -117,6 +118,7 @@ import { NetworkErrorComponent } from './Pages/network-error/network-error.compo
     NotFoundComponent,
     ServerErrorComponent,
     NetworkErrorComponent,
+    ToastComponent,
   ],
   imports: [
     BrowserModule,
