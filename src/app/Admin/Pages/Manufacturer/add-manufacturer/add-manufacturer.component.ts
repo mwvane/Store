@@ -11,8 +11,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AddManufacturerComponent {
   selectedManufacturers: any = [];
-  isEditMode: boolean = false
-  currentManufacturer: any
+  isEditMode: boolean = false;
+  currentManufacturer: any;
   manufacturerForm = new FormGroup({
     id: new FormControl(''),
     name: new FormControl('', [Validators.required]),
@@ -36,8 +36,10 @@ export class AddManufacturerComponent {
     private route: ActivatedRoute
   ) {}
 
-  async getManufacturerById(id: number){
-    var manufacturer: any = await this.manufacturerService.getManufacturerById(id);
+  async getManufacturerById(id: number) {
+    var manufacturer: any = await this.manufacturerService.getManufacturerById(
+      id
+    );
     if (manufacturer) {
       this.currentManufacturer = manufacturer;
       this.manufacturerForm.patchValue({
@@ -48,33 +50,15 @@ export class AddManufacturerComponent {
     }
   }
 
-  async addManufacturer() {
-    try {
-      const isAdded = await this.manufacturerService.addManufacturer({
-        name: this.manufacturerForm.controls.name.value!,
-        country: this.manufacturerForm.controls.country.value!,
-      });
-      if (isAdded) {
-        alert('manufacturer successfully added');
-        this.manufacturerForm.reset();
-      }
-    } catch (error) {
-      alert('Failed to add manufacturer type');
-      // Handle the error appropriately
-    }
+  addManufacturer() {
+    this.manufacturerService.addManufacturer({
+      name: this.manufacturerForm.controls.name.value!,
+      country: this.manufacturerForm.controls.country.value!,
+    });
+    this.manufacturerForm.reset();
   }
-  async updateManufacturer() {
-    try {
-      const isUpdated = await this.manufacturerService.upadetManufacturer(
-        this.manufacturerForm.value
-      );
-      if (isUpdated) {
-        alert('manufacturer successfully updated');
-        this.manufacturerForm.reset();
-      }
-    } catch (error) {
-      console.error('Failed to update manufacturer', error);
-      // Handle the error appropriately
-    }
+
+  updateManufacturer() {
+    this.manufacturerService.upadetManufacturer(this.manufacturerForm.value);
   }
 }

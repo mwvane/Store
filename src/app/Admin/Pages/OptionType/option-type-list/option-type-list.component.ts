@@ -9,7 +9,7 @@ import { ExportService } from '../../../../Export/export.service';
 @Component({
   selector: 'app-option-type-list',
   templateUrl: './option-type-list.component.html',
-  styleUrl: './option-type-list.component.css'
+  styleUrl: './option-type-list.component.css',
 })
 export class OptionTypeListComponent {
   selectedOptions: any = [];
@@ -34,13 +34,8 @@ export class OptionTypeListComponent {
     }
   }
 
-  async deleteOptionType() {
-    const isdeleted = await this.optionService.deleteOptionType(
-      this.selectedOptions
-    );
-    if (isdeleted) {
-      this.selectedOptions = []
-      alert('option type successfully deleted');
-    }
+  deleteOptionType() {
+    this.optionService.deleteOptionType(this.selectedOptions);
+    this.selectedOptions = []
   }
 }

@@ -12,7 +12,7 @@ import { Toast, toastType } from '../../../../toast/toast_model';
 @Component({
   selector: 'app-option-list',
   templateUrl: './option-list.component.html',
-  styleUrl: './option-list.component.css'
+  styleUrl: './option-list.component.css',
 })
 export class OptionListComponent {
   selectedOptions: any = [];
@@ -38,27 +38,29 @@ export class OptionListComponent {
     }
   }
 
-  async deleteOption() {
-    const isdeleted = await this.optionService.deleteOption(
-      this.selectedOptions
-    );
-    if (isdeleted) {
-      this.selectedOptions = []
-      this.toastService.show(new Toast("successfully deleted", "option(s) successfully deleted", toastType.success))
-    }
+  deleteOption() {
+    this.optionService.deleteOption(this.selectedOptions);
+    this.selectedOptions = []
   }
+
   exportData() {
-    const options: { optionId: number; name: string; value: string, optionTypeName: string,  optionTypeId : number }[] = [];
+    const options: {
+      optionId: number;
+      name: string;
+      value: string;
+      optionTypeName: string;
+      optionTypeId: number;
+    }[] = [];
     this.optionService.options.map((option) => {
       options.push({
         optionId: option.optionId!,
         name: option.name,
         value: option.value,
         optionTypeName: option!.optionType.name,
-        optionTypeId: option.optionId!
+        optionTypeId: option.optionId!,
       });
     });
-    this.exportService.exportExcel(options, "options")
+    this.exportService.exportExcel(options, 'options');
   }
   formatdate(date: any) {
     return moment(date).endOf('day').fromNow();

@@ -14,7 +14,7 @@ import { Toast, toastType } from '../../../../toast/toast_model';
 export class AddOptionComponent implements OnInit {
   optionTypes: any = [];
   isEditMode: boolean = false;
-  currentOption: any
+  currentOption: any;
   optionForm = new FormGroup({
     optionId: new FormControl(''),
     name: new FormControl('', [Validators.required]),
@@ -40,7 +40,7 @@ export class AddOptionComponent implements OnInit {
     private toastService: ToastService
   ) {}
 
-  async getOptionById(id: number){
+  async getOptionById(id: number) {
     var option: any = await this.optionService.getOptionById(id);
     if (option) {
       this.currentOption = option;
@@ -48,40 +48,27 @@ export class AddOptionComponent implements OnInit {
         optionId: option.optionId,
         name: option.name,
         value: option.value,
-        optionTypeId: option.optionTypeId
+        optionTypeId: option.optionTypeId,
       });
     }
   }
 
-  async addOption() {
+  addOption() {
     var optenForSave = {
       name: this.optionForm.controls.name.value,
       value: this.optionForm.controls.value.value,
       optionTypeId: this.optionForm.controls.optionTypeId.value!,
     };
     try {
-      const isAdded = await this.optionService.addOption(optenForSave);
-      if (isAdded) {
-        this.toastService.show(new Toast("successfully added", "option successfully added", toastType.success))
-        this.optionForm.reset();
-      }
+      this.optionService.addOption(optenForSave);
+      this.optionForm.reset();
     } catch (error) {
       console.error('Failed to add option', error);
       // Handle the error appropriately
     }
   }
 
-  async updateOption() {
-    try {
-      const isUpdated = await this.optionService.upadateOption(
-        this.optionForm.value
-      );
-      if (isUpdated) {
-        alert('option successfully updated');
-        this.optionForm.reset();
-      }
-    } catch (error) {
-      console.error(`faild to ${this.isEditMode ? 'update' : 'add'} option` , error);
-    }
+  updateOption() {
+    this.optionService.upadateOption(this.optionForm.value);
   }
 }

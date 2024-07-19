@@ -1,8 +1,8 @@
 <div class="wrapper p-3">
   @if (this.toastService.showToasts) { @for (toast of
   this.toastService.toastlist; track $index) {
-  <div style="background-color: black; border-radius: 10px">
-    <div class="custom-toast {{ toast.status }}">
+  <div style="background-color: black; border-radius: 10px;">
+    <div class="custom-toast {{ getStatusName(toast.status) }} shadow">
       <div class="flex-end">
         <div class="btnClose hilight" (click)="hide($event, toast)">
           <i class="bi bi-x-lg"></i>
@@ -18,7 +18,7 @@
           </div>
         </div>
         <div>
-          <span class="toast-header center">{{ toast.header }}</span>
+          <span class="toast-header center">{{ toast.title }}</span>
           <span>{{ toast.message }}</span>
         </div>
       </div>

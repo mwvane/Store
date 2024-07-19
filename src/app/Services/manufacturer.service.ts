@@ -3,6 +3,7 @@ import { IManufacturer } from '../Models/manufacturer';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { IResponse } from '../Models/response';
 import { env } from '../env';
+import { ToastService } from '../toast/toast.service';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +11,7 @@ import { env } from '../env';
 export class ManufacturerService {
   private _manufacturers = signal<IManufacturer[]>([]);
   isLoading: boolean = false;
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private toastService: ToastService) {}
 
   get manufacturers() {
     return this._manufacturers();
@@ -19,7 +20,9 @@ export class ManufacturerService {
   getManufacturers() {
     this.isLoading = true;
     this.http
-      .get<IResponse<IManufacturer[]>>(`${env.baseUrl}Manufacturer/GetManufacturers`)
+      .get<IResponse<IManufacturer[]>>(
+        `${env.baseUrl}Manufacturer/GetManufacturers`
+      )
       .subscribe((res) => {
         this.isLoading = false;
         if (res.data) {
@@ -29,54 +32,44 @@ export class ManufacturerService {
   }
 
   addManufacturer(manufacturer: IManufacturer) {
-    return new Promise((resolve, reject) => {
-      this.isLoading = true;
-      this.http
-        .post<IResponse<IManufacturer>>(
-          `${env.baseUrl}Manufacturer/AddManufacturer`,
-          manufacturer
-        )
-        .subscribe(
-          (response) => {
-            if (response.success) {
-              this.getManufacturers();
-            }
-            this.isLoading = false;
-            resolve(true);
-          },
-          (error) => {
-            this.isLoading = false;
-            reject(false);
-          }
-        );
-    });
+    this.isLoading = true;
+    this.http
+      .post<IResponse<IManufacturer>>(
+        `${env.baseUrl}Manufacturer/AddManufacturer`,
+        manufacturer
+      )
+      .subscribe((response) => {
+        if (response.notification) {
+          this.toastService.show(response.notification);
+        }
+        this.getManufacturers();
+        this.isLoading = false;
+      });
   }
 
   upadetManufacturer(manufacturer: any) {
-    return new Promise((resolve, reject) => {
-      this.isLoading = true;
-      this.http
-        .put<IResponse<IManufacturer>>(
-          `${env.baseUrl}Manufacturer/UpdateManufacturer`,
-          manufacturer
-        )
-        .subscribe(
-          (response) => {
-            if (response.success) {
-              this.getManufacturers();
-            }
-            this.isLoading = false;
-            resolve(true);
-          },
-          (error) => reject(false)
-        );
-    });
+    this.isLoading = true;
+    this.http
+      .put<IResponse<IManufacturer>>(
+        `${env.baseUrl}Manufacturer/UpdateManufacturer`,
+        manufacturer
+      )
+      .subscribe((response) => {
+        if (response.notification) {
+          this.toastService.show(response.notification);
+        }
+        this.getManufacturers();
+        this.isLoading = false;
+      });
   }
+
   getManufacturerById(id: number) {
     return new Promise((resolve, reject) => {
       this.isLoading = true;
       this.http
-        .get<IResponse<IManufacturer>>(`${env.baseUrl}Manufacturer/GetManufacturerById/${id}`)
+        .get<IResponse<IManufacturer>>(
+          `${env.baseUrl}Manufacturer/GetManufacturerById/${id}`
+        )
         .subscribe(
           (res) => {
             this.isLoading = false;
@@ -91,30 +84,25 @@ export class ManufacturerService {
     });
   }
 
-  deleteManufacturer(manufacturers: any[]): Promise<boolean> {
+  deleteManufacturer(manufacturers: any[]) {
     var manufacturerIds: number[] = [];
     manufacturers.map((m) => manufacturerIds.push(m.id));
-    return new Promise((resolve, reject) => {
-      const headers = new HttpHeaders({
-        'Content-Type': 'application/json',
-      });
-      this.http
-        .delete<IResponse<IManufacturer>>(`${env.baseUrl}Manufacturer/DeleteManufacturer`, {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    this.http
+      .delete<IResponse<IManufacturer>>(
+        `${env.baseUrl}Manufacturer/DeleteManufacturer`,
+        {
           headers,
           body: manufacturerIds,
-        })
-        .subscribe(
-          (response) => {
-            if (response.success) {
-              this.getManufacturers();
-              resolve(true);
-            }
-            else {
-              reject(response.error!.join('\n'))
-            }
-          },
-          (error) => reject(false)
-        );
-    });
+        }
+      )
+      .subscribe((response) => {
+        if (response.notification) {
+          this.toastService.show(response.notification);
+        }
+        this.getManufacturers();
+      });
   }
 }

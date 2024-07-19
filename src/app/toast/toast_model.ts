@@ -1,6 +1,6 @@
 export class Toast {
   constructor(
-    header: string,
+    title: string,
     message: string,
     status: toastType = toastType.info,
     duration: number = 4,
@@ -9,11 +9,11 @@ export class Toast {
     this.autoHide = autoHide,
     this.duration = duration,
     this.message = message,
-    this.header = header,
+    this.title = title,
     this.status = status
   }
   id?: string;
-  header: string = '';
+  title: string = '';
   message: string = '';
   seen?: boolean = false;
   duration: number = 4000;
@@ -22,8 +22,8 @@ export class Toast {
 }
 
 export enum toastType {
-  success = "success",
-  error = "error",
-  warrning = "warrning",
-  info = "info",
+  success = 0,
+  error = 1,
+  warning = 2,
+  info = 3,
 }

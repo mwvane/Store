@@ -5,7 +5,6 @@ import { WarningService } from '../../../../Services/warning.service';
 import moment from 'moment';
 import { Router } from '@angular/router';
 import { ExportService } from '../../../../Export/export.service';
-import { IManufacturer } from '../../../../Models/manufacturer';
 
 @Component({
   selector: 'app-manufacturer-list',
@@ -35,13 +34,9 @@ export class ManufacturerListComponent implements OnInit {
     }
   }
 
-  async deleteManufacturer() {
-    const isdeleted = await this.manufacturerService.deleteManufacturer(
-      this.selectedManufacturers
-    );
-    if (isdeleted) {
-      alert('manufacturer sucessfully deleted');
-    }
+  deleteManufacturer() {
+    this.manufacturerService.deleteManufacturer(this.selectedManufacturers);
+    this.selectedManufacturers = []
   }
 
   exportData() {
@@ -53,7 +48,7 @@ export class ManufacturerListComponent implements OnInit {
         country: manufacturer.country.name,
       });
     });
-    this.exportService.exportExcel(manufacturers, 'Manufacturers')
+    this.exportService.exportExcel(manufacturers, 'Manufacturers');
   }
 
   formatdate(date: any) {

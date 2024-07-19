@@ -96,7 +96,8 @@
 .error .toast-header {
   color: rgb(255, 0, 0);
 }
-.warrning {
+.warning {
+  backdrop-filter: blur(10px);
   background: linear-gradient(
     90deg,
     rgba(253, 155, 4, 0.6) 0%,
@@ -108,14 +109,15 @@
   );
 }
 
-.warrning .toast-icon {
+.warning .toast-icon {
   color: rgb(253, 155, 4);
   font-size: 24px;
 }
-.warrning .toast-header {
+.warning .toast-header {
   color: rgb(253, 155, 4);
 }
 .info {
+  backdrop-filter: blur(10px);
   background: linear-gradient(
     90deg,
     rgba(47, 139, 176, 0.6) 0%,
