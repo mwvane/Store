@@ -7,7 +7,7 @@ import { ExportService } from '../../../../Export/export.service';
 @Component({
   selector: 'app-country-list',
   templateUrl: './country-list.component.html',
-  styleUrl: './country-list.component.css'
+  styleUrl: './country-list.component.css',
 })
 export class CountryListComponent {
   selectedCountries: any = [];
@@ -29,22 +29,19 @@ export class CountryListComponent {
     }
   }
 
-  async deleteCountry() {
-    const isdeleted = await this.countryService.deleteCountry(
-      this.selectedCountries
-    );
-    if (isdeleted) {
-      alert('country successfully deleted');
-    }
+  deleteCountry() {
+    this.countryService.deleteCountry(this.selectedCountries);
+    this.selectedCountries = []
   }
+
   exportData() {
-    const countries: { id: number; name: string;}[] = [];
+    const countries: { id: number; name: string }[] = [];
     this.countryService.countries.map((country) => {
       countries.push({
         id: country.id!,
         name: country.name,
       });
     });
-    this.exportService.exportExcel(countries, 'Manufacturers')
+    this.exportService.exportExcel(countries, 'Manufacturers');
   }
 }

@@ -105,9 +105,11 @@
         />
       </div>
       <div class="d-flex flex-end">
-        <button class="solidBtn capitalize hilight">
-          {{ "register" | translate }}
-        </button>
+        <app-solid-button
+          [disabled]="this.registerForm.invalid"
+          [icon]="'bi bi-person-add'"
+          [label]="'register'"
+        ></app-solid-button>
       </div>
     </div>
   </form>

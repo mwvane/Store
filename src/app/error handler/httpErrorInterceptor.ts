@@ -31,14 +31,12 @@ export class HttpErrorInterceptor implements HttpInterceptor {
         } else {
           // Server-side error
           errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}\nDetails: ${error.error.details}`;
-
+          debugger;
           // Handle specific status codes
           if (error.status === 404) {
             this.router.navigate(['/not-found']);
           } else if (error.status === 401) {
             this.router.navigate(['/unauthorized']);
-          } else if (error.status === 500) {
-            this.router.navigate(['/server-error']);
           } else if (error.status === 0) {
             this.router.navigate(['/network-error']);
           }

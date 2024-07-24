@@ -46,34 +46,17 @@ export class AddCategoryComponent implements OnInit {
       });
     }
   }
-  async addCategory() {
-    try {
-      if (!this.categoryService.isLoading) {
-        const isAdded = await this.categoryService.addCategory(
-          this.categoryForm.value
-        );
-        if (isAdded) {
-          alert('category successfully added');
-          this.categoryForm.reset();
-        }
-      }
-    } catch (error) {
-      console.error('Failed to add product', error);
-      // Handle the error appropriately
+  addCategory() {
+    if (!this.categoryService.isLoading) {
+      this.categoryService.addCategory(this.categoryForm.value);
+      this.categoryForm.reset();
+      this.categoryForm.patchValue({
+        id: 0
+      })
     }
   }
-  async updateCategory() {
-    try {
-      const isUpdated = await this.categoryService.UpdateCategory(
-        this.categoryForm.value
-      );
-      if (isUpdated) {
-        alert('category successfully updated');
-        this.categoryForm.reset();
-      }
-    } catch (error) {
-      console.error('Failed to add product', error);
-      // Handle the error appropriately
-    }
+
+  updateCategory() {
+    this.categoryService.UpdateCategory(this.categoryForm.value);
   }
 }

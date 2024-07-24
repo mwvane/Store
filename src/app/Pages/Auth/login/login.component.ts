@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../../../Services/auth.service';
+import { IUserLogin } from '../../../Models/userLogin';
 
 @Component({
   selector: 'app-login',
@@ -8,11 +10,13 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent {
   loginForm = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
+    username: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
   });
 
+  constructor(public authService: AuthService){}
+
   login() {
-    alert(this.loginForm.controls.email.value);
+    this.authService.login(this.loginForm.value as IUserLogin)
   }
 }

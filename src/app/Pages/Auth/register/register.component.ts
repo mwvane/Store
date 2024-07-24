@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../../../Services/auth.service';
+import { IUser, UserRole } from '../../../Models/user';
 
 @Component({
   selector: 'app-register',
@@ -14,9 +16,12 @@ export class RegisterComponent {
     phone: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
     confirmPassword: new FormControl('', [Validators.required]),
+    role: new FormControl(UserRole.client, [Validators.required]),
   });
 
+  constructor(private authService: AuthService) {}
+
   register() {
-    alert('register');
+    this.authService.register(this.registerForm.value as IUser);
   }
 }

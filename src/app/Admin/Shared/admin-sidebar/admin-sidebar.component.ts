@@ -91,7 +91,7 @@ export class AdminSidebarComponent {
           image: "bi bi-person",
           subCategories: [
             {id:10, name: "user list", image: "bi bi-person-lines-fill", url: "UserList"},
-            {id:11, name: "new user", image: "bi bi-person-add", url: "NewUser"}
+            {id:11, name: "new user", image: "bi bi-person-add", url: "AddUser"}
           ]
         },
       ],

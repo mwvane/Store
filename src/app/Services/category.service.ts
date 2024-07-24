@@ -3,6 +3,7 @@ import { ICategory } from '../Models/category';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { env } from '../env';
 import { IResponse } from '../Models/response';
+import { ToastService } from '../toast/toast.service';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,7 @@ export class CategoryService {
   private _allCategories = signal<ICategory[]>([]);
   isLoading: boolean = false;
   isLoadingCategoryById: boolean = false;
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private toastService: ToastService) {}
 
   get categories() {
     return this._categories();
@@ -51,66 +52,71 @@ export class CategoryService {
   getCategoryById(id: number) {
     return new Promise((resolve, reject) => {
       this.isLoadingCategoryById = true;
-      this.http.get(`${env.baseUrl}Category/GetCategoryById/${id}`).subscribe(
-        (res) => {
-          this.isLoadingCategoryById = false;
-          if (res) {
-            resolve(res);
-          }
-        },
-        (error) => reject('category not found')
-      );
+      this.http
+        .get<IResponse<ICategory>>(
+          `${env.baseUrl}Category/GetCategoryById/${id}`
+        )
+        .subscribe(
+          (response) => {
+            this.isLoadingCategoryById = false;
+            if (response.data) {
+              resolve(response.data);
+            }
+          },
+          (error) => reject('category not found')
+        );
     });
   }
 
   addCategory(category: any) {
-    return new Promise((resolve, reject) => {
-      this.isLoading = true;
-      this.http
-        .post<IResponse<ICategory>>(`${env.baseUrl}Category/AddCategory`, category)
-        .subscribe(
-          (response) => {
-            this.getAllCategories();
-            resolve(true);
-          },
-          (error) => reject(false)
-        );
-    });
-  }
-  UpdateCategory(category: any) {
-    return new Promise((resolve, reject) => {
-      this.isLoading = true;
-      this.http
-        .put(`${env.baseUrl}Category/UpdateCategory`, category)
-        .subscribe(
-          (response) => {
-            this.getAllCategories();
-            resolve(true);
-          },
-          (error) => reject(false)
-        );
-    });
+    this.isLoading = true;
+    this.http
+      .post<IResponse<ICategory>>(
+        `${env.baseUrl}Category/AddCategory`,
+        category
+      )
+      .subscribe((response) => {
+        if (response.notification) {
+          this.toastService.show(response.notification);
+        }
+        this.getCategories();
+        this.getAllCategories();
+      });
   }
 
-  deleteCategory(categories: any[]): Promise<boolean> {
+  UpdateCategory(category: any) {
+    this.isLoading = true;
+    this.http
+      .put<IResponse<ICategory>>(
+        `${env.baseUrl}Category/UpdateCategory`,
+        category
+      )
+      .subscribe((response) => {
+        if (response.notification) {
+          this.toastService.show(response.notification);
+        }
+        this.getCategories();
+        this.getAllCategories();
+      });
+  }
+
+  deleteCategory(categories: any[]) {
     var categoryIds: number[] = [];
     categories.map((c) => categoryIds.push(c.id));
-    return new Promise((resolve, reject) => {
-      const headers = new HttpHeaders({
-        'Content-Type': 'application/json',
-      });
-      this.http
-        .delete<any>(`${env.baseUrl}Category/DeleteCategory`, {
-          headers,
-          body: categoryIds,
-        })
-        .subscribe(
-          (response) => {
-            this.getAllCategories()
-            resolve(true);
-          },
-          (error) => reject(false)
-        );
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
     });
+    this.http
+      .delete<IResponse<ICategory>>(`${env.baseUrl}Category/DeleteCategory`, {
+        headers,
+        body: categoryIds,
+      })
+      .subscribe((response) => {
+        if (response.notification) {
+          this.toastService.show(response.notification);
+        }
+        this.getCategories();
+        this.getAllCategories();
+      });
   }
 }

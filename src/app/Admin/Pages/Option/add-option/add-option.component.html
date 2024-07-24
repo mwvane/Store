@@ -68,8 +68,8 @@
                 [loading]="optionService.loadinOptionTypes"
               />
               <app-solid-button
-                [tittle]="'add type'"
-                [btnIcon]="'bi bi-plus'"
+                [label]="'add type'"
+                [icon]="'bi bi-plus'"
                 routerLink="/AddOptionType"
               ></app-solid-button>
             </div>
@@ -83,13 +83,13 @@
         <div class="action">
           <app-solid-button
             [disabled]="this.optionForm.invalid"
-            [btnIcon]="this.isEditMode ? 'bi bi-arrow-clockwise' : 'bi bi-save'"
-            [tittle]="this.isEditMode ? 'update option' : 'add option'"
-            [isLoading]="this.optionService.isLoadingOptions"
+            [icon]="this.isEditMode ? 'bi bi-arrow-clockwise' : 'bi bi-save'"
+            [label]="this.isEditMode ? 'update option' : 'add option'"
+            [loading]="this.optionService.isLoadingOptions"
           ></app-solid-button>
           <app-solid-button
-            [tittle]="'show options'"
-            [btnIcon]="'bi bi-list-nested'"
+            [label]="'show options'"
+            [icon]="'bi bi-list-nested'"
             routerLink="/OptionList"
           ></app-solid-button>
         </div>

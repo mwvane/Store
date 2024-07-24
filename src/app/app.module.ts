@@ -5,7 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LanguageSelectorComponent } from './Components/language-selector/language-selector.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
+import {
+  HTTP_INTERCEPTORS,
+  HttpClient,
+  HttpClientModule,
+} from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TopOfferComponent } from './Shared/top-offer/top-offer.component';
 import { ButtonModule } from 'primeng/button';
@@ -68,6 +72,15 @@ import { HttpErrorInterceptor } from './error handler/httpErrorInterceptor';
 import { ServerErrorComponent } from './Pages/server-error/server-error.component';
 import { NetworkErrorComponent } from './Pages/network-error/network-error.component';
 import { ToastComponent } from './toast/toast/toast.component';
+import { JwtModule } from '@auth0/angular-jwt';
+import { AuthService } from './Services/auth.service';
+import { AuthInterceptor } from './Services/Interceptor/auth.interceptor';
+import { AddUserComponent } from './Admin/Pages/User/add-user/add-user.component';
+import { UserListComponent } from './Admin/Pages/User/user-list/user-list.component';
+
+export function tokenGetter() {
+  return localStorage.getItem('access_token');
+}
 
 @NgModule({
   declarations: [
@@ -119,6 +132,8 @@ import { ToastComponent } from './toast/toast/toast.component';
     ServerErrorComponent,
     NetworkErrorComponent,
     ToastComponent,
+    AddUserComponent,
+    UserListComponent,
   ],
   imports: [
     BrowserModule,
@@ -129,6 +144,13 @@ import { ToastComponent } from './toast/toast/toast.component';
         provide: TranslateLoader,
         useFactory: httpTranslateloader,
         deps: [HttpClient],
+      },
+    }),
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ['localhost:7287'],
+        //disallowedRoutes: ['localhost:5001/api/auth/login']
       },
     }),
     ButtonModule,
@@ -148,7 +170,9 @@ import { ToastComponent } from './toast/toast/toast.component';
   ],
   providers: [
     provideAnimationsAsync(),
-    { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
+    AuthService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
 })

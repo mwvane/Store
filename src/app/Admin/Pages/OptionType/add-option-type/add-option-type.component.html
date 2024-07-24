@@ -22,13 +22,13 @@
           <div class="action mt-3">
             <app-solid-button
               [disabled]="this.optionTypeForm.invalid"
-              [btnIcon] = "this.isEditMode ? 'bi bi-arrow-clockwise' :  'bi bi-save' "
-              [tittle]="this.isEditMode ? 'update option type' : 'add option type'"
-              [isLoading]="this.optionService.loadinOptionTypes"
+              [icon] = "this.isEditMode ? 'bi bi-arrow-clockwise' :  'bi bi-save' "
+              [label]="this.isEditMode ? 'update option type' : 'add option type'"
+              [loading]="this.optionService.loadinOptionTypes"
             ></app-solid-button>
             <app-solid-button
-            [tittle]="'show options types'"
-            [btnIcon]="'bi bi-list-nested'"
+            [label]="'show options types'"
+            [icon]="'bi bi-list-nested'"
             routerLink="/OptionTypeList"
           ></app-solid-button>
           </div>

@@ -145,13 +145,13 @@
         <div class="action">
           <app-solid-button
             [disabled]="this.productForm.invalid"
-            [btnIcon] = "this.isEditMode ? 'bi bi-arrow-clockwise' :  'bi bi-save' "
-            [tittle]="'add product'"
-            [isLoading]="this.productService.loading"
+            [icon] = "this.isEditMode ? 'bi bi-arrow-clockwise' :  'bi bi-save' "
+            [label]="'add product'"
+            [loading]="this.productService.loading"
           ></app-solid-button>
           <app-solid-button
-            [tittle]="'show products'"
-            [btnIcon]="'bi bi-list-nested'"
+            [label]="'show products'"
+            [icon]="'bi bi-list-nested'"
             routerLink="/ProductList"
           ></app-solid-button>
         </div>

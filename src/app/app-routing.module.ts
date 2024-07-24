@@ -21,6 +21,8 @@ import { CountryListComponent } from './Admin/Pages/Country/country-list/country
 import { NotFoundComponent } from './Pages/not-found/not-found.component';
 import { ServerErrorComponent } from './Pages/server-error/server-error.component';
 import { NetworkErrorComponent } from './Pages/network-error/network-error.component';
+import { AddUserComponent } from './Admin/Pages/User/add-user/add-user.component';
+import { UserListComponent } from './Admin/Pages/User/user-list/user-list.component';
 
 const routes: Routes = [
   // { path: '', title: 'home', component: HomeComponent },
@@ -102,6 +104,16 @@ const routes: Routes = [
     path: 'CountryList',
     title: 'CountryList',
     component: CountryListComponent,
+  },
+  {
+    path: 'AddUser',
+    title: 'AddUser',
+    component: AddUserComponent,
+  },
+  {
+    path: 'UserList',
+    title: 'UserList',
+    component: UserListComponent,
   },
 ];
 

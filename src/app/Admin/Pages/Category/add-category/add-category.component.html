@@ -69,13 +69,13 @@
         <div class="action">
           <app-solid-button
             [disabled]="this.categoryForm.invalid && this.categoryForm.touched"
-            [btnIcon] = "this.isEditMode ? 'bi bi-arrow-clockwise' :  'bi bi-save' "
-            [tittle]="this.isEditMode ? 'update category' : 'add category'"
-            [isLoading]="this.categoryService.isLoading"
+            [icon] = "this.isEditMode ? 'bi bi-arrow-clockwise' :  'bi bi-save' "
+            [label]="this.isEditMode ? 'update category' : 'add category'"
+            [loading]="this.categoryService.isLoading"
           ></app-solid-button>
           <app-solid-button
-            [tittle]="'show categories'"
-            [btnIcon]="'bi bi-list-nested'"
+            [label]="'show categories'"
+            [icon]="'bi bi-list-nested'"
             routerLink="/CategoryList"
           ></app-solid-button>
         </div>

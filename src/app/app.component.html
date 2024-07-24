@@ -1,5 +1,5 @@
 <div class="mian-container">
-  @if (this.authService.currentUser.role != this.authService.userRoles.admin) {
+  @if (this.authService.currentUser!.role != this.authService.userRoles.admin) {
   <app-top-offer id="topoffer"></app-top-offer>
   <app-header id="header"></app-header>
   <app-linkmenu id="linkmenu"></app-linkmenu>

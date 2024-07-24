@@ -46,8 +46,8 @@
                 [loading]="countryService.isloading"
               />
               <app-solid-button
-                [tittle]="'add country'"
-                [btnIcon] = "'bi bi-plus'"
+                [label]="'add country'"
+                [icon] = "'bi bi-plus'"
                 routerLink="/AddCountry"
               ></app-solid-button>
             </div>
@@ -61,15 +61,15 @@
         <div class="action">
           <app-solid-button
             [disabled]="this.manufacturerForm.invalid"
-            [btnIcon] = "this.isEditMode ? 'bi bi-arrow-clockwise' :  'bi bi-save' "
-            [tittle]="
+            [icon] = "this.isEditMode ? 'bi bi-arrow-clockwise' :  'bi bi-save' "
+            [label]="
               this.isEditMode ? 'update manufacturer' : 'add manufacturer'
             "
-            [isLoading]="this.manufacturerService.isLoading"
+            [loading]="this.manufacturerService.isLoading"
           ></app-solid-button>
           <app-solid-button
-            [tittle]="'show manufacurers'"
-            [btnIcon]="'bi bi-list-nested'"
+            [label]="'show manufacurers'"
+            [icon]="'bi bi-list-nested'"
             routerLink="/ManufacturerList"
           ></app-solid-button>
         </div>

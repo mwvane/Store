@@ -23,20 +23,12 @@ export class AddCountryComponent {
   ngOnInit(): void {
     this.countryService.getCountries();
   }
-  async addCountry() {
-    try {
-      const isAdded = await this.countryService.addCountry({
-        name: this.countryForm.controls.name.value!,
-        image: this.countryForm.controls.image.value!,
-      });
-      if (isAdded) {
-        alert('option type successfully added');
-        this.countryForm.reset();
-      }
-    } catch (error) {
-      alert('Failed to add option type');
-      // Handle the error appropriately
-    }
+  addCountry() {
+    this.countryService.addCountry({
+      name: this.countryForm.controls.name.value!,
+      image: this.countryForm.controls.image.value!,
+    });
+    this.countryForm.reset();
   }
   editCountry(country: any) {}
 

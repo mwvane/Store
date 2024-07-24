@@ -79,12 +79,17 @@ export class OptionService {
     this.isLoadingOptions = true;
     this.http
       .put<IResponse<IOption>>(Urls.optionUrls.updateOption, option)
-      .subscribe((response) => {
-        this.isLoadingOptions = false;
-        if (response.notification) {
-          this.toastService.show(response.notification);
-        }
-        this.getOptions();
+      .subscribe({
+        next: (response) => {
+          this.isLoadingOptions = false;
+          if (response.notification) {
+            this.toastService.show(response.notification);
+          }
+          this.getOptions();
+        },
+        error: () => {
+          this.isLoadingOptions = false;
+        },
       });
   }
 
@@ -102,15 +107,17 @@ export class OptionService {
   getOptionById(id: number) {
     return new Promise((resolve, reject) => {
       this.isLoadingOptions = true;
-      this.http.get(Urls.optionUrls.getOptionById(id)).subscribe(
-        (res) => {
-          this.isLoadingOptions = false;
-          if (res) {
-            resolve(res);
-          }
-        },
-        (error) => reject('option not found')
-      );
+      this.http
+        .get<IResponse<IOption>>(Urls.optionUrls.getOptionById(id))
+        .subscribe(
+          (res) => {
+            this.isLoadingOptions = false;
+            if (res.data) {
+              resolve(res.data);
+            }
+          },
+          (error) => reject('option not found')
+        );
     });
   }
 

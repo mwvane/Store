@@ -19,13 +19,13 @@
       <div class="input-container">
         <div class="d-flex info">
           <i class="requared">*</i>
-          <label class="nowrap" for="email">{{ "email" | translate }}</label>
+          <label class="nowrap" for="username">{{ "email" | translate }}</label>
         </div>
         <input
           class="input-light"
           placeholder="{{ 'email' | translate }}"
           type="email"
-          formControlName="email"
+          formControlName="username"
         />
       </div>
       <div class="input-container">
@@ -48,9 +48,11 @@
         }}</a>
       </div>
       <div class="d-flex flex-start">
-        <button class="solidBtn capitalize hilight">
-          {{ "login" | translate }}
-        </button>
+        <app-solid-button
+          [icon]="'bi bi-box-arrow-in-right'"
+          [loading]="this.authService.loadingLogin"
+          [label]="'login'"
+        ></app-solid-button>
       </div>
     </div>
   </form>

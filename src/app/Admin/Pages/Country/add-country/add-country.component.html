@@ -23,12 +23,12 @@
         <div class="action">
           <app-solid-button
             [disabled]="this.countryForm.invalid"
-            [tittle]="'add country'"
-            [isLoading]="this.countryService.isloading"
+            [label]="'add country'"
+            [loading]="this.countryService.isloading"
           ></app-solid-button>
           <app-solid-button
-            [tittle]="'show countries'"
-            [btnIcon]="'bi bi-list-nested'"
+            [label]="'show countries'"
+            [icon]="'bi bi-list-nested'"
             routerLink="/CountryList"
           ></app-solid-button>
         </div>

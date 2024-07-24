@@ -17,4 +17,8 @@ export const Urls = {
     deleteOption: `${env.baseUrl}Option/DeleteOption`,
     deleteOptionType: `${env.baseUrl}Option/DeleteOptionType`,
   },
+  authUrls: {
+    regiter: `${env.baseUrl}Auth/Register`,
+    login: `${env.baseUrl}Auth/Login`,
+  },
 };

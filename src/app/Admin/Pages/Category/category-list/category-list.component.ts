@@ -34,26 +34,22 @@ export class CategoryListComponent {
     }
   }
 
-  async deleteCategory() {
-    const isdeleted = await this.categoryService.deleteCategory(
-      this.selectedCategories
-    );
-    if (isdeleted) {
-      alert('category deleted');
-    }
+  deleteCategory() {
+    this.categoryService.deleteCategory(this.selectedCategories);
+    this.selectedCategories = []
   }
   exportData() {
-    const categories: { id: number; name: string; image: string}[] = [];
+    const categories: { id: number; name: string; image: string }[] = [];
     this.categoryService.allCategories.map((category) => {
       categories.push({
         id: category.id!,
         name: category.name,
-        image: category.image!  
+        image: category.image!,
       });
     });
-    this.exportService.exportExcel(categories, 'categories')
+    this.exportService.exportExcel(categories, 'categories');
   }
-  
+
   formatdate(date: any) {
     return moment(date).endOf('day').fromNow();
   }

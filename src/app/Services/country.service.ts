@@ -2,6 +2,9 @@ import { Injectable, Signal, signal } from '@angular/core';
 import { IContry } from '../Models/country';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { env } from '../env';
+import { IResponse } from '../Models/response';
+import { ToastService } from '../toast/toast.service';
+import { ICategory } from '../Models/category';
 
 @Injectable({
   providedIn: 'root',
@@ -9,22 +12,18 @@ import { env } from '../env';
 export class CountryService {
   private _countries = signal<IContry[]>([]);
   isloading: boolean = false;
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private toastService: ToastService) {}
 
   getCountries() {
-    return new Promise((resolve, reject) => {
-      this.isloading = true;
-      this.http.get<any>(`${env.baseUrl}Country/GetCountries`).subscribe(
-        (response) => {
-          if (response) {
-            this._countries.set(response);
-            resolve(true);
-          }
-          this.isloading = false;
-        },
-        (error) => reject(false)
-      );
-    });
+    this.isloading = true;
+    this.http
+      .get<IResponse<IContry[]>>(`${env.baseUrl}Country/GetCountries`)
+      .subscribe((response) => {
+        if (response.data) {
+          this._countries.set(response.data);
+        }
+        this.isloading = false;
+      });
   }
 
   get countries() {
@@ -32,42 +31,32 @@ export class CountryService {
   }
 
   addCountry(country: IContry) {
-    return new Promise((resolve, reject) => {
-      this.http.post(`${env.baseUrl}Country/AddCountry`, country).subscribe(
-        (response) => {
-          debugger
-          if (response) {
-            const currentCountries = this.countries;
-            const updatedCountries = [...currentCountries, response];
-            this._countries.set(updatedCountries as IContry[]);
-            resolve(true);
-          }
-        },
-        (error) => reject(false)
-      );
-    });
+    this.http
+      .post<IResponse<IContry>>(`${env.baseUrl}Country/AddCountry`, country)
+      .subscribe((response) => {
+        if (response.notification) {
+          this.toastService.show(response.notification);
+          this.getCountries();
+        }
+      });
   }
-  deleteCountry(countries: any[]): Promise<boolean> {
+
+  deleteCountry(countries: any[]) {
     var countryIds: number[] = [];
     countries.map((m) => countryIds.push(m.id));
-    return new Promise((resolve, reject) => {
-      const headers = new HttpHeaders({
-        'Content-Type': 'application/json',
-      });
-      this.http.delete<any>(`${env.baseUrl}Country/DeleteCountry`, {
-          headers,
-          body: countryIds,
-        })
-        .subscribe(response => {
-            var currentCountries = this.countries;
-            const updatedCountries = currentCountries.filter(
-              (country) => !countryIds.includes(country.id!)
-            );
-            this._countries.set(updatedCountries);
-            resolve(true);
-          },
-          (error) => reject(false)
-        );
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
     });
+    this.http
+      .delete<IResponse<IContry>>(`${env.baseUrl}Country/DeleteCountry`, {
+        headers,
+        body: countryIds,
+      })
+      .subscribe((response) => {
+        if (response.notification) {
+          this.toastService.show(response.notification);
+        }
+        this.getCountries()
+      });
   }
 }
