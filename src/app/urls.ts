@@ -21,4 +21,11 @@ export const Urls = {
     regiter: `${env.baseUrl}Auth/Register`,
     login: `${env.baseUrl}Auth/Login`,
   },
+  countryUrls: {
+    addCountry: `${env.baseUrl}Country/AddCountry`,
+    UpdateCountry: `${env.baseUrl}Country/UpdateCountry`,
+    getCountryById: (id: number) => {
+      return `${env.baseUrl}Country/GetCountryById/${id}`;
+    },
+  },
 };

@@ -1,6 +1,6 @@
 <div class="container">
-  <app-section [borderBottom]="true" [tittle]="'add option'"></app-section>
-  <form [formGroup]="this.countryForm" (ngSubmit)="this.addCountry()">
+  <app-section [borderBottom]="true" [tittle]="'add country'"></app-section>
+  <form [formGroup]="this.countryForm" (ngSubmit)="this.isEditMode ? this.updateCountry() : this.addCountry()">
     <div class="row form-container">
       <div class="col-12 border round-md py-3 direction-y gap-4">
         <!-- NAME -->
@@ -23,8 +23,9 @@
         <div class="action">
           <app-solid-button
             [disabled]="this.countryForm.invalid"
-            [label]="'add country'"
-            [loading]="this.countryService.isloading"
+            [icon]="this.isEditMode ? 'bi bi-arrow-clockwise' : 'bi bi-save'"
+            [label]="this.isEditMode ? 'update country' : 'add country'"
+            [loading]="this.countryService.isLoadingById"
           ></app-solid-button>
           <app-solid-button
             [label]="'show countries'"

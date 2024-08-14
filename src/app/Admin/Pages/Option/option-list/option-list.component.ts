@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { ExportService } from '../../../../Export/export.service';
 import { ToastService } from '../../../../toast/toast.service';
 import { Toast, toastType } from '../../../../toast/toast_model';
+import { IOption } from '../../../../Models/option';
 
 @Component({
   selector: 'app-option-list',
@@ -27,8 +28,8 @@ export class OptionListComponent {
   ngOnInit(): void {
     this.optionService.getOptions();
   }
-  editOption(option: any) {
-    this.router.navigate(['UpdateOption', option.optionId]);
+  editOption(option: IOption) {
+    this.router.navigate(['UpdateOption', option.id]);
   }
 
   confirmDialog(option: any = null) {
@@ -53,11 +54,11 @@ export class OptionListComponent {
     }[] = [];
     this.optionService.options.map((option) => {
       options.push({
-        optionId: option.optionId!,
+        optionId: option.id!,
         name: option.name,
         value: option.value,
         optionTypeName: option!.optionType.name,
-        optionTypeId: option.optionId!,
+        optionTypeId: option.id!,
       });
     });
     this.exportService.exportExcel(options, 'options');

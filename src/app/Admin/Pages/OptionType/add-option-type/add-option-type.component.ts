@@ -13,7 +13,7 @@ export class AddOptionTypeComponent implements OnInit {
   isEditMode: boolean = false;
   currentOptionType: any;
   optionTypeForm = new FormGroup({
-    optionTypeId: new FormControl(0),
+    id: new FormControl(0),
     name: new FormControl('', [Validators.required]),
   });
 
@@ -38,7 +38,7 @@ export class AddOptionTypeComponent implements OnInit {
     var optionType: any = await this.optionService.getOptionTypeById(id);
     if (optionType) {
       this.optionTypeForm.patchValue({
-        optionTypeId: optionType.optionTypeId,
+        id: optionType.id,
         name: optionType.name,
       });
     }
@@ -48,7 +48,7 @@ export class AddOptionTypeComponent implements OnInit {
     try {
       this.optionService.addOptionType(this.optionTypeForm.value);
       this.optionTypeForm.patchValue({
-        optionTypeId: 0,
+        id: 0,
         name: '',
       });
     } catch (error) {

@@ -106,6 +106,11 @@ const routes: Routes = [
     component: CountryListComponent,
   },
   {
+    path: 'UpdateCountry/:id',
+    title: 'CountryList',
+    component: AddCountryComponent,
+  },
+  {
     path: 'AddUser',
     title: 'AddUser',
     component: AddUserComponent,

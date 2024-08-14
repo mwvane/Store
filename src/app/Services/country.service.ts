@@ -5,6 +5,7 @@ import { env } from '../env';
 import { IResponse } from '../Models/response';
 import { ToastService } from '../toast/toast.service';
 import { ICategory } from '../Models/category';
+import { Urls } from '../urls';
 
 @Injectable({
   providedIn: 'root',
@@ -12,6 +13,7 @@ import { ICategory } from '../Models/category';
 export class CountryService {
   private _countries = signal<IContry[]>([]);
   isloading: boolean = false;
+  isLoadingById: boolean = false;
   constructor(private http: HttpClient, private toastService: ToastService) {}
 
   getCountries() {
@@ -24,6 +26,23 @@ export class CountryService {
         }
         this.isloading = false;
       });
+  }
+
+  getCountryById(id: number){
+    return new Promise((resolve, reject) => {
+      this.isLoadingById = true;
+      this.http
+        .get<IResponse<IContry>>(Urls.countryUrls.getCountryById(id))
+        .subscribe(
+          (res) => {
+            if (res.data) {
+              resolve(res.data);
+            }
+            this.isLoadingById = false;
+          },
+          (error) => reject('option type not found')
+        );
+    });
   }
 
   get countries() {
@@ -39,6 +58,17 @@ export class CountryService {
           this.getCountries();
         }
       });
+  }
+
+  updateCountry(country: ICategory){
+    this.http
+    .put<IResponse<IContry>>(Urls.countryUrls.UpdateCountry, country)
+    .subscribe((response) => {
+      if (response.notification) {
+        this.toastService.show(response.notification);
+      }
+      this.getCountries();
+    });
   }
 
   deleteCountry(countries: any[]) {

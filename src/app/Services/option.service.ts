@@ -138,9 +138,9 @@ export class OptionService {
     });
   }
 
-  deleteOption(options: any[]) {
+  deleteOption(options: IOption[]) {
     var optionIds: number[] = [];
-    options.map((m) => optionIds.push(m.optionId));
+    options.map((m) => optionIds.push(m.id!));
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });

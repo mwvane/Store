@@ -3,6 +3,7 @@ import { CountryService } from '../../../../Services/country.service';
 import { ModalService } from '../../../../Services/modal.service';
 import { WarningService } from '../../../../Services/warning.service';
 import { ExportService } from '../../../../Export/export.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-country-list',
@@ -15,12 +16,15 @@ export class CountryListComponent {
     public countryService: CountryService,
     private modalService: ModalService,
     private exportService: ExportService,
-    public warningService: WarningService
+    public warningService: WarningService,
+    private router: Router
   ) {}
   ngOnInit(): void {
     this.countryService.getCountries();
   }
-  editOptionType(country: any) {}
+  editOptionType(country: any) {
+    this.router.navigate(['UpdateCountry', country.id])
+  }
 
   confirmDialog(country: any = null) {
     this.modalService.confirmDilaog = true;

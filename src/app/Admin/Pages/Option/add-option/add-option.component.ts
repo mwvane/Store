@@ -5,6 +5,7 @@ import { optionType } from '../../../../Enums/optionType';
 import { ActivatedRoute } from '@angular/router';
 import { ToastService } from '../../../../toast/toast.service';
 import { Toast, toastType } from '../../../../toast/toast_model';
+import { IOption } from '../../../../Models/option';
 
 @Component({
   selector: 'app-add-option',
@@ -16,10 +17,10 @@ export class AddOptionComponent implements OnInit {
   isEditMode: boolean = false;
   currentOption: any;
   optionForm = new FormGroup({
-    optionId: new FormControl(''),
+    id: new FormControl(0),
     name: new FormControl('', [Validators.required]),
     value: new FormControl('', [Validators.required]),
-    optionTypeId: new FormControl('', [Validators.required]),
+    optionTypeId: new FormControl("", [Validators.required]),
   });
 
   ngOnInit(): void {
@@ -41,14 +42,14 @@ export class AddOptionComponent implements OnInit {
   ) {}
 
   async getOptionById(id: number) {
-    var option: any = await this.optionService.getOptionById(id);
+    var option: IOption  = await this.optionService.getOptionById(id) as IOption;
     if (option) {
       this.currentOption = option;
       this.optionForm.patchValue({
-        optionId: option.optionId,
+        id: option.id,
         name: option.name,
         value: option.value,
-        optionTypeId: option.optionTypeId,
+        optionTypeId: option.optionType.id.toString(),
       });
     }
   }
