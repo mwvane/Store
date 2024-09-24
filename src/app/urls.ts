@@ -28,4 +28,7 @@ export const Urls = {
       return `${env.baseUrl}Country/GetCountryById/${id}`;
     },
   },
+  categoryUrls: {
+    getAllCategories: `${env.baseUrl}Category/GetAllCategories`
+  }
 };

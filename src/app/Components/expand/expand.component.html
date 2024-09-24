@@ -6,12 +6,12 @@
         <span>{{ data.name }}</span>
       </div>
       @if (data.subCategories?.length) {
-      <i class="bi bi-chevron-down"></i>
+      <i #arrow class="bi bi-chevron-down arrow"></i>
       }
     </div>
   </div>
   @if (this.isOpen) {
-  <div class="expand-container py-2 round-sm">
+  <div class="expand-container py-2 round-sm" [@expandCollapse]>
     @for (item of data.subCategories; track $index) {
       <div
       #el

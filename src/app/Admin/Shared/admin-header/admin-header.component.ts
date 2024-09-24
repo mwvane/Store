@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Directions } from '../../../Components/menu/menu.component';
 import { FormControl, FormGroup } from '@angular/forms';
 import { SidePanelService } from '../../Services/side-panel.service';
+import { animate } from '@angular/animations';
 
 @Component({
   selector: 'app-admin-header',
@@ -34,8 +35,18 @@ export class AdminHeaderComponent {
     this.router.navigateByUrl('Login');
   }
 
-  openSidebar() {
-    this.sidebarService.show()
+  openSidebar(el: HTMLElement) {
+    el.classList.remove("animate-rotate")
+    el.classList.remove("reverse-rotate")
+
+    if(this.sidebarService.isShow){
+      el.classList.add("reverse-rotate")
+      this.sidebarService.hide()
+    }
+    else{
+      el.classList.add("animate-rotate")
+      this.sidebarService.show()
+    }
     // this.sidebar.nativeElement.style.display = 'block';
     // this.sidebarContainer.nativeElement.classList.add('show-sidebar');
   }

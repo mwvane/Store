@@ -33,3 +33,19 @@
   background-color: var(--lightGreen);
   color: white !important;
 }
+.arrow {
+  display: inline-block;
+  transition: transform 0.3s ease-in-out; 
+}
+.rotate {
+  transform: rotate(180deg);
+}
+
+@keyframes rotateArrow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}

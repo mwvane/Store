@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, input, Input, Output } from '@angular/core';
 import { Button } from 'primeng/button';
 
 @Component({
@@ -6,4 +6,6 @@ import { Button } from 'primeng/button';
   templateUrl: './solid-button.component.html',
   styleUrl: './solid-button.component.css',
 })
-export class SolidButtonComponent extends Button {}
+export class SolidButtonComponent extends Button {
+  @Input() onlyIconOnMobile: boolean = false
+}

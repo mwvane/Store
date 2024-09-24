@@ -136,3 +136,9 @@
 .info .toast-header {
   color: #2f8bb0;
 }
+
+@media only screen and (max-width: 993px) {
+  .wrapper {
+    width: 100%;
+  }
+}

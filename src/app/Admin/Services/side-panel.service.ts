@@ -6,7 +6,7 @@ import { Injectable, signal } from '@angular/core';
 export class SidePanelService {
 
   constructor() { }
-  _show = signal<boolean>(true)
+  _show = signal<boolean>(false)
   
   get isShow(){
     return this._show()

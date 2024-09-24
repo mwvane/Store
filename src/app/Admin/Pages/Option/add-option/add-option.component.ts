@@ -20,7 +20,7 @@ export class AddOptionComponent implements OnInit {
     id: new FormControl(0),
     name: new FormControl('', [Validators.required]),
     value: new FormControl('', [Validators.required]),
-    optionTypeId: new FormControl("", [Validators.required]),
+    optionType: new FormControl( {} , [Validators.required]),
   });
 
   ngOnInit(): void {
@@ -49,7 +49,7 @@ export class AddOptionComponent implements OnInit {
         id: option.id,
         name: option.name,
         value: option.value,
-        optionTypeId: option.optionType.id.toString(),
+        optionType: option.optionType,
       });
     }
   }
@@ -58,7 +58,7 @@ export class AddOptionComponent implements OnInit {
     var optenForSave = {
       name: this.optionForm.controls.name.value,
       value: this.optionForm.controls.value.value,
-      optionTypeId: this.optionForm.controls.optionTypeId.value!,
+      optionType: this.optionForm.controls.optionType.value!,
     };
     try {
       this.optionService.addOption(optenForSave);

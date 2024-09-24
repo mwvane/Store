@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { env } from '../env';
 import { IResponse } from '../Models/response';
 import { ToastService } from '../toast/toast.service';
+import { Urls } from '../urls';
 
 @Injectable({
   providedIn: 'root',
@@ -38,7 +39,7 @@ export class CategoryService {
   getAllCategories() {
     this.isLoading = true;
     this.http
-      .get<IResponse<ICategory[]>>(`${env.baseUrl}Category/GetAllCategories`)
+      .get<IResponse<ICategory[]>>(Urls.categoryUrls.getAllCategories)
       .subscribe((res) => {
         this.isLoading = false;
         if (res.data) {

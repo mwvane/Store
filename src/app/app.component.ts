@@ -7,6 +7,7 @@ import { ViewportScroller } from '@angular/common';
 import { IProduct } from './Models/product';
 import { ModalService } from './Services/modal.service';
 import { AuthService } from './Services/auth.service';
+import { SidePanelService } from './Admin/Services/side-panel.service';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,7 @@ import { AuthService } from './Services/auth.service';
 })
 export class AppComponent {
   scrollToUp: boolean = false;
-  constructor(private viewportScroller: ViewportScroller, public authService : AuthService) {
+  constructor(private viewportScroller: ViewportScroller, public authService : AuthService, public sideBarService: SidePanelService ) {
 
   }
   scrollToTop() {

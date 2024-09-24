@@ -8,7 +8,7 @@
     (ngSubmit)="this.isEditMode ? updateOption() : addOption()"
   >
     <div class="row form-container">
-      <div class="col-12 border round-md py-3 direction-y gap-4">
+      <div class="col-12 border round-md py-3 direction-y gap-3">
         <!-- NAME -->
         <div class="input-container">
           <div class="d-flex info">
@@ -28,7 +28,7 @@
         </div>
         <!-- VALUE -->
         <div></div>
-        <div class="d-flex gap-3">
+        <div class="d-flex gap-3 form-input">
           <div class="input-container w-100">
             <div class="d-flex info">
               <i class="requared">*</i>
@@ -55,13 +55,12 @@
                 "optionType" | translate
               }}</label>
             </div>
-            <div class="space-between gap-3">
+            <div class="space-between gap-3" >
               <p-dropdown
                 class="w-100"
                 [options]="this.optionService.optionTypes"
-                formControlName="optionTypeId"
+                formControlName="optionType"
                 optionLabel="name"
-                optionValue="id"
                 [filter]="true"
                 filterBy="name"
                 placeholder="select a option type"
@@ -71,11 +70,12 @@
                 [label]="'add type'"
                 [icon]="'bi bi-plus'"
                 routerLink="/AddOptionType"
+                [onlyIconOnMobile]="true"
               ></app-solid-button>
             </div>
 
             <app-form-error
-              [formControl]="this.optionForm.controls.optionTypeId"
+              [formControl]="this.optionForm.controls.optionType"
               [errorId]="2"
             ></app-form-error>
           </div>

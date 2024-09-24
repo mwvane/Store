@@ -1,9 +1,9 @@
 <div class="header-container p-3">
-  <div class="logo pointer center-y gap-2">
+  <div class="logo pointer center-y gap-4">
+    <div class="sidebar fs-lg" (click)="openSidebar(menu)">
+      <i #menu class="bi bi-list-nested icon"></i>
+    </div>
     <img routerLink="/Home" src="../../assets/images/logo.png" alt="logo" />
-    <div class="sidebar fs-lg" (click)="openSidebar()">
-        <i class="bi bi-list"></i>
-      </div>
   </div>
   <div class="searchbar">
     <form [formGroup]="searchForm" (ngSubmit)="search()">

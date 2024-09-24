@@ -1,5 +1,13 @@
 .sidebar-container {
-    min-width: 300px !important;
-    max-height: calc(100vh - 80px);
-    overflow-y: auto;
+  min-width: 300px !important;
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
+}
+@media only screen and (max-width: 767px) {
+  .sidebar-container {
+    position: absolute !important;
+    top: 78px;
+    background-color: white;
+    z-index: 1;
+  }
 }

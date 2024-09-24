@@ -31,7 +31,7 @@
       [rows]="8"
       [paginator]="true"
       [globalFilterFields]="['name', 'country.name', 'manufacturer.name']"
-      [tableStyle]="{ 'min-width': '75rem' }"
+      [tableStyle]="{ 'width': '100%' }"
       [(selection)]="selectedOptions"
       [rowHover]="true"
       dataKey="id"
@@ -41,13 +41,13 @@
     >
       <ng-template pTemplate="header">
         <tr>
-          <th style="width: 2rem">
-            <p-tableHeaderCheckbox />
+          <th style="max-width: 30px">
+            <p-tableHeaderCheckbox  />
           </th>
           <th pSortableColumn="id" style="min-width: 7rem">
             id <p-sortIcon field="id" />
           </th>
-          <th pSortableColumn="name" style="min-width: 10rem">
+          <th pSortableColumn="name" style="min-width: 8rem">
             Name <p-sortIcon field="name" />
           </th>
         </tr>
@@ -66,7 +66,7 @@
           <td>
             {{ optionType.name }}
           </td>
-          <td>
+          <td class="table-action-icons">
             <p-button
               pRipple
               icon="pi pi-pencil"

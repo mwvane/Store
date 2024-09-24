@@ -31,7 +31,7 @@
       [rows]="8"
       [paginator]="true"
       [globalFilterFields]="['name', 'country.name']"
-      [tableStyle]="{ 'min-width': '75rem' }"
+      [tableStyle]="{ 'width': '100%' }"
       [(selection)]="selectedCountries"
       [rowHover]="true"
       dataKey="id"
@@ -41,17 +41,17 @@
     >
       <ng-template pTemplate="header">
         <tr>
-          <th style="width: 2rem">
+          <th style="width: 7%">
             <p-tableHeaderCheckbox />
           </th>
-          <th pSortableColumn="id" style="min-width: 7rem">
+          <th pSortableColumn="id" style="width: 23%">
             id <p-sortIcon field="id" />
           </th>
-          <th pSortableColumn="name" style="min-width: 10rem">
+          <th pSortableColumn="name" style="width: 65%">
             Name <p-sortIcon field="name" />
           </th>
         </tr>
-        <th style="min-width: 7rem"></th>
+        <th style="width: 5%"></th>
       </ng-template>
   
       <!-- BODY -->

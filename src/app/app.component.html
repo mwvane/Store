@@ -16,7 +16,9 @@
 
   <app-admin-header></app-admin-header>
   <div class="w-100 d-flex">
-    <app-admin-sidebar></app-admin-sidebar>
+    @if (this.sideBarService.isShow) {
+      <app-admin-sidebar></app-admin-sidebar>
+    }
     <div class="container">
       <router-outlet></router-outlet>
     </div>
