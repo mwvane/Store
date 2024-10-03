@@ -1,4 +1,4 @@
-<div class="container">
+<div class="product-container">
   <app-section [borderBottom]="true" [tittle]="'add product'"></app-section>
   <form [formGroup]="productForm" (ngSubmit)="addProduct()">
     <div class="row form-container">
@@ -21,7 +21,7 @@
           ></app-form-error>
         </div>
         <!-- PRICE AND MANUFACTURER -->
-        <div class="d-flex gap-3">
+        <div class="input-row">
           <div class="input-container w-50">
             <div class="d-flex info">
               <i class="requared">*</i>
@@ -64,7 +64,7 @@
           </div>
         </div>
         <!-- CATEGORY AND OPTIONS -->
-        <div class="d-flex gap-3">
+        <div class="input-row">
           <div class="input-container w-50">
             <div class="d-flex info">
               <i class="requared">*</i>
@@ -130,22 +130,15 @@
             [errorId]="2"
           ></app-form-error>
         </div>
-      </div>
-      <div class="col-md-12 col-lg-6 border round-md">
-        <div class="image-container">
-          @for (item of this.imagesUrls; track $index) {
-          <img class="preview-image" [src]="item" alt="test" />
-          }
-          <app-file-uploder
-            (selectFiles)="selectImages($event)"
-          ></app-file-uploder>
-        </div>
-        <!-- SUBMIT BUTTON -->
 
+        <app-file-uploder
+          [multiple]="true"
+          (selectFiles)="selectImages($event)"
+        ></app-file-uploder>
         <div class="action">
           <app-solid-button
             [disabled]="this.productForm.invalid"
-            [icon] = "this.isEditMode ? 'bi bi-arrow-clockwise' :  'bi bi-save' "
+            [icon]="this.isEditMode ? 'bi bi-arrow-clockwise' : 'bi bi-save'"
             [label]="'add product'"
             [loading]="this.productService.loading"
           ></app-solid-button>

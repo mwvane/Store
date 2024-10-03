@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../../../../Services/product.service';
+import { ProductService } from '../../../../core/Services/product.service';
 import moment from 'moment';
-import { ModalService } from '../../../../Services/modal.service';
-import { WarningService } from '../../../../Services/warning.service';
+import { ModalService } from '../../../../core/Services/modal.service';
+import { WarningService } from '../../../../core/Services/warning.service';
 import { ExportService } from '../../../../Export/export.service';
-import { ICategory } from '../../../../Models/category';
+import { ICategory } from '../../../../core/Models/category';
 
 @Component({
   selector: 'app-product-list',

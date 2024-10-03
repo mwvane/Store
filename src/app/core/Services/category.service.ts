@@ -1,10 +1,10 @@
 import { Injectable, signal } from '@angular/core';
 import { ICategory } from '../Models/category';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { env } from '../env';
+import { env } from '../../env';
 import { IResponse } from '../Models/response';
-import { ToastService } from '../toast/toast.service';
-import { Urls } from '../urls';
+import { ToastService } from '../../toast/toast.service';
+import { Urls } from '../../urls';
 
 @Injectable({
   providedIn: 'root',

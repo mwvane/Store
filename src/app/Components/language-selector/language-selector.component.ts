@@ -1,5 +1,5 @@
 import { Component, Input, inject } from '@angular/core';
-import { ILanguage } from '../../Models/language';
+import { ILanguage } from '../../core/Models/language';
 import { StaticFiles } from '../../staticFiles';
 import { LanguageService } from './language.service';
 

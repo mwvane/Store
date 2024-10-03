@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ManufacturerService } from '../../../../Services/manufacturer.service';
-import { ModalService } from '../../../../Services/modal.service';
-import { WarningService } from '../../../../Services/warning.service';
+import { ManufacturerService } from '../../../../core/Services/manufacturer.service';
+import { ModalService } from '../../../../core/Services/modal.service';
+import { WarningService } from '../../../../core/Services/warning.service';
 import moment from 'moment';
 import { Router } from '@angular/router';
 import { ExportService } from '../../../../Export/export.service';

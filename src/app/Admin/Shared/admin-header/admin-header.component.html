@@ -27,7 +27,7 @@
   </div>
   <div class="header-actions">
     <div class="center-y flex-end gap-4">
-      <div class="menu">
+      <div class="menu shadow-pulse">
         <i class="bi bi-person fs-xlg"></i>
         <app-menu [template]="profile"></app-menu>
       </div>
@@ -37,7 +37,7 @@
 
 <!-- TEMPLATES FOR MANU -->
 <ng-template #profile>
-  <li class="dropdown-list-item direction-y">
+  <li class=" popup dropdown-list-item direction-y">
     <span class="fs-md" href="">{{ "yor account" }}</span>
     <span class="fs-xsm nowrap">{{
       "Access account and manage orders" | translate

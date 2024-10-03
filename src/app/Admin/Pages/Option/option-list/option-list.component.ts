@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
-import { OptionService } from '../../../../Services/option.service';
-import { ModalService } from '../../../../Services/modal.service';
-import { WarningService } from '../../../../Services/warning.service';
+import { OptionService } from '../../../../core/Services/option.service';
+import { ModalService } from '../../../../core/Services/modal.service';
+import { WarningService } from '../../../../core/Services/warning.service';
 import moment from 'moment';
 import { optionType } from '../../../../Enums/optionType';
 import { Router } from '@angular/router';
 import { ExportService } from '../../../../Export/export.service';
 import { ToastService } from '../../../../toast/toast.service';
 import { Toast, toastType } from '../../../../toast/toast_model';
-import { IOption } from '../../../../Models/option';
+import { IOption } from '../../../../core/Models/option';
 
 @Component({
   selector: 'app-option-list',

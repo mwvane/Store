@@ -1,5 +1,5 @@
 import { AfterContentInit, Component, Input, input } from '@angular/core';
-import { ErrorService } from '../../Services/error.service';
+import { ErrorService } from '../../core/Services/error.service';
 
 @Component({
   selector: 'app-form-error',

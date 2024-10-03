@@ -3,11 +3,15 @@
   max-height: calc(100vh - 80px);
   overflow-y: auto;
 }
+.sidebar-content {
+    min-height: 100vh !important;
+    height: auto !important;
+}
 @media only screen and (max-width: 767px) {
   .sidebar-container {
     position: absolute !important;
     top: 78px;
     background-color: white;
-    z-index: 1;
+    z-index: 1000;
   }
 }

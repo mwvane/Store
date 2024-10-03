@@ -2,11 +2,11 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { LanguageService } from './Components/language-selector/language.service';
 import { TranslateService } from '@ngx-translate/core';
 import { MenuItem } from 'primeng/api';
-import { IMenuItem } from './Models/menuIte';
+import { IMenuItem } from './core/Models/menuIte'
 import { ViewportScroller } from '@angular/common';
-import { IProduct } from './Models/product';
-import { ModalService } from './Services/modal.service';
-import { AuthService } from './Services/auth.service';
+import { IProduct } from './core/Models/product';
+import { ModalService } from './core/Services/modal.service';
+import { AuthService } from './core/Services/auth.service';
 import { SidePanelService } from './Admin/Services/side-panel.service';
 
 @Component({

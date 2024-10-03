@@ -8,7 +8,7 @@ import {
   viewChild,
   ViewChild,
 } from '@angular/core';
-import { ICategory } from '../../Models/category';
+import { ICategory } from '../../core/Models/category';
 import { trigger, style, animate, transition } from '@angular/animations';
 
 @Component({

@@ -10,7 +10,7 @@ import {
   TemplateRef,
   ViewChild,
 } from '@angular/core';
-import { IMenuItem } from '../../Models/menuIte';
+import { IMenuItem } from '../../core/Models/menuIte';
 import { Helpers } from '../../helpers';
 
 @Component({

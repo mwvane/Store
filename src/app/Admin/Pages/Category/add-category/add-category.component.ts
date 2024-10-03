@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoryService } from '../../../../Services/category.service';
-import { WarningService } from '../../../../Services/warning.service';
+import { CategoryService } from '../../../../core/Services/category.service';
+import { WarningService } from '../../../../core/Services/warning.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 

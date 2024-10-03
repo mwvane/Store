@@ -1,6 +1,12 @@
 <div class="container">
-  <app-section [borderBottom]="true" [tittle]="this.isEditMode ? 'update category' : 'add category'"></app-section>
-  <form [formGroup]="this.categoryForm" (ngSubmit)="this.isEditMode ? updateCategory() : addCategory()">
+  <app-section
+    [borderBottom]="true"
+    [tittle]="this.isEditMode ? 'update category' : 'add category'"
+  ></app-section>
+  <form
+    [formGroup]="this.categoryForm"
+    (ngSubmit)="this.isEditMode ? updateCategory() : addCategory()"
+  >
     <div class="row form-container">
       <div class="col-12 border round-md py-3 direction-y gap-4">
         <!-- NAME -->
@@ -22,21 +28,25 @@
         </div>
         <!-- -----IMAGE----- -->
         <div class="input-container">
-            <div class="d-flex info">
-              <i class="requared">*</i>
-              <label class="nowrap" for="image">{{ "image" | translate }}</label>
-            </div>
+          <div class="d-flex info">
+            <i class="requared">*</i>
+            <label class="nowrap" for="image">{{ "image" | translate }}</label>
+          </div>
+          <div class="input-with-icon">
             <input
               class="input-light"
               placeholder="{{ 'Image' | translate }}"
               type="text"
               formControlName="image"
             />
-            <app-form-error
-              [formControl]="this.categoryForm.controls.image"
-              [errorId]="2"
-            ></app-form-error>
+            <i [class]="categoryForm.controls.image.value"></i>
           </div>
+
+          <app-form-error
+            [formControl]="this.categoryForm.controls.image"
+            [errorId]="2"
+          ></app-form-error>
+        </div>
         <!-- ParentCategory -->
         <div class="d-flex gap-3">
           <div class="input-container w-100">
@@ -69,7 +79,7 @@
         <div class="action">
           <app-solid-button
             [disabled]="this.categoryForm.invalid && this.categoryForm.touched"
-            [icon] = "this.isEditMode ? 'bi bi-arrow-clockwise' :  'bi bi-save' "
+            [icon]="this.isEditMode ? 'bi bi-arrow-clockwise' : 'bi bi-save'"
             [label]="this.isEditMode ? 'update category' : 'add category'"
             [loading]="this.categoryService.isLoading"
           ></app-solid-button>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { OptionService } from '../../../../Services/option.service';
+import { OptionService } from '../../../../core/Services/option.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({

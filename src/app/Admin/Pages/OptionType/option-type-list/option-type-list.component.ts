@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { OptionService } from '../../../../Services/option.service';
-import { ModalService } from '../../../../Services/modal.service';
-import { WarningService } from '../../../../Services/warning.service';
+import { OptionService } from '../../../../core/Services/option.service';
+import { ModalService } from '../../../../core/Services/modal.service';
+import { WarningService } from '../../../../core/Services/warning.service';
 import { Router } from '@angular/router';
-import { IOptionType } from '../../../../Models/optionType';
+import { IOptionType } from '../../../../core/Models/optionType';
 import { ExportService } from '../../../../Export/export.service';
 
 @Component({

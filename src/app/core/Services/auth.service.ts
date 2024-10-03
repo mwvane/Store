@@ -1,11 +1,11 @@
 import { Injectable, signal } from '@angular/core';
 import { IUser, UserRole } from '../Models/user';
 import { HttpClient } from '@angular/common/http';
-import { env } from '../env';
+import { env } from '../../env';
 import { IUserLogin } from '../Models/userLogin';
 import { IResponse } from '../Models/response';
-import { ToastService } from '../toast/toast.service';
-import { Urls } from '../urls';
+import { ToastService } from '../../toast/toast.service';
+import { Urls } from '../../urls';
 
 @Injectable({
   providedIn: 'root',

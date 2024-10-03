@@ -6,8 +6,8 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { IProduct } from '../../Models/product';
-import { ProductService } from '../../Services/product.service';
+import { IProduct } from '../../core/Models/product';
+import { ProductService } from '../../core/Services/product.service';
 
 @Component({
   selector: 'app-product-grid',

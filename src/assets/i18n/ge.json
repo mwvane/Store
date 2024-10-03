@@ -28,6 +28,7 @@
   "sign up": "რეგისტრაცია",
   "forget password": "დაგავიწყდა პაროლი",
   "confirm password": "დაადასტურე პაროლი",
+  "confirm": "დაადასტურება",
   "your password": "შენი პაროლი",
   "your firstname": "შენი სახელი",
   "your lastname": "შენი გვარი",
@@ -71,5 +72,7 @@
   "search" : "ძებნა...",
   "my cart" : "კალათა",
   "cart" : "კალათა",
-  "empty" : "ცარიელია"
+  "empty" : "ცარიელია",
+
+  "clear all files" : "ფაილების გასუფთავება"
 }

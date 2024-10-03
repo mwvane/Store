@@ -12,9 +12,9 @@
         <div class="w-100 d-flex">
           <div class="searchbar-categories" style="min-width: 200px">
             <select class="w-100" formControlName="category">
-              <option value="1">All Categories</option>   
+              <option value="1">All Categories</option>
               @for (category of categoryService.categories; track $index) {
-                <option value="{{category.id}}">{{category.name}}</option>
+              <option value="{{ category.id }}">{{ category.name }}</option>
               }
             </select>
           </div>
@@ -47,7 +47,6 @@
             <i class="bi bi-cart fs-xlg"></i>
             <div class="cartdetails">
               <div class="bage">10</div>
-
               <span id="cart-tittle" class="nowrap">{{
                 "my cart" | translate
               }}</span>

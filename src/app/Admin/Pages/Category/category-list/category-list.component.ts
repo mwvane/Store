@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { CategoryService } from '../../../../Services/category.service';
-import { ModalService } from '../../../../Services/modal.service';
+import { CategoryService } from '../../../../core/Services/category.service';
+import { ModalService } from '../../../../core/Services/modal.service';
 import moment from 'moment';
-import { WarningService } from '../../../../Services/warning.service';
+import { WarningService } from '../../../../core/Services/warning.service';
 import { Router } from '@angular/router';
 import { ExportService } from '../../../../Export/export.service';
 
@@ -22,6 +22,13 @@ export class CategoryListComponent {
   ) {}
   ngOnInit(): void {
     this.categoryService.getAllCategories();
+  }
+
+  getReport(){
+    if(window.innerWidth < 569){
+      return "{totalRecords} entries"
+    }
+    return "Showing {first} to {last} of {totalRecords} entries"
   }
   editCategory(category: any) {
     this.router.navigate(['UpdateCategory', category.id]);

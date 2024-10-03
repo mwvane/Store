@@ -1,0 +1,8 @@
+.input-with-icon {
+    position: relative;
+}
+.input-with-icon i {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}

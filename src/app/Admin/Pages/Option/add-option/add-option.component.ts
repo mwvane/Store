@@ -1,11 +1,11 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { OptionService } from '../../../../Services/option.service';
+import { OptionService } from '../../../../core/Services/option.service';
 import { optionType } from '../../../../Enums/optionType';
 import { ActivatedRoute } from '@angular/router';
 import { ToastService } from '../../../../toast/toast.service';
 import { Toast, toastType } from '../../../../toast/toast_model';
-import { IOption } from '../../../../Models/option';
+import { IOption } from '../../../../core/Models/option';
 
 @Component({
   selector: 'app-add-option',

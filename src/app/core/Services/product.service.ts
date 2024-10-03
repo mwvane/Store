@@ -1,7 +1,7 @@
 import { Injectable, OnInit, signal } from '@angular/core';
 import { IProduct } from '../Models/product';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { env } from '../env';
+import { env } from '../../env';
 
 @Injectable({
   providedIn: 'root',

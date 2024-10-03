@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { IMenuItem } from '../../Models/menuIte';
-import { IProduct } from '../../Models/product';
+import { IMenuItem } from '../../core/Models/menuIte';
+import { IProduct } from '../../core/Models/product';
 import { Router } from '@angular/router';
-import { ProductService } from '../../Services/product.service';
+import { ProductService } from '../../core/Services/product.service';
 
 @Component({
   selector: 'app-home',

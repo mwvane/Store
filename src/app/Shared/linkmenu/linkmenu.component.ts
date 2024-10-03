@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Directions } from '../../Components/menu/menu.component';
-import { CategoryService } from '../../Services/category.service';
+import { CategoryService } from '../../core/Services/category.service';
 
 @Component({
   selector: 'app-linkmenu',

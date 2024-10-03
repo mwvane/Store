@@ -35,7 +35,7 @@
       [(selection)]="selectedCategories"
       [rowHover]="true"
       dataKey="id"
-      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+      currentPageReportTemplate="{{getReport()}}"
       [showCurrentPageReport]="true"
       [loading]="this.categoryService.isLoading"
     >
@@ -70,12 +70,6 @@
           <td>
             @if(category.image){
               <i class="{{category.image}}"></i>
-            <!-- <img
-              [src]="category.Image"
-              alt="image"
-              width="50"
-              class="thumb"
-            /> -->
             } @else { N/A }
           </td>
           <td class="table-action-icons ">

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output, output } from '@angular/core';
-import { ModalService } from '../../Services/modal.service';
+import { ModalService } from '../../core/Services/modal.service';
 
 @Component({
   selector: 'app-confirm-dialog',

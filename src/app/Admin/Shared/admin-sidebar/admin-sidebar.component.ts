@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ISidebarItem } from '../../Models/sidbarItem';
-import { ICategory } from '../../../Models/category';
-import { INavItem } from '../../../Models/menu';
+import { ICategory } from '../../../core/Models/category';
+import { INavItem } from '../../../core/Models/menu';
 import { SidePanelService } from '../../Services/side-panel.service';
 
 @Component({

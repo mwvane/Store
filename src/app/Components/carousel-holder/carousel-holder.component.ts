@@ -7,7 +7,7 @@ import {
   TemplateRef,
 } from '@angular/core';
 import { MenuItem } from 'primeng/api';
-import { IMenuItem } from '../../Models/menuIte';
+import { IMenuItem } from '../../core/Models/menuIte';
 
 @Component({
   selector: 'app-carousel-holder',

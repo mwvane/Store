@@ -28,6 +28,7 @@
   "sign up": "Sign Up",
   "forget password": "Forget Password",
   "confirm password": "Confirm password",
+  "confirm": "Confirm",
   "your password": "Your Password",
   "your firstname": "Your Firsname",
   "your lastname": "Your Lastname",
@@ -68,6 +69,8 @@
   "search" : "Search ",
   "my cart" : "My Cart",
   "cart" : "Cart",
-  "empty" : "Empty"
+  "empty" : "Empty", 
+
+  "clear all files" : "Clear all files"
   
 }

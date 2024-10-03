@@ -73,8 +73,8 @@ import { ServerErrorComponent } from './Pages/server-error/server-error.componen
 import { NetworkErrorComponent } from './Pages/network-error/network-error.component';
 import { ToastComponent } from './toast/toast/toast.component';
 import { JwtModule } from '@auth0/angular-jwt';
-import { AuthService } from './Services/auth.service';
-import { AuthInterceptor } from './Services/Interceptor/auth.interceptor';
+import { AuthService } from './core/Services/auth.service';
+import { AuthInterceptor } from './core/interceptor/auth.interceptor';
 import { AddUserComponent } from './Admin/Pages/User/add-user/add-user.component';
 import { UserListComponent } from './Admin/Pages/User/user-list/user-list.component';
 

@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { IMenuItem } from '../../Models/menuIte';
-import { ILanguage } from '../../Models/language';
+import { IMenuItem } from '../../core/Models/menuIte';
+import { ILanguage } from '../../core/Models/language';
 import { LanguageService } from '../../Components/language-selector/language.service';
 import { StaticFiles } from '../../staticFiles';
 

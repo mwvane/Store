@@ -31,7 +31,7 @@
     [rows]="8"
     [paginator]="true"
     [globalFilterFields]="['name', 'country.name', 'manufacturer.name']"
-    [tableStyle]="{ 'min-width': '75rem' }"
+    [tableStyle]="{ 'min-width': '100%' }"
     [(selection)]="selectedProducts"
     [rowHover]="true"
     dataKey="productId"
@@ -44,21 +44,21 @@
         <th style="width: 4rem">
           <p-tableHeaderCheckbox />
         </th>
-        <th pSortableColumn="productId" style="min-width: 7rem">
-          id <p-sortIcon field="productId" />
+        <th pSortableColumn="id" style="min-width: 7rem">
+          id <p-sortIcon field="id" />
         </th>
-        <th pSortableColumn="name" style="min-width: 15rem">
+        <th pSortableColumn="name" style="min-width: 18rem">
           Name <p-sortIcon field="name" />
         </th>
-        <th>Image</th>
-        <th pSortableColumn="price">Price <p-sortIcon field="price" /></th>
+        <th field="productImages" style="min-width: 7rem;">Image</th>
+        <th pSortableColumn="price" style="min-width: 7rem;">Price <p-sortIcon field="price"  /></th>
         <th pSortableColumn="category" style="min-width: 10rem">
           Category <p-sortIcon field="category.name" />
         </th>
         <th pSortableColumn="manufacturer" style="min-width: 10rem">
           manufacturer <p-sortIcon field="manufacturer.name" />
         </th>
-        <th pSortableColumn="rating">Reviews <p-sortIcon field="rating" /></th>
+        <th pSortableColumn="rating" style="min-width: 8rem">Reviews <p-sortIcon field="rating" /></th>
         <th pSortableColumn="createDate" style="min-width: 10rem">
           createDate <p-sortIcon field="createDate" />
         </th>
@@ -73,7 +73,7 @@
           <p-tableCheckbox [value]="product" />
         </td>
         <td>
-          {{ product.productId }}
+          {{ product.id }}
         </td>
         <td>
           {{ product.name }}

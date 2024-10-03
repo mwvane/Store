@@ -3,9 +3,9 @@ import { IOption } from '../Models/option';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { IResponse } from '../Models/response';
 import { IOptionType } from '../Models/optionType';
-import { Urls } from '../urls';
-import { env } from '../env';
-import { ToastService } from '../toast/toast.service';
+import { Urls } from '../../urls';
+import { env } from '../../env';
+import { ToastService } from '../../toast/toast.service';
 import { noop } from 'rxjs';
 
 @Injectable({

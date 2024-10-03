@@ -103,6 +103,16 @@
   .action button {
     width: 100%;
   }
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+    /* Adjust scrollbar width */
+  }
+
+  /* ---- GRID ----- */
+  .p-datatable .p-datatable-tbody > tr > td {
+    padding: 5px !important;
+  }
 }
 
 /* ------------- DISPLAY ----------- */
@@ -447,6 +457,9 @@ select {
 .p-dropdown-items {
   padding: 0 !important;
 }
+.p-dropdown-item{
+  padding: 8px 20px !important;
+}
 .p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
   color: inherit;
 }
@@ -484,7 +497,7 @@ select {
   padding: 0 !important;
 }
 .p-highlight {
-  color: white;
+  color: white !important;
   background-color: var(--lightGreen);
 }
 .p-paginator .p-paginator-pages .p-paginator-page {
@@ -513,7 +526,7 @@ select {
   padding: .5rem;
 }
 .p-datatable .p-datatable-thead > tr > th {
-  padding: .5rem;
+  padding: 7px;
 }
 .p-sortable-column-icon {
   color: black
@@ -534,10 +547,17 @@ select {
 }
  
 
+/* TOOLTIP */
+.p-tooltip {
+  transform: scale(0.5);
+  animation: fadeIn 0.1s ease-out forwards;
+  animation: scaleUp 0.1s ease-out forwards;
+}
+
 
 /* ------ ANIMATIONS ------- */
 .animate-opacity {
-  animation: animate-opacity .3s ease-in-out;
+  animation: animate-opacity .3s ease-out;
 }
 @keyframes animate-padding {
   0% {
@@ -552,6 +572,51 @@ select {
     opacity: 0;
   }
   100% {
+    opacity: 1;
+  }
+}
+
+.shadow-pulse:active {
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: shadowPulse 0.8s ease-in-out;
+}
+@keyframes shadowPulse {
+  0% {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  50% {
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  }
+  100% {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.animate {
+  transition: all 0.3s ease;
+}
+.animate:active {
+  transform: scale(.98);
+}
+.popup {
+  transform: scale(0.5);
+  animation: fadeIn 0.1s ease-out forwards;
+  animation: scaleUp 0.1s ease-out forwards;
+}
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Scale-up animation for popup content */
+@keyframes scaleUp {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
     opacity: 1;
   }
 }

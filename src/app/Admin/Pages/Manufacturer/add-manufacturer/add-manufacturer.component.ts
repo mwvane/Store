@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ManufacturerService } from '../../../../Services/manufacturer.service';
-import { CountryService } from '../../../../Services/country.service';
+import { ManufacturerService } from '../../../../core/Services/manufacturer.service';
+import { CountryService } from '../../../../core/Services/country.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({

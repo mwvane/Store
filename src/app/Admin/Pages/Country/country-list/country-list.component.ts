@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { CountryService } from '../../../../Services/country.service';
-import { ModalService } from '../../../../Services/modal.service';
-import { WarningService } from '../../../../Services/warning.service';
+import { CountryService } from '../../../../core/Services/country.service';
+import { ModalService } from '../../../../core/Services/modal.service';
+import { WarningService } from '../../../../core/Services/warning.service';
 import { ExportService } from '../../../../Export/export.service';
 import { Router } from '@angular/router';
 
@@ -47,5 +47,11 @@ export class CountryListComponent {
       });
     });
     this.exportService.exportExcel(countries, 'Manufacturers');
+  }
+  getReport(){
+    if(window.innerWidth < 569){
+      return "{totalRecords} entries"
+    }
+    return "Showing {first} to {last} of {totalRecords} entries"
   }
 }

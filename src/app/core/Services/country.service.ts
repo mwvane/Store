@@ -1,11 +1,11 @@
 import { Injectable, Signal, signal } from '@angular/core';
 import { IContry } from '../Models/country';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { env } from '../env';
+import { env } from '../../env';
 import { IResponse } from '../Models/response';
-import { ToastService } from '../toast/toast.service';
+import { ToastService } from '../../toast/toast.service';
 import { ICategory } from '../Models/category';
-import { Urls } from '../urls';
+import { Urls } from '../../urls';
 
 @Injectable({
   providedIn: 'root',
@@ -49,9 +49,9 @@ export class CountryService {
     return this._countries();
   }
 
-  addCountry(country: IContry) {
+  addCountry(country: FormData) {
     this.http
-      .post<IResponse<IContry>>(`${env.baseUrl}Country/AddCountry`, country)
+      .post<IResponse<IContry>>(`${env.baseUrl}Country/CreateCountry`, country)
       .subscribe((response) => {
         if (response.notification) {
           this.toastService.show(response.notification);
