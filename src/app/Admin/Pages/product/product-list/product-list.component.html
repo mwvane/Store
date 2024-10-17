@@ -21,7 +21,13 @@
     </ng-template>
 
     <ng-template pTemplate="right">
-      <p-button (onClick)="exportData()" pRipple severity="help" label="Export" icon="pi pi-upload" />
+      <p-button
+        (onClick)="exportData()"
+        pRipple
+        severity="help"
+        label="Export"
+        icon="pi pi-upload"
+      />
     </ng-template>
   </p-toolbar>
 
@@ -35,7 +41,7 @@
     [(selection)]="selectedProducts"
     [rowHover]="true"
     dataKey="productId"
-    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    currentPageReportTemplate="{{ this.getReport() }}"
     [showCurrentPageReport]="true"
     [loading]="this.productService.loading"
   >
@@ -50,15 +56,19 @@
         <th pSortableColumn="name" style="min-width: 18rem">
           Name <p-sortIcon field="name" />
         </th>
-        <th field="productImages" style="min-width: 7rem;">Image</th>
-        <th pSortableColumn="price" style="min-width: 7rem;">Price <p-sortIcon field="price"  /></th>
+        <th field="productImages" style="min-width: 7rem">Image</th>
+        <th pSortableColumn="price" style="min-width: 7rem">
+          Price <p-sortIcon field="price" />
+        </th>
         <th pSortableColumn="category" style="min-width: 10rem">
           Category <p-sortIcon field="category.name" />
         </th>
         <th pSortableColumn="manufacturer" style="min-width: 10rem">
           manufacturer <p-sortIcon field="manufacturer.name" />
         </th>
-        <th pSortableColumn="rating" style="min-width: 8rem">Reviews <p-sortIcon field="rating" /></th>
+        <th pSortableColumn="rating" style="min-width: 8rem">
+          Reviews <p-sortIcon field="rating" />
+        </th>
         <th pSortableColumn="createDate" style="min-width: 10rem">
           createDate <p-sortIcon field="createDate" />
         </th>
@@ -101,7 +111,7 @@
           <app-rating [value]="product.rating" [readOnly]="true"></app-rating>
         </td>
         <td>
-          {{this.formatdate(product.createDate )}}
+          {{ this.formatdate(product.createDate) }}
         </td>
         <td>
           <p-button
@@ -128,4 +138,7 @@
 </div>
 
 <!-- ----MODALS----- -->
-<app-confirm-dialog [bodyText]="this.warningService.warnings['deteteProduct']" (yes)="deleteSelectedProducts()"></app-confirm-dialog>
+<app-confirm-dialog
+  [bodyText]="this.warningService.warnings['deteteProduct']"
+  (yes)="deleteSelectedProducts()"
+></app-confirm-dialog>

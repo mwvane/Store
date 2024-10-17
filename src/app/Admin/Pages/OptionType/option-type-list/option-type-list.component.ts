@@ -36,6 +36,13 @@ export class OptionTypeListComponent {
 
   deleteOptionType() {
     this.optionService.deleteOptionType(this.selectedOptions);
-    this.selectedOptions = []
+    this.selectedOptions = [];
+  }
+
+  getReport() {
+    if (window.innerWidth < 569) {
+      return '{totalRecords} entries';
+    }
+    return 'Showing {first} to {last} of {totalRecords} entries';
   }
 }

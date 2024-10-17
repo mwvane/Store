@@ -41,7 +41,7 @@ export class OptionListComponent {
 
   deleteOption() {
     this.optionService.deleteOption(this.selectedOptions);
-    this.selectedOptions = []
+    this.selectedOptions = [];
   }
 
   exportData() {
@@ -63,6 +63,13 @@ export class OptionListComponent {
     });
     this.exportService.exportExcel(options, 'options');
   }
+  getReport() {
+    if (window.innerWidth < 569) {
+      return '{totalRecords} entries';
+    }
+    return 'Showing {first} to {last} of {totalRecords} entries';
+  }
+
   formatdate(date: any) {
     return moment(date).endOf('day').fromNow();
   }

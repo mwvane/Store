@@ -545,6 +545,35 @@ select {
   display: flex;
   flex-wrap: nowrap;
 }
+.p-paginator-prev {
+  max-width: 2rem !important;
+  min-width: 2rem !important;
+  height: 2rem !important;
+  margin-right: 10px !important;
+  padding-right: 0 !important;
+}
+.p-paginator .p-paginator-first {
+  max-width: 2rem !important;
+  min-width: 2rem !important;
+  height: 2rem !important;
+  margin-right: 0 !important;
+  padding-right: 0 !important;
+}
+
+.p-paginator .p-paginator-next {
+  max-width: 2rem !important;
+  min-width: 2rem !important;
+  height: 2rem !important;
+  margin-right: 0 !important;
+  padding-right: 0 !important;
+}
+.p-paginator .p-paginator-last {
+  max-width: 2rem !important;
+  min-width: 2rem !important;
+  height: 2rem !important;
+  margin-right: 0 !important;
+  padding-right: 0 !important;
+}
  
 
 /* TOOLTIP */

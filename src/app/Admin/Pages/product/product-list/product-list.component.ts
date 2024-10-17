@@ -51,7 +51,6 @@ export class ProductListComponent implements OnInit {
       rating: number;
       description: string;
       viewCount: number;
-
     }[] = [];
     this.productService.productsFromDb.map((product) => {
       products.push({
@@ -64,12 +63,20 @@ export class ProductListComponent implements OnInit {
         price: product.price,
         rating: product.rating!,
         description: product.description!,
-        viewCount: product.ViewCount!
+        viewCount: product.ViewCount!,
       });
     });
     this.exportService.exportExcel(products, 'categories');
   }
+
   formatdate(date: any) {
     return moment(date).endOf('day').fromNow();
+  }
+
+  getReport() {
+    if (window.innerWidth < 569) {
+      return '{totalRecords} entries';
+    }
+    return 'Showing {first} to {last} of {totalRecords} entries';
   }
 }

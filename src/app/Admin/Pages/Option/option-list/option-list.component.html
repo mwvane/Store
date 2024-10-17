@@ -21,7 +21,13 @@
     </ng-template>
 
     <ng-template pTemplate="right">
-      <p-button (onClick)="exportData()" pRipple severity="help" label="Export" icon="pi pi-upload" />
+      <p-button
+        (onClick)="exportData()"
+        pRipple
+        severity="help"
+        label="Export"
+        icon="pi pi-upload"
+      />
     </ng-template>
   </p-toolbar>
 
@@ -36,7 +42,7 @@
     [(selection)]="selectedOptions"
     [rowHover]="true"
     dataKey="id"
-    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    currentPageReportTemplate="{{ getReport() }}"
     [showCurrentPageReport]="true"
     [loading]="this.optionService.isLoadingOptions"
   >

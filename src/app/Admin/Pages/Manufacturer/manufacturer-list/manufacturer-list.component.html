@@ -24,7 +24,13 @@
     </ng-template>
 
     <ng-template pTemplate="right">
-      <p-button (onClick)="exportData()" pRipple severity="help" label="Export" icon="pi pi-upload" />
+      <p-button
+        (onClick)="exportData()"
+        pRipple
+        severity="help"
+        label="Export"
+        icon="pi pi-upload"
+      />
     </ng-template>
   </p-toolbar>
 
@@ -34,11 +40,11 @@
     [rows]="8"
     [paginator]="true"
     [globalFilterFields]="['name', 'country.name', 'manufacturer.name']"
-    [tableStyle]="{ 'width': '100%' }"
+    [tableStyle]="{ width: '100%' }"
     [(selection)]="selectedManufacturers"
     [rowHover]="true"
     dataKey="id"
-    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    currentPageReportTemplate="{{ getReport() }}"
     [showCurrentPageReport]="true"
     [loading]="this.manufacturerService.isLoading"
   >

@@ -54,4 +54,11 @@ export class ManufacturerListComponent implements OnInit {
   formatdate(date: any) {
     return moment(date).endOf('day').fromNow();
   }
+
+  getReport(){
+    if(window.innerWidth < 569){
+      return "{totalRecords} entries"
+    }
+    return "Showing {first} to {last} of {totalRecords} entries"
+  }
 }

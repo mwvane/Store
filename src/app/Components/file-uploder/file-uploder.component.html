@@ -3,10 +3,13 @@
     <div class="space-between gap-3 round-md cursor">
       <span class="fs-sm cursor">select your files here</span>
       @if(this.imagesUrls.length > 0){
-        <i class="bi bi-arrow-clockwise fs-lg pointer btn-clear"  pTooltip="{{'clear all files' | translate}}" (click)="clear()"></i>
-      }
-      @else {
-        <i class="bi bi-cloud-arrow-up fs-lg"></i>
+      <i
+        class="bi bi-arrow-clockwise fs-lg pointer btn-clear"
+        pTooltip="{{ 'clear all files' | translate }}"
+        (click)="clear()"
+      ></i>
+      } @else {
+      <i class="bi bi-cloud-arrow-up fs-lg"></i>
       }
     </div>
     <input
@@ -26,7 +29,10 @@
       <div class="btnClose hilight" (click)="removeItem(item)">
         <i class="bi bi-x-lg"></i>
       </div>
+      <app-spinner [spin]="item.loading"></app-spinner>
+      @if (!item.loading) {
       <img class="preview-image round-md" [src]="item.image" alt="test" />
+      }
     </div>
     }
   </div>
