@@ -1,18 +1,17 @@
 import { Injectable, signal } from '@angular/core';
-import { IUser, UserRole } from '../Models/user';
 import { HttpClient } from '@angular/common/http';
-import { env } from '../../env';
-import { IUserLogin } from '../Models/userLogin';
-import { IResponse } from '../Models/response';
 import { ToastService } from '../../toast/toast.service';
 import { Urls } from '../../urls';
+import { IResponse } from '../../../modules/shared/Models/response';
+import { IUser, UserRole } from '../../../modules/shared/Models/user';
+import { IUserLogin } from '../../../modules/shared/Models/userLogin';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   private _currentUser = signal<IUser | null>({
-    role: UserRole.admin,
+    role: UserRole.client,
     email: '',
     firstname: 'test',
     lastname: 'test',

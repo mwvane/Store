@@ -1,13 +1,10 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { LanguageService } from './Components/language-selector/language.service';
-import { TranslateService } from '@ngx-translate/core';
-import { MenuItem } from 'primeng/api';
-import { IMenuItem } from './core/Models/menuIte'
 import { ViewportScroller } from '@angular/common';
-import { IProduct } from './core/Models/product';
-import { ModalService } from './core/Services/modal.service';
 import { AuthService } from './core/Services/auth.service';
-import { SidePanelService } from './Admin/Services/side-panel.service';
+import { SidePanelService } from '../modules/admin/services/side-panel.service';
+import { IMenuItem } from '../modules/shared/Models/menuIte';
+import { IForm } from '../modules/form/models/form.interface';
+import { FormValidator } from '../modules/form/enum/form.validator-enums';
 
 @Component({
   selector: 'app-root',
@@ -16,9 +13,12 @@ import { SidePanelService } from './Admin/Services/side-panel.service';
 })
 export class AppComponent {
   scrollToUp: boolean = false;
-  constructor(private viewportScroller: ViewportScroller, public authService : AuthService, public sideBarService: SidePanelService ) {
-
-  }
+  
+  constructor(
+    private viewportScroller: ViewportScroller,
+    public authService: AuthService,
+    public sideBarService: SidePanelService
+  ) {}
   scrollToTop() {
     this.viewportScroller.scrollToPosition([0, 0]);
   }

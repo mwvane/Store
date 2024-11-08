@@ -1,0 +1,31 @@
+<div class="center-y gap-2 menu">
+    <div class="center-y">
+      <img
+        style="width: 20px; margin-right: 8px"
+        src="{{ languageService.selectedLanguage().image }}"
+        alt=""
+      />
+      <span>{{ languageService.selectedLanguage().name }}</span>
+    </div>
+    <i class="bi bi-chevron-down"></i>
+    <app-menu
+      [template]="languageTemplate"
+      [closeParent]="closeParent"
+      style="margin-top: 25px"
+      (optionClick)="languageService.changeLanguage($event)"
+    ></app-menu>
+  </div>
+  
+  <!-- TEMPLATES FOR MANU -->
+  <ng-template #languageTemplate>
+    @for (item of languageService.languages; track item.id) {
+    <li
+      class="dropdown-list-item hover p-1"
+      (click)="languageService.changeLanguage(item)"
+    >
+      <img class="icon" src="{{ item.image }}" alt="" />
+      <span href="">{{ item.name }}</span>
+    </li>
+    }
+  </ng-template>
+  

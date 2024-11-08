@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { IProduct } from '../../core/Models/product';
-import { CurencyService } from '../currency/curency.service';
 import { ModalService } from '../../core/Services/modal.service';
+import { CurencyService } from '../../../modules/shared/currency/curency.service';
+import { IProduct } from '../../../modules/shared/Models/product';
 
 @Component({
   selector: 'app-product-card',

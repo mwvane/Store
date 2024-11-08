@@ -1,0 +1,12 @@
+<p-dropdown
+  class="w-100"
+  [options]="this.options!"
+  formControlName="optionType"
+  optionLabel="name"
+  [filter]="this.filter"
+  filterBy="name"
+  placeholder="select a option type"
+  [loading]="this.isLoading"
+  [(ngModel)]="value"
+  (onChange)="handleChange($event)"
+/>

@@ -1,4 +1,4 @@
-import { ILanguage } from './core/Models/language';
+import { ILanguage } from "../modules/shared/Models/language";
 
 export class StaticFiles {
   static languages: ILanguage[] = [

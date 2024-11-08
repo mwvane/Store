@@ -1,12 +1,10 @@
 import { Injectable, signal } from '@angular/core';
-import { IOption } from '../Models/option';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { IResponse } from '../Models/response';
-import { IOptionType } from '../Models/optionType';
 import { Urls } from '../../urls';
-import { env } from '../../env';
 import { ToastService } from '../../toast/toast.service';
-import { noop } from 'rxjs';
+import { IOption } from '../../../modules/shared/Models/option';
+import { IOptionType } from '../../../modules/shared/Models/optionType';
+import { IResponse } from '../../../modules/shared/Models/response';
 
 @Injectable({
   providedIn: 'root',

@@ -13,18 +13,16 @@
   <router-outlet></router-outlet>
   } @else {
   <!-- ----- ADMIN ------ -->
-
   <app-admin-header></app-admin-header>
   <div class="w-100 d-flex">
     @if (this.sideBarService.isShow) {
       <app-admin-sidebar></app-admin-sidebar>
     }
     <div class="container">
-      <router-outlet></router-outlet>
+      <!-- <router-outlet></router-outlet> -->
     </div>
   </div>
   }
-
   <app-notifiaction></app-notifiaction>
   <app-toast></app-toast>
   <!-- ------ MODALS -------- -->

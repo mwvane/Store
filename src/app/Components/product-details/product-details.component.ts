@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../../core/Services/product.service';
-import { IProduct } from '../../core/Models/product';
-import { IMenuItem } from '../../core/Models/menuIte';
-import { CurencyService } from '../currency/curency.service';
 import { ModalService } from '../../core/Services/modal.service';
+import { CurencyService } from '../../../modules/shared/currency/curency.service';
+import { IMenuItem } from '../../../modules/shared/Models/menuIte';
+import { IProduct } from '../../../modules/shared/Models/product';
 
 @Component({
   selector: 'app-product-details',

@@ -1,9 +1,9 @@
 import { Injectable, signal } from '@angular/core';
-import { IManufacturer } from '../Models/manufacturer';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { IResponse } from '../Models/response';
 import { env } from '../../env';
 import { ToastService } from '../../toast/toast.service';
+import { IManufacturer } from '../../../modules/shared/Models/manufacturer';
+import { IResponse } from '../../../modules/shared/Models/response';
 
 @Injectable({
   providedIn: 'root',

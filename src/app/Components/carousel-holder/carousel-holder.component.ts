@@ -4,10 +4,8 @@ import {
   Input,
   OnInit,
   Output,
-  TemplateRef,
 } from '@angular/core';
-import { MenuItem } from 'primeng/api';
-import { IMenuItem } from '../../core/Models/menuIte';
+import { IMenuItem } from '../../../modules/shared/Models/menuIte';
 
 @Component({
   selector: 'app-carousel-holder',

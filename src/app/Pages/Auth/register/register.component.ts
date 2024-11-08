@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../../core/Services/auth.service';
-import { IUser, UserRole } from '../../../core/Models/user';
+import { IUser, UserRole } from '../../../../modules/shared/Models/user';
 
 @Component({
   selector: 'app-register',

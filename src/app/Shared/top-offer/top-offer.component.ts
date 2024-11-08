@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { IMenuItem } from '../../core/Models/menuIte';
-import { ILanguage } from '../../core/Models/language';
-import { LanguageService } from '../../Components/language-selector/language.service';
 import { StaticFiles } from '../../staticFiles';
+import { LanguageService } from '../../../modules/shared/language-selector/language.service';
+import { ILanguage } from '../../../modules/shared/Models/language';
+import { IMenuItem } from '../../../modules/shared/Models/menuIte';
 
 @Component({
   selector: 'app-top-offer',

@@ -1,11 +1,11 @@
 import { Injectable, Signal, signal } from '@angular/core';
-import { IContry } from '../Models/country';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { env } from '../../env';
-import { IResponse } from '../Models/response';
 import { ToastService } from '../../toast/toast.service';
-import { ICategory } from '../Models/category';
 import { Urls } from '../../urls';
+import { ICategory } from '../../../modules/shared/Models/category';
+import { IContry } from '../../../modules/shared/Models/country';
+import { IResponse } from '../../../modules/shared/Models/response';
 
 @Injectable({
   providedIn: 'root',

@@ -1,6 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ProductService } from '../../core/Services/product.service';
-import { IProduct } from '../../core/Models/product';
+import { IProduct } from '../../../modules/shared/Models/product';
 
 @Component({
   selector: 'app-spacials',

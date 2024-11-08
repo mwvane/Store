@@ -1,0 +1,21 @@
+<p>confirm-dialog works!</p>
+<p-dialog
+  header="{{ this.headerText }}"
+  [modal]="true"
+  [(visible)]="this.modalService.confirmDilaog"
+  [style]="{ width: '27rem', maxWidth: '92%' }"
+>
+  <div class="direction-y gap-3">
+    <div></div>
+    <span>{{ this.bodyText | translate }}</span>
+
+    <div class="flex-end gap-4">
+      <button class="solidBtn capitalize fs-sm hilight" (click)="onYes()">
+        {{ this.yesText | translate }}
+      </button>
+      <button class="solidBtn capitalize fs-sm hilight" (click)="onNo()">
+        {{ this.noText | translate }}
+      </button>
+    </div>
+  </div>
+</p-dialog>

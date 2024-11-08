@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { IMenuItem } from '../core/Models/menuIte';
-import { IProduct } from '../core/Models/product';
+import { IProduct } from '../../modules/shared/Models/product';
 
 @Component({
   selector: 'app-specials',

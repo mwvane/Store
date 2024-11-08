@@ -1,5 +1,5 @@
-import { Component, ElementRef, Input, OnInit } from '@angular/core';
-import { CategoryService } from '../../core/Services/category.service';
+import { Component, OnInit, Input } from "@angular/core";
+import { CategoryService } from "../../../modules/shared/Services/category.service";
 
 @Component({
   selector: 'app-categories',

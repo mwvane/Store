@@ -1,0 +1,38 @@
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: var(--shadow);
+    border-radius: 4px;
+    z-index: 999;
+    list-style-type: none;
+    padding: 8px;
+  }
+  
+  .dropdown-content span {
+    text-decoration: none;
+    padding-left: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: black;
+    display: block;
+  }
+  
+  .dropdown-list-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+  }
+  
+  .show {
+    display: block;
+  }
+  
+  .icon img {
+    width: 20px;
+    object-fit: cover;
+    border-radius: 0 !important;
+  }
+  

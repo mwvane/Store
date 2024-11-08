@@ -1,0 +1,10 @@
+<ul #menuPanel id="{{ menuId }}" class="dropdown-content">
+    @if (template) {
+    <div [ngTemplateOutlet]="template"></div>
+    } @else {
+    <div class="empty">
+      <span>{{ "empty" | translate }}</span>
+    </div>
+    }
+  </ul>
+  

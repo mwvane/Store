@@ -1,0 +1,129 @@
+<div [ngTemplateOutlet]="categories"></div>
+<div class="header-container">
+  <div class="container py-3">
+    <div class="logo pointer center-y gap-2">
+      <div class="sidebar mx-1 d-none fs-lg" (click)="openSidebar()">
+        <i class="bi bi-list"></i>
+      </div>
+      <img routerLink="/Home" src="../../assets/images/logo.png" alt="logo" />
+    </div>
+    <div class="searchbar">
+      <form [formGroup]="searchForm" (ngSubmit)="search()">
+        <div class="w-100 d-flex">
+          <div class="searchbar-categories" style="min-width: 200px">
+            <select class="w-100" formControlName="category">
+              <option value="1">All Categories</option>
+              @for (category of categoryService.categories; track $index) {
+              <option value="{{ category.id }}">{{ category.name }}</option>
+              }
+            </select>
+          </div>
+
+          <div style="width: 100%">
+            <input
+              class="w-100 searcInput"
+              type="text"
+              placeholder="{{ 'search...' | translate }}"
+              formControlName="text"
+            />
+          </div>
+
+          <div style="min-width: 80px">
+            <button class="w-100">
+              <i class="bi bi-search"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="header-actions">
+      <div class="center-y flex-end gap-4">
+        <div class="menu">
+          <i class="bi bi-person fs-xlg"></i>
+          <app-menu [template]="profile"></app-menu>
+        </div>
+        <div class="menu">
+          <div class="cart d-flex">
+            <i class="bi bi-cart fs-xlg"></i>
+            <div class="cartdetails">
+              <div class="bage">10</div>
+              <span id="cart-tittle" class="nowrap">{{
+                "my cart" | translate
+              }}</span>
+            </div>
+          </div>
+          <app-menu [template]="cartMenu"></app-menu>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TEMPLATES FOR MANU -->
+<ng-template #profile>
+  <li class="dropdown-list-item direction-y">
+    <span class="fs-md" href="">{{ "yor account" }}</span>
+    <span class="fs-xsm nowrap">{{
+      "Access account and manage orders" | translate
+    }}</span>
+    <div class="actions mt-3">
+      <div>
+        <button class="rectBtn" (click)="register()">
+          <i class="bi bi-person-add"></i>
+          <span>{{ "register" | translate }}</span>
+        </button>
+      </div>
+
+      <div>
+        <button class="rectBtn" (click)="login()">
+          <i class="bi bi-lock"></i>
+          <span>{{ "login" | translate }}</span>
+        </button>
+      </div>
+
+      <div class="d-md-none">
+        <span class="rectBtn">wishlist</span>
+      </div>
+
+      <div class="d-md-none">
+        <span class="rectBtn">compare</span>
+      </div>
+
+      <div class="d-md-none">
+        <app-currency [closeParent]="false" class="rectBtn"></app-currency>
+      </div>
+
+      <div class="d-md-none">
+        <app-language-selector
+          [closeParent]="false"
+          class="rectBtn"
+        ></app-language-selector>
+      </div>
+    </div>
+  </li>
+</ng-template>
+
+<ng-template #cartMenu>
+  <li class="dropdown-list-item" style="min-width: 250px">
+    <div class="center nowrap w-100">
+      <span class="fs-sm">{{ "shopping cart is empty!" | translate }}</span>
+    </div>
+  </li>
+</ng-template>
+<ng-template #categories>
+    <div #sidebar class="sidebar-main-container">
+      <div #sidebarContainer class="sidebar-container">
+        <div class="sidebar-header">
+          <span>{{ "categories" | translate }}</span>
+          <i (click)="closeCategories()" class="bi bi-x fs-lg"></i>
+        </div>
+        <div class="sidebar-item-container">
+          <!-- <app-spinner [spin]="this.categoryService.isLoading"></app-spinner>
+          @for (item of categoryService.categories; track $index) {
+          <app-expand [data]="item" [border]="true"></app-expand>
+          } -->
+        </div>
+      </div>
+    </div>
+  </ng-template>
+  
