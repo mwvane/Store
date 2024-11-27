@@ -20,6 +20,9 @@ export const Urls = {
   authUrls: {
     regiter: `${env.baseUrl}Auth/Register`,
     login: `${env.baseUrl}Auth/Login`,
+    loadForm: (id: number) => {
+      return `${env.baseUrl}Form/GetFormById/${id}`;
+    },
   },
   countryUrls: {
     addCountry: `${env.baseUrl}Country/AddCountry`,
@@ -29,6 +32,6 @@ export const Urls = {
     },
   },
   categoryUrls: {
-    getAllCategories: `${env.baseUrl}Category/GetAllCategories`
-  }
+    getAllCategories: `${env.baseUrl}Category/GetAllCategories`,
+  },
 };

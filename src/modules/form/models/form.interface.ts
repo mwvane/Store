@@ -18,10 +18,10 @@ export interface IFormControl {
   class?: string;
   type: string;
   validators: IValidator[];
-  additionalLink?: IFormLink[]
+  additionalLinks?: IFormLink[]
 }
 export interface IFormSection {
-  sectionName?: string;
+  name?: string;
   border?: boolean;
   formControls: IFormControl[];
   link?: IFormLink[]

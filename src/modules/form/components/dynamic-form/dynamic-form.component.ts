@@ -7,6 +7,7 @@ import {
   IValidator,
 } from '../../models/form.interface';
 import { FormValidator } from '../../enum/form.validator-enums';
+import { FormService } from '../../form.service';
 
 @Component({
   selector: 'app-dynamic-form',
@@ -16,10 +17,12 @@ import { FormValidator } from '../../enum/form.validator-enums';
 export class DynamicFormComponent implements OnInit {
   @Input() form!: IForm;
   @Input() showRequired: boolean = true;
+  @Input() url: string = '';
   @Output() submit = new EventEmitter();
-  controlType = controlTypes
-  inputTypes:string[] = [];
-  constructor(private fb: FormBuilder) {}
+  controlType = controlTypes;
+  inputTypes: string[] = [];
+  loading: boolean = false;
+  constructor(private fb: FormBuilder, private formService: FormService) {}
   dynamicFormGroup: FormGroup = this.fb.group({});
 
   ngOnInit(): void {
@@ -27,9 +30,18 @@ export class DynamicFormComponent implements OnInit {
       this.controlType.email,
       this.controlType.nubmer,
       this.controlType.password,
-      this.controlType.text
-    ]
-    this.createForm();
+      this.controlType.text,
+    ];
+    if (this.url) {
+      this.loading = true;
+      this.formService.loadForm(this.url).subscribe((response) => {
+        if (response.data) {
+          this.form = response.data;
+          this.loading = false;
+          this.createForm();
+        }
+      });
+    }
   }
 
   createForm() {
@@ -82,7 +94,6 @@ export class DynamicFormComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.dynamicFormGroup.value);
     this.submit.emit(this.dynamicFormGroup.value);
   }
 }

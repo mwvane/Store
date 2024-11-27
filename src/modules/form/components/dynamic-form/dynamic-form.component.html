@@ -1,56 +1,58 @@
+<app-spinner [spin]="this.loading"></app-spinner>
 <div class="form-header">
   @if (this.form.formTitle) {
-  <h3>{{ this.form.formTitle | translate }}</h3>
+  <h3>{{ this.form.formTitle.toLowerCase() | translate }}</h3>
   }
 </div>
 <form [formGroup]="dynamicFormGroup" (ngSubmit)="onSubmit()">
   <div class="form-body">
-    @for (section of form.sections; track $index) { @if(section.sectionName){
+    @for (section of form.sections; track $index) { @if(section.name){
     <div [ngClass]="section.border ? 'section border-bottom' : 'section'">
       <span>
-        {{ section.sectionName }}
+        {{ section.name.toLowerCase() | translate }}
       </span>
     </div>
     } @for (control of section.formControls; track $index) {
     @if(this.inputTypes.includes(control.type)) {
     <div class="form-control-container">
-      <div class="center-y gap-2">
+      <div class="center-y gap-2 form-label">
         @if (isRequired(control)) {
         <span class="required"> * </span>
         }
 
-        <label class="form-label" for="{{ control.name | translate }}">{{
-          control.label
+        <label for="{{ control.name}}">{{
+          control.label!.toLowerCase() | translate
           }}</label>
       </div>
-      <input class="input-light" formControlName="{{ control.name }}" type="text" [placeholder]="control.placeholder"
+      <input class="input-light" formControlName="{{ control.name }}" type="text" [placeholder]="control.placeholder!.toLowerCase() | translate"
         [type]="control.type" />
     </div>
     }
-     @if(control.type == this.controlType.select) {
+    @if(control.type == this.controlType.select) {
     <div class="form-control-container">
       <span class="required"> * </span>
-      <label class="form-label" for="{{ control.name | translate }}">{{
-        control.label
+      <label class="form-label" for="{{ control.name }}">{{
+        control.label!.toLowerCase() | translate
         }}</label>
       <app-dropdown class="w-100" formControlName="{{ control.name }}" optionLabel="name" [filter]="true"
         filterBy="name" placeholder="select a option type" [webMethod]="control.url"
         [options]="control.options"></app-dropdown>
     </div>
 
-    } 
-    @if(control.type == this.controlType.link){
-      @for (link of control.additionalLink; track $index) {
-        <div class="for-link-container">
-          <a class="link flex-end" [routerLink]="link.url">{{
-            "forget password" | translate
-          }}</a>
-        </div>
-      }
     }
-  } }
+    @if(control.type == 'link'){
+    @for (link of control.additionalLinks; track $index) {
+    <div class="for-link-container">
+      <a class="link flex-end" [routerLink]="link.url">{{
+        link.name.toLowerCase() | translate
+        }}</a>
+    </div>
+    }
+    }
+    } }
   </div>
 
+  @if (this.form.submitButtonTitle) {
   <div class="form-footer">
     <app-solid-button [disabled]="dynamicFormGroup.invalid" [label]="this.form.submitButtonTitle"
       [icon]="this.form.submitButtonIcon" [loading]="this.form.loading"></app-solid-button>
@@ -58,4 +60,6 @@
     <app-solid-button [label]="this.form.resetBtnTitle" [icon]="this.form.resetButtonIcon"></app-solid-button>
     }
   </div>
+  }
+
 </form>
